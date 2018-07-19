@@ -8,13 +8,7 @@ public class BrowserConstants {
 	//Application for Automation
 	public static final String CANOPY = "Canopy";
 	public static final String ENGINE = "Engine";
-	
-	
-	
-	
-	
-	
-	
+
 	
 	//English URLs
 	//SA

@@ -10,7 +10,6 @@ public class DataConstants {
 	public static final String ROLE_EMPLOYEE = "EM";
 	public static final String ROLE_RELATIONSHIP_MANAGER = "RM";
 	public static final String ROLE_CUSTOMER_LS = "CU_LS";
-	
 	public static final String USERNAME_SA = "automation_sa";
 	public static final String USERNAME_EM = "automation_emp";
 	public static final String USERNAME_PA = "automation_pa";
