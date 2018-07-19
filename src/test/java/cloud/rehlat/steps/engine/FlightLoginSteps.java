@@ -75,11 +75,11 @@ public class FlightLoginSteps extends StepUtils{
 		boolean status = actualTitle.equals(expectedTitle);
 		Assert.assertTrue("ENGINE: THE USER HAS NOT SUCCESSFULLY NAVIGATED TO DEAL  -> DEAL PAGE", status);	
 	}
-	@When("^I go to sign button$")
-	public void i_go_to_mouseover_clickSignIn() throws InterruptedException
+	@When("^I go to signUp button$")
+	public void i_go_to_mouseover_clickSignUpIn() throws InterruptedException
 	{
 		FlightNavigation=FlightLoginPage.LoginbuttonmouseOver();
-		FlightNavigation=FlightLoginPage.clicksignbtn();
+		FlightNavigation=FlightLoginPage.clicksignUpbtn();
 		
 		
 		

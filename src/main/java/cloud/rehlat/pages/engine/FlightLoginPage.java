@@ -31,8 +31,8 @@ public class FlightLoginPage {
 	private  WebElement getText;
 	@FindBy(css=".ros_Header_theme_acc_txt")
 	private  WebElement btnmouse;
-	@FindBy(linkText="SIGN UP")
-	private  WebElement btnSignIn;
+	@FindBy(linkText="Sign Up")
+	private  WebElement btnSignUp;
 	
 	@FindBy(css="#identifierId")
 	private WebElement txtUsername;
@@ -67,11 +67,11 @@ public class FlightLoginPage {
 		pageUtils.mouseAction(driver, btnmouse);
 		return new FlightNavigation(driver) ;
 	}
-	public  FlightNavigation clicksignbtn() throws InterruptedException {
-		pageUtils.clickElement(driver, btnSignIn);
+	public  FlightNavigation clicksignUpbtn() throws InterruptedException {
+		pageUtils.clickElement(driver, btnSignUp);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 		return new FlightNavigation(driver) ;
-		
+	
 	}
 	public  FlightNavigation Homepage() {
 		pageUtils.getTextOfElement(driver, getText);

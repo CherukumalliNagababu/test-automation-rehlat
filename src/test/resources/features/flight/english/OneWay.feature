@@ -20,7 +20,7 @@ Scenario Outline: Validate if the user can successfully navigate to Homepage,Fli
 	
 @flight_healthcheck
 Scenario Outline: Validate if the user can sigh-in gmail account and book the ticket in OneWay Trip
-	 When I go to sign button
+	 When I go to signUp button
 	 When I go to login gmail account
      When I go to select OneWay Radio button
      When I can enter From and To city names
