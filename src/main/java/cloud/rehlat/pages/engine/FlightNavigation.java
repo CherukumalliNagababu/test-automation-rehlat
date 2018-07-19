@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import cloud.rehlat.constants.common.BrowserConstants;
 import cloud.rehlat.pages.Accounts.GmailPage;
+import cloud.rehlat.pages.Register.RegisterPage;
 import cloud.rehlat.pages.Trips.BookNowPage;
 import cloud.rehlat.pages.Trips.BookingSummaryPage;
 import cloud.rehlat.pages.Trips.OneWayTripPage;
@@ -58,6 +59,9 @@ public class FlightNavigation {
 	private WebElement btnDeals;
 	@FindBy(xpath="//a[contains(text(),'Inspirations')]")
 	private WebElement btnInspirations;
+	//Register page
+	@FindBy(xpath="//li[3]/a/div/span")
+	private WebElement getTextRegister;
 	
 	
 	
@@ -95,7 +99,16 @@ public class FlightNavigation {
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL);
 		
 	}
-	
+	/*public  RegisterPage getTextOfRegister() {
+		String text=pageUtils.getTextOfElement(driver, getTextRegister);
+		System.out.println(text);
+		return new RegisterPage(driver);
+	}*/
+	public  RegisterPage getTextOfRegister() {
+		String text=pageUtils.getTextOfElement(driver, getTextRegister);
+		System.out.println(text);
+		return new RegisterPage(driver);
+	}
 	public  GmailPage clickgmail() {
 		pageUtils.clickElement(driver, btnGmail);
 		return new GmailPage(driver);

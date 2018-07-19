@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src/test/resources/features/flight/english/OneWay.feature",
+		features = "src/test/resources/features/flight/english/RegisterAccounts.feature",
 				tags = {"@flight_healthcheck"},
 		plugin = {"pretty", "html:target/reports"}
 		) 
@@ -19,7 +19,7 @@ public class Runner2 {
 		System.setProperty("pathToDriver", System.getProperty("pathToDriver", "D:\\jarfiles\\chromedriver.exe"));
 		System.setProperty("foreground", System.getProperty("foreground", "false"));
 		System.setProperty("target", System.getProperty("target", "ENG"));
-		System.setProperty("environment", System.getProperty("environment", "PRD"));
+		System.setProperty("environment", System.getProperty("environment", "TST"));
 		System.setProperty("application", System.getProperty("application", "COM"));
 		System.setProperty("url", System.getProperty("url", "https://www.rehlat.com.sa/en/"));
 		System.setProperty("headless", "false");

@@ -55,10 +55,11 @@ public class DataConstants {
 	public static final String NEW_ACCOUNT_CODE = "automation";
 	public static final String NEW_ACCOUNT_DISPLAY_NAME = "automation";
 	public static final String NEW_ACCOUNT_PASSWORD = "TestAutomation@1";
-	public static final String NEW_ACCOUNT_EMAIL = "qa.automation@gmail.com";
+	public static final String NEW_ACCOUNT_EMAIL = "automation@gmail.com";
 	public static final String AUTOMATION_EMAIL_PASSWORD = "JhumriTilaiya@001";
 	public static final String NEW_ACCOUNT_CURRENCY = "SGD";
 	public static final String NEW_NAME = "automation";
+	public static final String NEW_REGISTER_PASSWORD = "TestAutomation@1";
 	
 	//Paths of files to upload
 	public static final String CANOPY_DOCUMENT_PATH = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator +
