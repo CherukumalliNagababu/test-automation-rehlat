@@ -18,6 +18,8 @@ import cloud.rehlat.utils.TestDataUtils;
 public class BookingSummaryPage {
 	public WebDriver driver;
 	private PageUtils pageUtils;
+	String totalname;
+	String totalprice;
 
 	public BookingSummaryPage(WebDriver driver) {
 		this.driver = driver;
@@ -61,8 +63,12 @@ public class BookingSummaryPage {
 	private WebElement getAddonBaggagePrice;
 	@FindBy(xpath = "//div[@class='fare_review_wrap']/div[10]/div/div/span[1]")
 	private WebElement getTotalName;
+	@FindBy(xpath = "//div[@class='fare_review_wrap']/div[11]/div/div/span[1]")
+	private WebElement getTotalName_tst;
 	@FindBy(xpath = "//div[@class='fare_review_wrap']/div[10]/div/div/span[2]")
 	private WebElement getTotalPrice;
+	@FindBy(xpath = "//div[@class='fare_review_wrap']/div[11]/div/div/span[2]")
+	private WebElement getTotalPrice_tst;
 	@FindBy(id = "FirstPaxEmailAddress")
 	private WebElement txtEmail;
 	@FindBy(id = "couponcode")
@@ -79,17 +85,16 @@ public class BookingSummaryPage {
 	private WebElement iconPopUpClose;
 	@FindBy(css = "#compactButtonDesk")
 	private WebElement btnContinueBooking;
-	
-	
-	
+
 	/**
 	 * This method is used to click the ContinueBooking button
+	 * 
 	 * @return boolean
 	 */
 	public boolean clickContinueBooking() {
 		boolean status = false;
 		try {
-			
+
 			pageUtils.clickElement(driver, btnContinueBooking);
 			pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 			status = true;
@@ -99,10 +104,6 @@ public class BookingSummaryPage {
 		}
 		return status;
 	}
-	
-	
-	
-	
 
 	public void enterEmail() {
 		pageUtils.sendKeysAfterClearingElement(driver, txtEmail, "naga.ch199@gmail.com");
@@ -121,18 +122,18 @@ public class BookingSummaryPage {
 			pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 		}
 	}
- public void verifyShowMoreDetails()
- {
-	 pageUtils.clickElement(driver, linkShowMoreDetails);
-	 pageUtils.clickElement(driver, btnFarerulesPopUp);
-	 pageUtils.clickElement(driver, btnBaggageInformation);
-	 pageUtils.clickElement(driver, iconPopUpClose);
-	 
- }
- 
- /**
-	 * This method is used to select/de-select the Add-On Baggage checkbox depending
-	 * on the input parameter
+
+	public void verifyShowMoreDetails() {
+		pageUtils.clickElement(driver, linkShowMoreDetails);
+		pageUtils.clickElement(driver, btnFarerulesPopUp);
+		pageUtils.clickElement(driver, btnBaggageInformation);
+		pageUtils.clickElement(driver, iconPopUpClose);
+
+	}
+
+	/**
+	 * This method is used to select/de-select the Add-On Baggage checkbox
+	 * depending on the input parameter
 	 * 
 	 * @param addOnBaggage
 	 * @throws InterruptedException
@@ -160,8 +161,8 @@ public class BookingSummaryPage {
 	}
 
 	/**
-	 * This method is used to select/de-select the Add-On Ooredoo checkbox depending
-	 * on the input parameter
+	 * This method is used to select/de-select the Add-On Ooredoo checkbox
+	 * depending on the input parameter
 	 * 
 	 * @param addOnOoredoo
 	 * @throws InterruptedException
@@ -221,27 +222,45 @@ public class BookingSummaryPage {
 		pageUtils.clickElement(driver, linkFareBreakup);
 		System.out.println("--------------------PopUp Values With Out Baggage Add-on----------------------------");
 		String adultname = pageUtils.getTextOfElement(driver, getAdultName);
-		String childname = pageUtils.getTextOfElement(driver, getChildName);
-		String infantname = pageUtils.getTextOfElement(driver, getInfantName);
-		String farename = pageUtils.getTextOfElement(driver, getFareName);
-		// String baggagename = pageUtils.getTextOfElement(driver, getAddonBaggageName);
-		String totalname = pageUtils.getTextOfElement(driver, getTotalName);
-
 		String adultprice = pageUtils.getTextOfElement(driver, getAdultPrice);
-		String childprice = pageUtils.getTextOfElement(driver, getChildPrice);
-		String infantprice = pageUtils.getTextOfElement(driver, getInfantPrice);
-		String fareprice = pageUtils.getTextOfElement(driver, getFarePrice);
-		// String baggageprice = pageUtils.getTextOfElement(driver,
-		// getAddonBaggagePrice);
-		String totalprice = pageUtils.getTextOfElement(driver, getTotalPrice);
-
 		System.out.println(adultname + "------------------------------" + adultprice);
-		System.out.println(childname + "---------------------------------" + childprice);
-		System.out.println(infantname + "--------------------------------" + infantprice);
+		try {
+			if (getChildName.isDisplayed()) {
+				String childname = pageUtils.getTextOfElement(driver, getChildName);
+				String childprice = pageUtils.getTextOfElement(driver, getChildPrice);
+				System.out.println(childname + "---------------------------------" + childprice);
+			}
+		} catch (Exception e) {
+			System.out.println("Infants Not selected");
+		}
+
+		try {
+			if (getInfantName.isDisplayed()) {
+				String infantname = pageUtils.getTextOfElement(driver, getInfantName);
+				String infantprice = pageUtils.getTextOfElement(driver, getInfantPrice);
+				System.out.println(infantname + "--------------------------------" + infantprice);
+
+			}
+		} catch (Exception e) {
+			System.out.println("Infants Not selected");
+		}
+
+		String farename = pageUtils.getTextOfElement(driver, getFareName);
+		String fareprice = pageUtils.getTextOfElement(driver, getFarePrice);
 		System.out.println(farename + "--------------------------------------" + fareprice);
-		// System.out.println(baggagename + "---------------" + baggageprice);
-		System.out.println("-------------------------------------------------------------------------------");
-		System.out.println(totalname + "--------------------------------" + totalprice);
+
+		if ("TST".equalsIgnoreCase(System.getProperty("environment", "TST"))) {
+			totalname = pageUtils.getTextOfElement(driver, getTotalName_tst);
+			totalprice = pageUtils.getTextOfElement(driver, getTotalPrice_tst);
+			System.out.println("-------------------------------------------------------------------------------");
+			System.out.println(totalname + "--------------------------------" + totalprice);
+		} else {
+			totalname = pageUtils.getTextOfElement(driver, getTotalName);
+			totalprice = pageUtils.getTextOfElement(driver, getTotalPrice);
+			System.out.println("-------------------------------------------------------------------------------");
+			System.out.println(totalname + "--------------------------------" + totalprice);
+		}
+
 		pageUtils.clickElement(driver, closePopUp);
 
 	}

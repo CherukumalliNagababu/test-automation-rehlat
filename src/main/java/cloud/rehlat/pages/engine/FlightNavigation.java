@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import cloud.rehlat.constants.common.BrowserConstants;
 import cloud.rehlat.pages.Accounts.GmailPage;
+import cloud.rehlat.pages.PaymentCards.PaymentCardsPage;
 import cloud.rehlat.pages.Register.RegisterPage;
 import cloud.rehlat.pages.Trips.BookNowPage;
 import cloud.rehlat.pages.Trips.BookingSummaryPage;
@@ -62,6 +63,9 @@ public class FlightNavigation {
 	//Register page
 	@FindBy(xpath="//li[3]/a/div/span")
 	private WebElement getTextRegister;
+	//payment page
+	@FindBy(xpath = "//div[@id='container']/div/div/div/a/h4")
+	private WebElement paymentHeaderText;
 	
 	
 	
@@ -148,6 +152,14 @@ public class FlightNavigation {
 		String text=pageUtils.getTextOfElement(driver, txtValue);
 		System.out.println(text);
 		return new TravellerInformationPage(driver);
+	}
+	
+	
+	public  PaymentCardsPage headerText()
+	{
+		String text=pageUtils.getTextOfElement(driver, paymentHeaderText);
+		System.out.println(text);
+		return new PaymentCardsPage(driver);
 	}
 	//All menu items
 	@FindBy(xpath=".//*[@id='menu']") 

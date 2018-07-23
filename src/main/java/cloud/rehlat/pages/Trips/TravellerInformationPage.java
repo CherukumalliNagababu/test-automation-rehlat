@@ -17,19 +17,20 @@ import cloud.rehlat.utils.DataUtils;
 import cloud.rehlat.utils.PageUtils;
 import cloud.rehlat.utils.TestDataUtils;
 import cloud.rehlat.constants.common.DataConstants;
+
 public class TravellerInformationPage {
 	public WebDriver driver;
 	private PageUtils pageUtils;
 	String firstName;
 	String middleName;
 	String lastName;
+
 	public TravellerInformationPage(WebDriver driver) {
 		this.driver = driver;
 		this.pageUtils = PageUtils.getInstance();
 		PageFactory.initElements(this.driver, this);
 	}
 
-	
 	@FindBy(id = "countries_title")
 	private WebElement btndrpClick;
 	@FindBy(xpath = "//li[@class='enabled _msddli_']/span")
@@ -38,7 +39,10 @@ public class TravellerInformationPage {
 	private WebElement txtPhoneNumber;
 	@FindBy(css = "#btnMakepayment")
 	private WebElement btnPaySecurely;
-	
+	// payment page
+	@FindBy(xpath = "//div[@id='container']/div/div/div/a/h4")
+	private WebElement paymentHeaderText;
+
 	// Adult 1 with passport
 	@FindBy(css = "select[name=\"Pax[0].Gender\"]")
 	private WebElement drpAdultG1;
@@ -591,7 +595,6 @@ public class TravellerInformationPage {
 	@FindBy(id = "PassInfantYear3")
 	private WebElement drpInfantExpYear3;
 
-
 	// Infants 4 with Passport
 
 	@FindBy(css = "select[name=\"Pax[4].Gender\"]")
@@ -736,61 +739,182 @@ public class TravellerInformationPage {
 	@FindBy(id = "PassInfantYear8")
 	private WebElement drpInfantExpYear8;
 
-	
-	
-	
-	
-		
-	
-	
-	
-	
+	public void infant_nation_issuingcountry1() {
+		try {
+			if (drpInfantnationality1.isDisplayed()) {
+				pageUtils.selectByVisibleText(drpInfantnationality1, "India");
+				pageUtils.selectByVisibleText(drpInfantIssuing1, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void infant_nation_issuingcountry2() {
+		try {
+			if (drpInfantnationality2.isDisplayed()) {
+				pageUtils.selectByVisibleText(drpInfantnationality2, "India");
+				pageUtils.selectByVisibleText(drpInfantIssuing2, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void infant_nation_issuingcountry3() {
+		try {
+			if (drpInfantnationality3.isDisplayed()) {
+				pageUtils.selectByVisibleText(drpInfantnationality3, "India");
+				pageUtils.selectByVisibleText(drpInfantIssuing3, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void infant_nation_issuingcountry4() {
+		try {
+			if (drpInfantnationality4.isDisplayed()) {
+				pageUtils.selectByVisibleText(drpInfantnationality4, "India");
+				pageUtils.selectByVisibleText(drpInfantIssuing4, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void infant_nation_issuingcountry5() {
+		try {
+			if (drpInfantnationality5.isDisplayed()) {
+				pageUtils.selectByVisibleText(drpInfantnationality5, "India");
+				pageUtils.selectByVisibleText(drpInfantIssuing5, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void infant_nation_issuingcountry6() {
+		try {
+			if (drpInfantnationality6.isDisplayed()) {
+				pageUtils.selectByVisibleText(drpInfantnationality6, "India");
+				pageUtils.selectByVisibleText(drpInfantIssuing6, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void infant_nation_issuingcountry7() {
+		try {
+			if (drpInfantnationality7.isDisplayed()) {
+				pageUtils.selectByVisibleText(drpInfantnationality7, "India");
+				pageUtils.selectByVisibleText(drpInfantIssuing7, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void infant_nation_issuingcountry8() {
+		try {
+			if (drpInfantnationality8.isDisplayed()) {
+				pageUtils.selectByVisibleText(drpInfantnationality8, "India");
+				pageUtils.selectByVisibleText(drpInfantIssuing8, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
 	public void AdultChildNumber1_CompareToInfant() {
 		pageUtils.selectByVisibleText(drpInfantG1, "Male");
 		pageUtils.selectByVisibleText(drpInfantDate1, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth1, "May");
 		pageUtils.selectByVisibleText(drpInfantYear1, "2017");
+		infant1_passport();
 
 	}
-public void infant1_passport()
-{
-	
-}
-	
+
+	public void infant1_passport() {
+		try {
+			if (txtInfantPassportNum1.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtInfantPassportNum1, "456789123");
+
+				pageUtils.selectByVisibleText(drpInfantExpDate1, "12");
+				pageUtils.selectByVisibleText(drpInfantExpMonth1, "May");
+				pageUtils.selectByVisibleText(drpInfantExpYear1, "2025");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
 	public void AdultChildNumber2_CompareToInfant() {
 		pageUtils.selectByVisibleText(drpInfantG2, "Male");
 		pageUtils.selectByVisibleText(drpInfantDate2, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth2, "May");
 		pageUtils.selectByVisibleText(drpInfantYear2, "2017");
-
+		infant2_passport();
 	}
 
-	public void infant2_passport()
-	{
-		
+	public void infant2_passport() {
+		try {
+			if (txtInfantPassportNum2.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtInfantPassportNum2, "456789123");
+
+				pageUtils.selectByVisibleText(drpInfantExpDate2, "12");
+				pageUtils.selectByVisibleText(drpInfantExpMonth2, "May");
+				pageUtils.selectByVisibleText(drpInfantExpYear2, "2025");
+			}
+		} catch (Exception e) {
+
+		}
 	}
+
 	public void AdultChildNumber3_CompareToInfant() {
 		pageUtils.selectByVisibleText(drpInfantG3, "Male");
 		pageUtils.selectByVisibleText(drpInfantDate3, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth3, "May");
 		pageUtils.selectByVisibleText(drpInfantYear3, "2017");
+		infant3_passport();
 
 	}
 
-	public void infant3_passport()
-	{
-		
+	public void infant3_passport() {
+		try {
+			if (txtInfantPassportNum3.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtInfantPassportNum3, "456789123");
+
+				pageUtils.selectByVisibleText(drpInfantExpDate3, "12");
+				pageUtils.selectByVisibleText(drpInfantExpMonth3, "May");
+				pageUtils.selectByVisibleText(drpInfantExpYear3, "2025");
+			}
+		} catch (Exception e) {
+
+		}
 	}
+
 	public void AdultChildNumber4_CompareToInfant() {
 		pageUtils.selectByVisibleText(drpInfantG4, "Male");
 		pageUtils.selectByVisibleText(drpInfantDate4, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth4, "May");
 		pageUtils.selectByVisibleText(drpInfantYear4, "2017");
-
+		infant4_passport();
 	}
-	public void infant4_passport()
-	{
-		
+
+	public void infant4_passport() {
+		try {
+			if (txtInfantPassportNum4.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtInfantPassportNum4, "456789123");
+
+				pageUtils.selectByVisibleText(drpInfantExpDate4, "12");
+				pageUtils.selectByVisibleText(drpInfantExpMonth4, "May");
+				pageUtils.selectByVisibleText(drpInfantExpYear4, "2025");
+			}
+		} catch (Exception e) {
+
+		}
 	}
 
 	public void AdultChildNumber5_CompareToInfant() {
@@ -798,45 +922,186 @@ public void infant1_passport()
 		pageUtils.selectByVisibleText(drpInfantDate5, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth5, "May");
 		pageUtils.selectByVisibleText(drpInfantYear5, "2017");
+		infant5_passport();
+	}
 
+	public void infant5_passport() {
+		try {
+			if (txtInfantPassportNum5.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtInfantPassportNum5, "456789123");
+
+				pageUtils.selectByVisibleText(drpInfantExpDate5, "12");
+				pageUtils.selectByVisibleText(drpInfantExpMonth5, "May");
+				pageUtils.selectByVisibleText(drpInfantExpYear5, "2025");
+			}
+		} catch (Exception e) {
+
+		}
 	}
-	public void infant5_passport()
-	{
-		
-	}
+
 	public void AdultChildNumber6_CompareToInfant() {
 		pageUtils.selectByVisibleText(drpInfantG6, "Male");
 		pageUtils.selectByVisibleText(drpInfantDate6, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth6, "May");
 		pageUtils.selectByVisibleText(drpInfantYear6, "2017");
+		infant6_passport();
+	}
 
+	public void infant6_passport() {
+		try {
+			if (txtInfantPassportNum6.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtInfantPassportNum6, "456789123");
+
+				pageUtils.selectByVisibleText(drpInfantExpDate6, "12");
+				pageUtils.selectByVisibleText(drpInfantExpMonth6, "May");
+				pageUtils.selectByVisibleText(drpInfantExpYear6, "2025");
+			}
+		} catch (Exception e) {
+
+		}
 	}
-	public void infant6_passport()
-	{
-		
-	}
+
 	public void AdultChildNumber7_CompareToInfant() {
 		pageUtils.selectByVisibleText(drpInfantG7, "Male");
 		pageUtils.selectByVisibleText(drpInfantDate7, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth7, "May");
 		pageUtils.selectByVisibleText(drpInfantYear7, "2017");
+		infant7_passport();
+	}
 
+	public void infant7_passport() {
+		try {
+			if (txtInfantPassportNum7.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtInfantPassportNum7, "456789123");
+
+				pageUtils.selectByVisibleText(drpInfantExpDate7, "12");
+				pageUtils.selectByVisibleText(drpInfantExpMonth7, "May");
+				pageUtils.selectByVisibleText(drpInfantExpYear7, "2025");
+			}
+		} catch (Exception e) {
+
+		}
 	}
-	public void infant7_passport()
-	{
-		
-	}
+
 	public void AdultChildNumber8_CompareToInfant() {
 		pageUtils.selectByVisibleText(drpInfantG8, "Male");
 		pageUtils.selectByVisibleText(drpInfantDate8, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth8, "May");
 		pageUtils.selectByVisibleText(drpInfantYear8, "2017");
+		infant8_passport();
+	}
 
+	public void infant8_passport() {
+		try {
+			if (txtInfantPassportNum8.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtInfantPassportNum8, "456789123");
+
+				pageUtils.selectByVisibleText(drpInfantExpDate8, "12");
+				pageUtils.selectByVisibleText(drpInfantExpMonth8, "May");
+				pageUtils.selectByVisibleText(drpInfantExpYear8, "2025");
+			}
+		} catch (Exception e) {
+
+		}
 	}
-	public void infant8_passport()
-	{
-		
+
+	
+	public void child1_passport() {
+		try {
+			if(txtChildPassportNum1.isDisplayed()){
+			pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum1, "243535");
+			pageUtils.selectByVisibleText(drpChildnationality1, "India");
+			pageUtils.selectByVisibleText(drpChildIssuing1, "India");
+			}
+		} catch (Exception e) {
+
+		}
 	}
+
+	public void child2_passport() {
+		try {
+			if(txtChildPassportNum2.isDisplayed()){
+			pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum2, "243535");
+			pageUtils.selectByVisibleText(drpChildnationality2, "India");
+			pageUtils.selectByVisibleText(drpChildIssuing2, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void child3_passport() {
+		try {
+			if(txtChildPassportNum3.isDisplayed()){
+			pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum3, "243535");
+			pageUtils.selectByVisibleText(drpChildnationality3, "India");
+			pageUtils.selectByVisibleText(drpChildIssuing3, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void child4_passport() {
+		try {
+			if(txtChildPassportNum4.isDisplayed()){
+			pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum4, "243535");
+			pageUtils.selectByVisibleText(drpChildnationality4, "India");
+			pageUtils.selectByVisibleText(drpChildIssuing4, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void child5_passport() {
+		try {
+			if(txtChildPassportNum5.isDisplayed()){
+			pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum5, "243535");
+			pageUtils.selectByVisibleText(drpChildnationality5, "India");
+			pageUtils.selectByVisibleText(drpChildIssuing5, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void child6_passport() {
+		try {
+			if(txtChildPassportNum6.isDisplayed()){
+			pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum6, "243535");
+			pageUtils.selectByVisibleText(drpChildnationality6, "India");
+			pageUtils.selectByVisibleText(drpChildIssuing6, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void child7_passport() {
+		try {
+			if(txtChildPassportNum7.isDisplayed()){
+			pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum7, "243535");
+			pageUtils.selectByVisibleText(drpChildnationality7, "India");
+			pageUtils.selectByVisibleText(drpChildIssuing7, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void child8_passport() {
+		try {
+			if(txtChildPassportNum8.isDisplayed()){
+			pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum8, "243535");
+			pageUtils.selectByVisibleText(drpChildnationality8, "India");
+			pageUtils.selectByVisibleText(drpChildIssuing8, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+	
 	public void AdultNumber1_CompareToChild() {
 
 		pageUtils.selectByVisibleText(drpChildDate1, "12");
@@ -846,109 +1111,19 @@ public void infant1_passport()
 
 	}
 
-	public void child1_passport()
-	{
-		try {
-		pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum1, "243535");
-		pageUtils.selectByVisibleText(drpChildnationality1, "India");
-		pageUtils.selectByVisibleText(drpChildIssuing1, "India");
-		}
-	 catch (Exception e) {
 
-	 }
-	}
-	public void child2_passport()
-	{
-		try {
-		pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum2, "243535");
-		pageUtils.selectByVisibleText(drpChildnationality2, "India");
-		pageUtils.selectByVisibleText(drpChildIssuing2, "India");
-		}
-	 catch (Exception e) {
-
-	 }
-	}
-	public void child3_passport()
-	{
-		try {
-		pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum3, "243535");
-		pageUtils.selectByVisibleText(drpChildnationality3, "India");
-		pageUtils.selectByVisibleText(drpChildIssuing3, "India");
-		}
-	 catch (Exception e) {
-
-	 }
-	}
-	public void child4_passport()
-	{
-		try {
-		pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum4, "243535");
-		pageUtils.selectByVisibleText(drpChildnationality4, "India");
-		pageUtils.selectByVisibleText(drpChildIssuing4, "India");
-		}
-	 catch (Exception e) {
-
-	 }
-	}
-	public void child5_passport()
-	{
-		try {
-		pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum5, "243535");
-		pageUtils.selectByVisibleText(drpChildnationality5, "India");
-		pageUtils.selectByVisibleText(drpChildIssuing5, "India");
-		}
-	 catch (Exception e) {
-
-	 }
-	}
-	public void child6_passport()
-	{
-		try {
-		pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum6, "243535");
-		pageUtils.selectByVisibleText(drpChildnationality6, "India");
-		pageUtils.selectByVisibleText(drpChildIssuing6, "India");
-		}
-	 catch (Exception e) {
-
-	 }
-	}
-	public void child7_passport()
-	{
-		try {
-		pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum7, "243535");
-		pageUtils.selectByVisibleText(drpChildnationality7, "India");
-		pageUtils.selectByVisibleText(drpChildIssuing7, "India");
-		}
-	 catch (Exception e) {
-
-	 }
-	}
-	public void child8_passport()
-	{
-		try {
-		pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum8, "243535");
-		pageUtils.selectByVisibleText(drpChildnationality8, "India");
-		pageUtils.selectByVisibleText(drpChildIssuing8, "India");
-		}
-	 catch (Exception e) {
-
-	 }
-	}
-	
-	
 	public void AdultNumber1_passportexpiry() {
 		try {
-
-			
+			if(drpChildExpDate1.isDisplayed()){
 			pageUtils.selectByVisibleText(drpChildExpDate1, "15");
 			pageUtils.selectByVisibleText(drpChildExpMonth1, "Jun");
 			pageUtils.selectByVisibleText(drpChildExpYear1, "2027");
-
+			}
 		} catch (Exception e) {
 
 		}
 	}
-	
+
 	public void AdultNumber2_CompareToChild() {
 
 		pageUtils.selectByVisibleText(drpChildDate2, "12");
@@ -961,12 +1136,11 @@ public void infant1_passport()
 
 	public void AdultNumber2_passportexpiry() {
 		try {
-			
-				
-				pageUtils.selectByVisibleText(drpChildExpDate2, "15");
-				pageUtils.selectByVisibleText(drpChildExpMonth2, "Jun");
-				pageUtils.selectByVisibleText(drpChildExpYear2, "2027");
-			
+			if(drpChildExpDate2.isDisplayed()){
+			pageUtils.selectByVisibleText(drpChildExpDate2, "15");
+			pageUtils.selectByVisibleText(drpChildExpMonth2, "Jun");
+			pageUtils.selectByVisibleText(drpChildExpYear2, "2027");
+			}
 		} catch (Exception e) {
 
 		}
@@ -983,12 +1157,11 @@ public void infant1_passport()
 
 	public void AdultNumber3_passportexpiry() {
 		try {
-			
-				
-				pageUtils.selectByVisibleText(drpChildExpDate3, "15");
-				pageUtils.selectByVisibleText(drpChildExpMonth3, "Jun");
-				pageUtils.selectByVisibleText(drpChildExpYear3, "2027");
-			
+			if(drpChildExpDate3.isDisplayed()){
+			pageUtils.selectByVisibleText(drpChildExpDate3, "15");
+			pageUtils.selectByVisibleText(drpChildExpMonth3, "Jun");
+			pageUtils.selectByVisibleText(drpChildExpYear3, "2027");
+			}
 		} catch (Exception e) {
 
 		}
@@ -1005,13 +1178,11 @@ public void infant1_passport()
 
 	public void AdultNumber4_passportexpiry() {
 		try {
-			
-				
-				pageUtils.selectByVisibleText(drpChildExpDate4, "15");
-				pageUtils.selectByVisibleText(drpChildExpMonth4, "Jun");
-				pageUtils.selectByVisibleText(drpChildExpYear4, "2027");
-
-		
+			if(drpChildExpDate4.isDisplayed()){
+			pageUtils.selectByVisibleText(drpChildExpDate4, "15");
+			pageUtils.selectByVisibleText(drpChildExpMonth4, "Jun");
+			pageUtils.selectByVisibleText(drpChildExpYear4, "2027");
+			}
 		} catch (Exception e) {
 
 		}
@@ -1029,12 +1200,11 @@ public void infant1_passport()
 
 	public void AdultNumber5_passportexpiry() {
 		try {
-			
-				
-				pageUtils.selectByVisibleText(drpChildExpDate5, "15");
-				pageUtils.selectByVisibleText(drpChildExpMonth5, "Jun");
-				pageUtils.selectByVisibleText(drpChildExpYear5, "2027");
-			
+			if(drpChildExpDate5.isDisplayed()){
+			pageUtils.selectByVisibleText(drpChildExpDate5, "15");
+			pageUtils.selectByVisibleText(drpChildExpMonth5, "Jun");
+			pageUtils.selectByVisibleText(drpChildExpYear5, "2027");
+			}
 		} catch (Exception e) {
 
 		}
@@ -1051,12 +1221,11 @@ public void infant1_passport()
 
 	public void AdultNumber6_passportexpiry() {
 		try {
-			
-				
-				pageUtils.selectByVisibleText(drpChildExpDate6, "15");
-				pageUtils.selectByVisibleText(drpChildExpMonth6, "Jun");
-				pageUtils.selectByVisibleText(drpChildExpYear6, "2027");
-			
+			if(drpChildExpDate6.isDisplayed()){
+			pageUtils.selectByVisibleText(drpChildExpDate6, "15");
+			pageUtils.selectByVisibleText(drpChildExpMonth6, "Jun");
+			pageUtils.selectByVisibleText(drpChildExpYear6, "2027");
+			}
 		} catch (Exception e) {
 
 		}
@@ -1074,12 +1243,11 @@ public void infant1_passport()
 	public void AdultNumber7_passportexpiry() {
 
 		try {
-			
-				
-				pageUtils.selectByVisibleText(drpChildExpDate7, "15");
-				pageUtils.selectByVisibleText(drpChildExpMonth7, "Jun");
-				pageUtils.selectByVisibleText(drpChildExpYear7, "2027");
-			
+			if(drpChildExpDate7.isDisplayed()){
+			pageUtils.selectByVisibleText(drpChildExpDate7, "15");
+			pageUtils.selectByVisibleText(drpChildExpMonth7, "Jun");
+			pageUtils.selectByVisibleText(drpChildExpYear7, "2027");
+			}
 		} catch (Exception e) {
 
 		}
@@ -1096,12 +1264,11 @@ public void infant1_passport()
 	public void AdultNumber8_passportexpiry() {
 
 		try {
-			
-				
-				pageUtils.selectByVisibleText(drpChildExpDate8, "15");
-				pageUtils.selectByVisibleText(drpChildExpMonth8, "Jun");
-				pageUtils.selectByVisibleText(drpChildExpYear8, "2027");
-			
+			if(drpChildExpDate8.isDisplayed()){
+			pageUtils.selectByVisibleText(drpChildExpDate8, "15");
+			pageUtils.selectByVisibleText(drpChildExpMonth8, "Jun");
+			pageUtils.selectByVisibleText(drpChildExpYear8, "2027");
+			}
 		} catch (Exception e) {
 
 		}
@@ -1111,19 +1278,18 @@ public void infant1_passport()
 		String childnum = dataMap.get("childs");
 		String adult = dataMap.get("adults");
 		String infant = dataMap.get("infant");
-        System.out.println("Infants valus:"+infant);
+		System.out.println("Infants valus:" + infant);
 		Integer totalValue = Integer.parseInt(childnum) + Integer.parseInt(adult);
 		System.out.println("totalValue:" + totalValue);
 		String numberAsString = Integer.toString(totalValue);
 		System.out.println(numberAsString);
 		Faker faker = new Faker();
 
-		
-		 firstName = faker.name().firstName();
-		 middleName = faker.name().nameWithMiddle();
-		 lastName = faker.name().lastName();
+		firstName = faker.name().firstName();
+		middleName = faker.name().nameWithMiddle();
+		lastName = faker.name().lastName();
 		if ("1".equals(infant)) {
-			//pageUtils.selectByVisibleText(drpInfantG1, "Male");
+			// pageUtils.selectByVisibleText(drpInfantG1, "Male");
 			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName1, firstName);
 			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName1, middleName);
 			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName1, lastName);
@@ -1144,6 +1310,7 @@ public void infant1_passport()
 			} else if ("8".equals(numberAsString)) {
 				AdultChildNumber8_CompareToInfant();
 			}
+			infant_nation_issuingcountry1();
 		}
 
 		if ("2".equals(infant)) {
@@ -1168,6 +1335,7 @@ public void infant1_passport()
 			} else if ("8".equals(numberAsString)) {
 				AdultChildNumber8_CompareToInfant();
 			}
+			infant_nation_issuingcountry1();
 			pageUtils.selectByVisibleText(drpInfantG2, "Male");
 			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName2, firstName);
 			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName2, middleName);
@@ -1186,7 +1354,8 @@ public void infant1_passport()
 				AdultChildNumber7_CompareToInfant();
 			} else if ("7".equals(numberAsString)) {
 				AdultChildNumber8_CompareToInfant();
-			} 
+			}
+			infant_nation_issuingcountry2();
 		}
 		if ("3".equals(infant)) {
 			pageUtils.selectByVisibleText(drpInfantG1, "Male");
@@ -1210,6 +1379,7 @@ public void infant1_passport()
 			} else if ("8".equals(numberAsString)) {
 				AdultChildNumber8_CompareToInfant();
 			}
+			infant_nation_issuingcountry1();
 			pageUtils.selectByVisibleText(drpInfantG2, "Male");
 			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName2, firstName);
 			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName2, middleName);
@@ -1228,8 +1398,8 @@ public void infant1_passport()
 				AdultChildNumber7_CompareToInfant();
 			} else if ("7".equals(numberAsString)) {
 				AdultChildNumber8_CompareToInfant();
-			} 
-
+			}
+			infant_nation_issuingcountry2();
 			pageUtils.selectByVisibleText(drpInfantG3, "Male");
 			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName3, firstName);
 			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName3, middleName);
@@ -1246,7 +1416,8 @@ public void infant1_passport()
 				AdultChildNumber7_CompareToInfant();
 			} else if ("6".equals(numberAsString)) {
 				AdultChildNumber8_CompareToInfant();
-			} 
+			}
+			infant_nation_issuingcountry3();
 		}
 
 		if ("4".equals(infant)) {
@@ -1271,6 +1442,7 @@ public void infant1_passport()
 			} else if ("8".equals(numberAsString)) {
 				AdultChildNumber8_CompareToInfant();
 			}
+			infant_nation_issuingcountry1();
 			pageUtils.selectByVisibleText(drpInfantG2, "Male");
 			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName2, firstName);
 			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName2, middleName);
@@ -1288,87 +1460,9 @@ public void infant1_passport()
 			} else if ("6".equals(numberAsString)) {
 				AdultChildNumber7_CompareToInfant();
 			} else if ("7".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-
-			pageUtils.selectByVisibleText(drpInfantG3, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName3, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName3, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName3, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber3_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("6".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-
-			pageUtils.selectByVisibleText(drpInfantG4, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName4, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName4, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName4, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-		}
-		
-	/*	
-		if ("5".equals(infant)) {
-			pageUtils.selectByVisibleText(drpInfantG1, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName1, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName1, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName1, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber1_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber2_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber3_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("6".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("7".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("8".equals(numberAsString)) {
 				AdultChildNumber8_CompareToInfant();
 			}
-			pageUtils.selectByVisibleText(drpInfantG2, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName2, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName2, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName2, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber2_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber3_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("6".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("7".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-
+			infant_nation_issuingcountry2();
 			pageUtils.selectByVisibleText(drpInfantG3, "Male");
 			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName3, firstName);
 			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName3, middleName);
@@ -1384,102 +1478,9 @@ public void infant1_passport()
 			} else if ("5".equals(numberAsString)) {
 				AdultChildNumber7_CompareToInfant();
 			} else if ("6".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-
-			pageUtils.selectByVisibleText(drpInfantG4, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName4, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName4, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName4, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-			
-			
-			pageUtils.selectByVisibleText(drpInfantG5, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName5, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName5, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName5, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-		}
-
-		
-		if ("6".equals(infant)) {
-			pageUtils.selectByVisibleText(drpInfantG1, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName1, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName1, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName1, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber1_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber2_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber3_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("6".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("7".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("8".equals(numberAsString)) {
 				AdultChildNumber8_CompareToInfant();
 			}
-			pageUtils.selectByVisibleText(drpInfantG2, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName2, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName2, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName2, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber2_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber3_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("6".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("7".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-
-			pageUtils.selectByVisibleText(drpInfantG3, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName3, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName3, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName3, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber3_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("6".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-
+			infant_nation_issuingcountry3();
 			pageUtils.selectByVisibleText(drpInfantG4, "Male");
 			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName4, firstName);
 			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName4, middleName);
@@ -1493,273 +1494,378 @@ public void infant1_passport()
 			} else if ("4".equals(numberAsString)) {
 				AdultChildNumber7_CompareToInfant();
 			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-			
-			
-			pageUtils.selectByVisibleText(drpInfantG5, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName5, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName5, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName5, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-			
-			pageUtils.selectByVisibleText(drpInfantG6, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName6, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName6, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName6, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-		}
-
-		if ("7".equals(infant)) {
-			pageUtils.selectByVisibleText(drpInfantG1, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName1, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName1, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName1, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber1_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber2_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber3_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("6".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("7".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("8".equals(numberAsString)) {
 				AdultChildNumber8_CompareToInfant();
 			}
-			pageUtils.selectByVisibleText(drpInfantG2, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName2, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName2, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName2, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber2_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber3_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("6".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("7".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-
-			pageUtils.selectByVisibleText(drpInfantG3, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName3, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName3, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName3, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber3_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("6".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-
-			pageUtils.selectByVisibleText(drpInfantG4, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName4, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName4, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName4, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-			
-			
-			pageUtils.selectByVisibleText(drpInfantG5, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName5, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName5, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName5, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-			
-			pageUtils.selectByVisibleText(drpInfantG6, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName6, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName6, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName6, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-			
-			pageUtils.selectByVisibleText(drpInfantG7, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName7, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName7, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName7, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
+			infant_nation_issuingcountry4();
 		}
-		
-		if ("8".equals(infant)) {
-			pageUtils.selectByVisibleText(drpInfantG1, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName1, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName1, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName1, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber1_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber2_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber3_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("6".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("7".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("8".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			}
-			pageUtils.selectByVisibleText(drpInfantG2, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName2, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName2, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName2, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber2_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber3_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("6".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("7".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
 
-			pageUtils.selectByVisibleText(drpInfantG3, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName3, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName3, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName3, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber3_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("6".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-
-			pageUtils.selectByVisibleText(drpInfantG4, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName4, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName4, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName4, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber4_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("5".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-			
-			
-			pageUtils.selectByVisibleText(drpInfantG5, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName5, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName5, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName5, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber5_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("4".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-			
-			pageUtils.selectByVisibleText(drpInfantG6, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName6, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName6, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName6, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber6_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("3".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-			
-			pageUtils.selectByVisibleText(drpInfantG7, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName7, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName7, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName7, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber7_CompareToInfant();
-			} else if ("2".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-			
-			pageUtils.selectByVisibleText(drpInfantG8, "Male");
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName8, firstName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName8, middleName);
-			pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName8, lastName);
-			if ("1".equals(numberAsString)) {
-				AdultChildNumber8_CompareToInfant();
-			} 
-		}
-*/
+		/*
+		 * if ("5".equals(infant)) { pageUtils.selectByVisibleText(drpInfantG1,
+		 * "Male"); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantFirstName1, firstName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName1,
+		 * middleName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantLastName1, lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber1_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber2_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber3_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber4_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber5_CompareToInfant(); } else if
+		 * ("6".equals(numberAsString)) { AdultChildNumber6_CompareToInfant(); }
+		 * else if ("7".equals(numberAsString)) {
+		 * AdultChildNumber7_CompareToInfant(); } else if
+		 * ("8".equals(numberAsString)) { AdultChildNumber8_CompareToInfant(); }
+		 * pageUtils.selectByVisibleText(drpInfantG2, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName2,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName2, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName2,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber2_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber3_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber4_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber5_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber6_CompareToInfant(); } else if
+		 * ("6".equals(numberAsString)) { AdultChildNumber7_CompareToInfant(); }
+		 * else if ("7".equals(numberAsString)) {
+		 * AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG3, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName3,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName3, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName3,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber3_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber4_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber5_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber6_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber7_CompareToInfant(); } else if
+		 * ("6".equals(numberAsString)) { AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG4, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName4,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName4, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName4,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber4_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber5_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber6_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber7_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG5, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName5,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName5, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName5,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber5_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber6_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber7_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber8_CompareToInfant(); }
+		 * }
+		 * 
+		 * 
+		 * if ("6".equals(infant)) { pageUtils.selectByVisibleText(drpInfantG1,
+		 * "Male"); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantFirstName1, firstName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName1,
+		 * middleName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantLastName1, lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber1_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber2_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber3_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber4_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber5_CompareToInfant(); } else if
+		 * ("6".equals(numberAsString)) { AdultChildNumber6_CompareToInfant(); }
+		 * else if ("7".equals(numberAsString)) {
+		 * AdultChildNumber7_CompareToInfant(); } else if
+		 * ("8".equals(numberAsString)) { AdultChildNumber8_CompareToInfant(); }
+		 * pageUtils.selectByVisibleText(drpInfantG2, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName2,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName2, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName2,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber2_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber3_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber4_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber5_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber6_CompareToInfant(); } else if
+		 * ("6".equals(numberAsString)) { AdultChildNumber7_CompareToInfant(); }
+		 * else if ("7".equals(numberAsString)) {
+		 * AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG3, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName3,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName3, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName3,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber3_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber4_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber5_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber6_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber7_CompareToInfant(); } else if
+		 * ("6".equals(numberAsString)) { AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG4, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName4,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName4, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName4,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber4_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber5_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber6_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber7_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG5, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName5,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName5, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName5,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber5_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber6_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber7_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG6, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName6,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName6, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName6,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber6_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber7_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber8_CompareToInfant(); } }
+		 * 
+		 * if ("7".equals(infant)) { pageUtils.selectByVisibleText(drpInfantG1,
+		 * "Male"); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantFirstName1, firstName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName1,
+		 * middleName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantLastName1, lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber1_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber2_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber3_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber4_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber5_CompareToInfant(); } else if
+		 * ("6".equals(numberAsString)) { AdultChildNumber6_CompareToInfant(); }
+		 * else if ("7".equals(numberAsString)) {
+		 * AdultChildNumber7_CompareToInfant(); } else if
+		 * ("8".equals(numberAsString)) { AdultChildNumber8_CompareToInfant(); }
+		 * pageUtils.selectByVisibleText(drpInfantG2, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName2,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName2, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName2,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber2_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber3_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber4_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber5_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber6_CompareToInfant(); } else if
+		 * ("6".equals(numberAsString)) { AdultChildNumber7_CompareToInfant(); }
+		 * else if ("7".equals(numberAsString)) {
+		 * AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG3, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName3,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName3, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName3,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber3_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber4_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber5_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber6_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber7_CompareToInfant(); } else if
+		 * ("6".equals(numberAsString)) { AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG4, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName4,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName4, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName4,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber4_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber5_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber6_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber7_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG5, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName5,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName5, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName5,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber5_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber6_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber7_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG6, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName6,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName6, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName6,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber6_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber7_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG7, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName7,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName7, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName7,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber7_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber8_CompareToInfant(); }
+		 * }
+		 * 
+		 * if ("8".equals(infant)) { pageUtils.selectByVisibleText(drpInfantG1,
+		 * "Male"); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantFirstName1, firstName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantMiddleName1,
+		 * middleName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantLastName1, lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber1_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber2_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber3_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber4_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber5_CompareToInfant(); } else if
+		 * ("6".equals(numberAsString)) { AdultChildNumber6_CompareToInfant(); }
+		 * else if ("7".equals(numberAsString)) {
+		 * AdultChildNumber7_CompareToInfant(); } else if
+		 * ("8".equals(numberAsString)) { AdultChildNumber8_CompareToInfant(); }
+		 * pageUtils.selectByVisibleText(drpInfantG2, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName2,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName2, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName2,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber2_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber3_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber4_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber5_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber6_CompareToInfant(); } else if
+		 * ("6".equals(numberAsString)) { AdultChildNumber7_CompareToInfant(); }
+		 * else if ("7".equals(numberAsString)) {
+		 * AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG3, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName3,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName3, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName3,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber3_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber4_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber5_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber6_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber7_CompareToInfant(); } else if
+		 * ("6".equals(numberAsString)) { AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG4, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName4,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName4, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName4,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber4_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber5_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber6_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber7_CompareToInfant(); }
+		 * else if ("5".equals(numberAsString)) {
+		 * AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG5, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName5,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName5, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName5,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber5_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber6_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber7_CompareToInfant(); } else if
+		 * ("4".equals(numberAsString)) { AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG6, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName6,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName6, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName6,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber6_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber7_CompareToInfant(); }
+		 * else if ("3".equals(numberAsString)) {
+		 * AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG7, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName7,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName7, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName7,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber7_CompareToInfant(); } else if
+		 * ("2".equals(numberAsString)) { AdultChildNumber8_CompareToInfant(); }
+		 * 
+		 * pageUtils.selectByVisibleText(drpInfantG8, "Male");
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantFirstName8,
+		 * firstName); pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtInfantMiddleName8, middleName);
+		 * pageUtils.sendKeysAfterClearingElement(driver, txtInfantLastName8,
+		 * lastName); if ("1".equals(numberAsString)) {
+		 * AdultChildNumber8_CompareToInfant(); } }
+		 */
 
 	}
 
@@ -1768,10 +1874,9 @@ public void infant1_passport()
 		String adult = dataMap.get("adults");
 		Faker faker = new Faker();
 
-		
-		 firstName = faker.name().firstName();
-		 middleName = faker.name().nameWithMiddle();
-		 lastName = faker.name().lastName();
+		firstName = faker.name().firstName();
+		middleName = faker.name().nameWithMiddle();
+		lastName = faker.name().lastName();
 
 		if ("1".equals(childnum)) {
 
@@ -1797,7 +1902,7 @@ public void infant1_passport()
 				AdultNumber8_CompareToChild();
 			}
 			child1_passport();
-			
+
 		}
 
 		// Child 2
@@ -1824,7 +1929,7 @@ public void infant1_passport()
 				AdultNumber8_CompareToChild();
 			}
 			child1_passport();
-			
+
 			pageUtils.selectByVisibleText(drpChildG2, "Male");
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName2, firstName);
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildMiddleName2, middleName);
@@ -2054,7 +2159,7 @@ public void infant1_passport()
 				AdultNumber8_CompareToChild();
 			}
 			child3_passport();
-			//------
+			// ------
 			pageUtils.selectByVisibleText(drpChildG4, "Male");
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName4, firstName);
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildMiddleName4, middleName);
@@ -2449,13 +2554,14 @@ public void infant1_passport()
 		 * 
 		 * } catch (Exception e) {
 		 * 
-		 * } try { pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum2,
-		 * "243535"); pageUtils.selectByVisibleText(drpChildnationality2, "India");
+		 * } try { pageUtils.sendKeysAfterClearingElement(driver,
+		 * txtChildPassportNum2, "243535");
+		 * pageUtils.selectByVisibleText(drpChildnationality2, "India");
 		 * pageUtils.selectByVisibleText(drpChildIssuing2, "India");
 		 * pageUtils.selectByVisibleText(drpChildExpDate2, "15");
 		 * pageUtils.selectByVisibleText(drpChildExpMonth2, "Jun");
-		 * pageUtils.selectByVisibleText(drpChildExpYear2, "2027"); } catch (Exception
-		 * e) {
+		 * pageUtils.selectByVisibleText(drpChildExpYear2, "2027"); } catch
+		 * (Exception e) {
 		 * 
 		 * }
 		 */
@@ -2513,10 +2619,9 @@ public void infant1_passport()
 		String numofAdults = dataMap.get("adults");
 		Faker faker = new Faker();
 
-		
-		 firstName = faker.name().firstName();
-		 middleName = faker.name().nameWithMiddle();
-		 lastName = faker.name().lastName();
+		firstName = faker.name().firstName();
+		middleName = faker.name().nameWithMiddle();
+		lastName = faker.name().lastName();
 		if (numofAdults.equals("1")) {
 			adult1();
 		} else if (numofAdults.equals("2")) {
@@ -2580,21 +2685,31 @@ public void infant1_passport()
 		pageUtils.sendKeysAfterClearingElement(driver, txtAdultLastName1, lastName);
 
 		try {
-			if(drpAdultDate1.isDisplayed())
-			pageUtils.selectByVisibleText(drpAdultDate1, "12");
+			if (drpAdultDate1.isDisplayed())
+				pageUtils.selectByVisibleText(drpAdultDate1, "12");
 			pageUtils.selectByVisibleText(drpAdultMonth1, "May");
 			pageUtils.selectByVisibleText(drpAdultYear1, "1999");
-			pageUtils.sendKeysToElement(driver, txtAdultPassportNum1, "243535");
-			pageUtils.selectByVisibleText(drpAdultnationality1, "India");
-			pageUtils.selectByVisibleText(drpAdultIssuing1, "India");
-			pageUtils.selectByVisibleText(drpAdultExpDate1, "15");
-			pageUtils.selectByVisibleText(drpAdultExpMonth1, "Jun");
-			pageUtils.selectByVisibleText(drpAdultExpYear1, "2027");
+			adult_passport1();
+
 		} catch (Exception e) {
-			System.out.println("Exception:"+e.getMessage());
+			System.out.println("Exception:" + e.getMessage());
 		}
 	}
-	
+
+	public void adult_passport1() {
+		try {
+			if (txtAdultPassportNum1.isDisplayed()) {
+				pageUtils.sendKeysToElement(driver, txtAdultPassportNum1, "243535");
+				pageUtils.selectByVisibleText(drpAdultnationality1, "India");
+				pageUtils.selectByVisibleText(drpAdultIssuing1, "India");
+				pageUtils.selectByVisibleText(drpAdultExpDate1, "15");
+				pageUtils.selectByVisibleText(drpAdultExpMonth1, "Jun");
+				pageUtils.selectByVisibleText(drpAdultExpYear1, "2027");
+			}
+		} catch (Exception e) {
+
+		}
+	}
 
 	public void adult2() {
 		pageUtils.selectByVisibleText(drpAdultG2, "Male");
@@ -2602,22 +2717,31 @@ public void infant1_passport()
 		pageUtils.sendKeysAfterClearingElement(driver, txtAdultLastName2, lastName);
 
 		try {
-			if(drpAdultDate2.isDisplayed())
-			pageUtils.selectByVisibleText(drpAdultDate2, "12");
+			if (drpAdultDate2.isDisplayed())
+				pageUtils.selectByVisibleText(drpAdultDate2, "12");
 			pageUtils.selectByVisibleText(drpAdultMonth2, "May");
 			pageUtils.selectByVisibleText(drpAdultYear2, "1999");
-			pageUtils.sendKeysToElement(driver, txtAdultPassportNum2, "243535");
-			pageUtils.selectByVisibleText(drpAdultnationality2, "India");
-			pageUtils.selectByVisibleText(drpAdultIssuing2, "India");
-			pageUtils.selectByVisibleText(drpAdultExpDate2, "15");
-			pageUtils.selectByVisibleText(drpAdultExpMonth2, "Jun");
-			pageUtils.selectByVisibleText(drpAdultExpYear2, "2027");
-			
+			adult_passport2();
+
 		} catch (Exception e) {
-			System.out.println("Exception:"+e.getMessage());
+			System.out.println("Exception:" + e.getMessage());
 		}
 	}
-	
+
+	public void adult_passport2() {
+		try {
+			if (txtAdultPassportNum2.isDisplayed()) {
+				pageUtils.sendKeysToElement(driver, txtAdultPassportNum2, "243535");
+				pageUtils.selectByVisibleText(drpAdultnationality2, "India");
+				pageUtils.selectByVisibleText(drpAdultIssuing2, "India");
+				pageUtils.selectByVisibleText(drpAdultExpDate2, "15");
+				pageUtils.selectByVisibleText(drpAdultExpMonth2, "Jun");
+				pageUtils.selectByVisibleText(drpAdultExpYear2, "2027");
+			}
+		} catch (Exception e) {
+
+		}
+	}
 
 	public void adult3() {
 		pageUtils.selectByVisibleText(drpAdultG3, "Male");
@@ -2625,16 +2749,26 @@ public void infant1_passport()
 		pageUtils.sendKeysAfterClearingElement(driver, txtAdultLastName3, lastName);
 
 		try {
-			if(drpAdultDate3.isDisplayed())
-			pageUtils.selectByVisibleText(drpAdultDate3, "12");
+			if (drpAdultDate3.isDisplayed())
+				pageUtils.selectByVisibleText(drpAdultDate3, "12");
 			pageUtils.selectByVisibleText(drpAdultMonth3, "May");
 			pageUtils.selectByVisibleText(drpAdultYear3, "1999");
-			pageUtils.sendKeysAfterClearingElement(driver, txtAdultPassportNum3, "243535");
-			pageUtils.selectByVisibleText(drpAdultnationality3, "India");
-			pageUtils.selectByVisibleText(drpAdultIssuing3, "India");
-			pageUtils.selectByVisibleText(drpAdultExpDate3, "15");
-			pageUtils.selectByVisibleText(drpAdultExpMonth3, "Jun");
-			pageUtils.selectByVisibleText(drpAdultExpYear3, "2027");
+			adult_passport3();
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void adult_passport3() {
+		try {
+			if (txtAdultPassportNum3.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtAdultPassportNum3, "243535");
+				pageUtils.selectByVisibleText(drpAdultnationality3, "India");
+				pageUtils.selectByVisibleText(drpAdultIssuing3, "India");
+				pageUtils.selectByVisibleText(drpAdultExpDate3, "15");
+				pageUtils.selectByVisibleText(drpAdultExpMonth3, "Jun");
+				pageUtils.selectByVisibleText(drpAdultExpYear3, "2027");
+			}
 		} catch (Exception e) {
 
 		}
@@ -2649,12 +2783,22 @@ public void infant1_passport()
 			pageUtils.selectByVisibleText(drpAdultDate4, "12");
 			pageUtils.selectByVisibleText(drpAdultMonth4, "May");
 			pageUtils.selectByVisibleText(drpAdultYear4, "1999");
-			pageUtils.sendKeysAfterClearingElement(driver, txtAdultPassportNum4, "243535");
-			pageUtils.selectByVisibleText(drpAdultnationality4, "India");
-			pageUtils.selectByVisibleText(drpAdultIssuing4, "India");
-			pageUtils.selectByVisibleText(drpAdultExpDate4, "15");
-			pageUtils.selectByVisibleText(drpAdultExpMonth4, "Jun");
-			pageUtils.selectByVisibleText(drpAdultExpYear4, "2027");
+			adult_passport4();
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void adult_passport4() {
+		try {
+			if (txtAdultPassportNum4.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtAdultPassportNum4, "243535");
+				pageUtils.selectByVisibleText(drpAdultnationality4, "India");
+				pageUtils.selectByVisibleText(drpAdultIssuing4, "India");
+				pageUtils.selectByVisibleText(drpAdultExpDate4, "15");
+				pageUtils.selectByVisibleText(drpAdultExpMonth4, "Jun");
+				pageUtils.selectByVisibleText(drpAdultExpYear4, "2027");
+			}
 		} catch (Exception e) {
 
 		}
@@ -2669,12 +2813,23 @@ public void infant1_passport()
 			pageUtils.selectByVisibleText(drpAdultDate5, "12");
 			pageUtils.selectByVisibleText(drpAdultMonth5, "May");
 			pageUtils.selectByVisibleText(drpAdultYear5, "1999");
-			pageUtils.sendKeysAfterClearingElement(driver, txtAdultPassportNum5, "253535");
-			pageUtils.selectByVisibleText(drpAdultnationality5, "India");
-			pageUtils.selectByVisibleText(drpAdultIssuing5, "India");
-			pageUtils.selectByVisibleText(drpAdultExpDate5, "15");
-			pageUtils.selectByVisibleText(drpAdultExpMonth5, "Jun");
-			pageUtils.selectByVisibleText(drpAdultExpYear5, "2027");
+			adult_passport5();
+
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void adult_passport5() {
+		try {
+			if (txtAdultPassportNum5.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtAdultPassportNum5, "253535");
+				pageUtils.selectByVisibleText(drpAdultnationality5, "India");
+				pageUtils.selectByVisibleText(drpAdultIssuing5, "India");
+				pageUtils.selectByVisibleText(drpAdultExpDate5, "15");
+				pageUtils.selectByVisibleText(drpAdultExpMonth5, "Jun");
+				pageUtils.selectByVisibleText(drpAdultExpYear5, "2027");
+			}
 		} catch (Exception e) {
 
 		}
@@ -2689,12 +2844,22 @@ public void infant1_passport()
 			pageUtils.selectByVisibleText(drpAdultDate6, "12");
 			pageUtils.selectByVisibleText(drpAdultMonth6, "May");
 			pageUtils.selectByVisibleText(drpAdultYear6, "1999");
-			pageUtils.sendKeysAfterClearingElement(driver, txtAdultPassportNum6, "263636");
-			pageUtils.selectByVisibleText(drpAdultnationality6, "India");
-			pageUtils.selectByVisibleText(drpAdultIssuing6, "India");
-			pageUtils.selectByVisibleText(drpAdultExpDate6, "16");
-			pageUtils.selectByVisibleText(drpAdultExpMonth6, "Jun");
-			pageUtils.selectByVisibleText(drpAdultExpYear6, "2027");
+			adult_passport6();
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void adult_passport6() {
+		try {
+			if (txtAdultPassportNum6.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtAdultPassportNum6, "263636");
+				pageUtils.selectByVisibleText(drpAdultnationality6, "India");
+				pageUtils.selectByVisibleText(drpAdultIssuing6, "India");
+				pageUtils.selectByVisibleText(drpAdultExpDate6, "16");
+				pageUtils.selectByVisibleText(drpAdultExpMonth6, "Jun");
+				pageUtils.selectByVisibleText(drpAdultExpYear6, "2027");
+			}
 		} catch (Exception e) {
 
 		}
@@ -2709,12 +2874,23 @@ public void infant1_passport()
 			pageUtils.selectByVisibleText(drpAdultDate7, "12");
 			pageUtils.selectByVisibleText(drpAdultMonth7, "May");
 			pageUtils.selectByVisibleText(drpAdultYear7, "1999");
-			pageUtils.sendKeysAfterClearingElement(driver, txtAdultPassportNum7, "273737");
-			pageUtils.selectByVisibleText(drpAdultnationality7, "India");
-			pageUtils.selectByVisibleText(drpAdultIssuing7, "India");
-			pageUtils.selectByVisibleText(drpAdultExpDate7, "16");
-			pageUtils.selectByVisibleText(drpAdultExpMonth7, "Jun");
-			pageUtils.selectByVisibleText(drpAdultExpYear7, "2027");
+			adult_passport7();
+
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void adult_passport7() {
+		try {
+			if (txtAdultPassportNum7.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtAdultPassportNum7, "273737");
+				pageUtils.selectByVisibleText(drpAdultnationality7, "India");
+				pageUtils.selectByVisibleText(drpAdultIssuing7, "India");
+				pageUtils.selectByVisibleText(drpAdultExpDate7, "16");
+				pageUtils.selectByVisibleText(drpAdultExpMonth7, "Jun");
+				pageUtils.selectByVisibleText(drpAdultExpYear7, "2027");
+			}
 		} catch (Exception e) {
 
 		}
@@ -2729,12 +2905,22 @@ public void infant1_passport()
 			pageUtils.selectByVisibleText(drpAdultDate8, "12");
 			pageUtils.selectByVisibleText(drpAdultMonth8, "May");
 			pageUtils.selectByVisibleText(drpAdultYear8, "1999");
-			pageUtils.sendKeysAfterClearingElement(driver, txtAdultPassportNum8, "283838");
-			pageUtils.selectByVisibleText(drpAdultnationality8, "India");
-			pageUtils.selectByVisibleText(drpAdultIssuing8, "India");
-			pageUtils.selectByVisibleText(drpAdultExpDate8, "16");
-			pageUtils.selectByVisibleText(drpAdultExpMonth8, "Jun");
-			pageUtils.selectByVisibleText(drpAdultExpYear8, "2027");
+			adult_passport8();
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void adult_passport8() {
+		try {
+			if (txtAdultPassportNum8.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtAdultPassportNum8, "283838");
+				pageUtils.selectByVisibleText(drpAdultnationality8, "India");
+				pageUtils.selectByVisibleText(drpAdultIssuing8, "India");
+				pageUtils.selectByVisibleText(drpAdultExpDate8, "16");
+				pageUtils.selectByVisibleText(drpAdultExpMonth8, "Jun");
+				pageUtils.selectByVisibleText(drpAdultExpYear8, "2027");
+			}
 		} catch (Exception e) {
 
 		}
@@ -2749,32 +2935,40 @@ public void infant1_passport()
 			pageUtils.selectByVisibleText(drpAdultDate9, "12");
 			pageUtils.selectByVisibleText(drpAdultMonth9, "May");
 			pageUtils.selectByVisibleText(drpAdultYear9, "1999");
-			pageUtils.sendKeysAfterClearingElement(driver, txtAdultPassportNum9, "293939");
-			pageUtils.selectByVisibleText(drpAdultnationality9, "India");
-			pageUtils.selectByVisibleText(drpAdultIssuing9, "India");
-			pageUtils.selectByVisibleText(drpAdultExpDate9, "16");
-			pageUtils.selectByVisibleText(drpAdultExpMonth9, "Jun");
-			pageUtils.selectByVisibleText(drpAdultExpYear9, "2027");
+			adult_passport9();
 		} catch (Exception e) {
 
 		}
 	}
-	
-	public void enterContactDetails() throws Exception
-	{
+
+	public void adult_passport9() {
+		try {
+			if (txtAdultPassportNum9.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtAdultPassportNum9, "293939");
+				pageUtils.selectByVisibleText(drpAdultnationality9, "India");
+				pageUtils.selectByVisibleText(drpAdultIssuing9, "India");
+				pageUtils.selectByVisibleText(drpAdultExpDate9, "16");
+				pageUtils.selectByVisibleText(drpAdultExpMonth9, "Jun");
+				pageUtils.selectByVisibleText(drpAdultExpYear9, "2027");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void enterContactDetails() throws Exception {
 		pageUtils.clickElement(driver, btndrpClick);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 		pageUtils.selectCountry(drpCountry, "India (91)");
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
-		
+
 		pageUtils.sendKeysAfterClearingElement(driver, txtPhoneNumber, DataConstants.USER_PHONE_NUMBER);
 	}
-	
-	
+
 	public void clickOnPaySecurely() throws InterruptedException {
 		pageUtils.clickElement(driver, btnPaySecurely);
-		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
+		pageUtils.waitForElementTextToBe(driver, paymentHeaderText, "PAYMENT");
+		// pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 	}
-	
-	
+
 }

@@ -36,7 +36,7 @@ public class TravellerInformationSteps extends StepUtils {
     	travellerInformationPage.adultDetails(dataMap);
 		travellerInformationPage.childDetails_test(dataMap);
 		travellerInformationPage.infantsDetails(dataMap);
-		Thread.sleep(15000);
+		Thread.sleep(5000);
 
 	}
 
