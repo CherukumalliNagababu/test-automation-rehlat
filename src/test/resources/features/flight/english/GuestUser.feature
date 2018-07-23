@@ -6,7 +6,7 @@ Feature: Test Flight login functionality
 Background:
 	Given I am on login page of Flights
 
-@flight_healthcheck
+#@flight_healthcheck
 Scenario Outline: Validate if the user can book OneWay Trip
 	 When I go to Rehlat Home page
      When I go to select OneWay Radio button
@@ -30,7 +30,17 @@ Scenario Outline: Validate if the user can book OneWay Trip
      |childs|<childs>|
      |infant|<infant>|
      And I can enter contact details and Click PaySecurel button
+     Then I can navigative to payment page
+    # And I can enter the card details
+     |selectCard|<selectCard>|
     Examples:
-	|userName	|passWord	|fromCity	|toCity	|adults|childs|infant|addOnBaggage|CouponCodeStatus|EnterCoupon|
-	|******		|****** 	|JED		|CAI	|2		|2	  | 2    |NO			|NO              |		|
+	|userName	|selectCard	|fromCity	|toCity	|adults|childs|infant|addOnBaggage|CouponCodeStatus|EnterCoupon|
+	|******		|KNET		|DXB		|MCT	|2		|1	  | 2    |NO			|NO              |		|
 	
+@flight_healthcheck
+Scenario Outline: Validate if the user can book OneWay Trip
+	 When I go to Rehlat Home page
+     When I go to select OneWay Radio button
+     Examples:
+	|userName|
+	|     |

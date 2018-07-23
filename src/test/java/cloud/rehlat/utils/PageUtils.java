@@ -340,7 +340,7 @@ public class PageUtils {
 	 */
 	public boolean waitForElementToDisappear(WebDriver driver, WebElement element) {
 		boolean status = false;
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, 180);
 		wait.until(ExpectedConditions.invisibilityOf(element));
 		return status;
 	}
@@ -466,7 +466,7 @@ public class PageUtils {
 	 * @param textToAppear
 	 */
 	public void waitForElementTextToBe(WebDriver driver, WebElement element, String textToAppear) {
-		long timeoutInSeconds = 5;
+		long timeoutInSeconds = 180;
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		wait.until(ExpectedConditions.textToBePresentInElement(element, textToAppear));
 	}
