@@ -1,5 +1,5 @@
 #src/test/resources/features/flight/english/RegisterAccounts.feature
-Feature: Test Register functionality
+Feature: Multi Register functionality
   
 	
 Background:
@@ -13,4 +13,4 @@ Scenario Outline: Validate if the user have create Register account successfully
 	 
 	 Examples:
 	|numberOfAccountsCreated|
-	|	0					|
+	|1						|

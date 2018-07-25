@@ -1,5 +1,5 @@
 #src/test/resources/features/arabic/OneWay.feature
-Feature: Test Flight login functionality
+Feature: Arabic OneWay Trip functionality
   As a User to be able to use Flights functionality
   I want to be able to successfully login to Flights
 	

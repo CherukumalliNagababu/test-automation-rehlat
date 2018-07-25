@@ -466,7 +466,7 @@ public class PageUtils {
 	 * @param textToAppear
 	 */
 	public void waitForElementTextToBe(WebDriver driver, WebElement element, String textToAppear) {
-		long timeoutInSeconds = 180;
+		long timeoutInSeconds = 50;
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		wait.until(ExpectedConditions.textToBePresentInElement(element, textToAppear));
 	}
