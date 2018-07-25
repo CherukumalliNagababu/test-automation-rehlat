@@ -31,7 +31,7 @@ public class FlightLoginPage {
 	private  WebElement getText;
 	@FindBy(css=".ros_Header_theme_acc_txt")
 	private  WebElement btnmouse;
-	@FindBy(linkText="Sign Up")
+	@FindBy(linkText="SIGN UP")
 	private  WebElement btnSignUp;
 	
 	@FindBy(css="#identifierId")

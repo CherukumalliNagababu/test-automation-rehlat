@@ -1,5 +1,5 @@
 #src/test/resources/features/flight/english/GuestUser.feature
-Feature: Test Flight login functionality
+Feature: Guest user functionality on Flights 
   As a User to be able to use Flights functionality
   I want to be able to successfully login to Flights
 	
@@ -37,10 +37,11 @@ Scenario Outline: Validate if the user can book OneWay Trip
 	|userName	|selectCard	|fromCity	|toCity	|adults|childs|infant|addOnBaggage|CouponCodeStatus|EnterCoupon|
 	|******		|KNET		|DXB		|MCT	|2		|1	  | 2    |NO			|NO              |		|
 	
-@flight_healthcheck
-Scenario Outline: Validate if the user can book OneWay Trip
+	
+	@flight_healthcheck
+    Scenario Outline: Validate if the user can book OneWay Trip
 	 When I go to Rehlat Home page
      When I go to select OneWay Radio button
-     Examples:
-	|userName|
-	|     |
+      Examples:
+      |userName	|
+      | ***     |

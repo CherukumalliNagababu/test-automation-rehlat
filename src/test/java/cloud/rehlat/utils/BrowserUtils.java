@@ -48,6 +48,7 @@ public class BrowserUtils {
 			options.setHeadless(System.getProperty("headless", "false").equals("true"));
 			options.addArguments("--window-size=1366,768");
 			driver = new ChromeDriver(service, options);
+			driver.manage().window().maximize();
 			driver.manage().deleteAllCookies();
 		}
 		/*

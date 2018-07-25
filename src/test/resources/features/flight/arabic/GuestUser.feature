@@ -1,5 +1,5 @@
 #src/test/resources/features/arabic/GuestUser.feature
-Feature: Test Flight login functionality
+Feature: Arabic Guest User functionality
   As a User to be able to use Flights functionality
   I want to be able to successfully login to Flights
 	
@@ -35,3 +35,4 @@ Scenario Outline: Validate if the user for all roles can login successfully into
 	|userName	|passWord	|fromCity	|toCity	|adults|childs|infant|addOnBaggage|CouponCodeStatus|EnterCoupon|
 	|******		|****** 	|JED		|CAI	|3		|2	  | 2    |NO			|NO              |		|
 	
+

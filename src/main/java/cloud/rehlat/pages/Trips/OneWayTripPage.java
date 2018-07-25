@@ -86,7 +86,8 @@ public class OneWayTripPage {
 
 	}
 
-	public void selectmonth() {
+	public void selectmonth() throws InterruptedException {
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL_ENGINE);
 		pageUtils.clickElement(driver, btnDateFrom);
 		for (int i = 0; i < 2; i++) {
 			pageUtils.clickElement(driver, dateIconBtnFrom);

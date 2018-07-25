@@ -168,15 +168,12 @@ var options = {
  
     reporter.generate(options);
     */
-var Cucumber = require('cucumber');
-var fs = require('fs');
-//var reporter = require('cucumber-html-reporter');
-var CucumberHtmlReport = require('cucumber-html-report');
-var seleniumWebdriver = require('selenium-webdriver');
+var reporter = require('cucumber-html-reporter');
+ 
 var options = {
         theme: 'bootstrap',
-        jsonFile: 'test/report/cucumber_report.json',
-        output: 'test/report/cucumber_report.html',
+        jsonFile: 'Reports/cukes/cucumber.json',
+        output: 'Reports/cucumber_report.html',
         reportSuiteAsScenarios: true,
         launchReport: true,
         metadata: {
@@ -188,5 +185,5 @@ var options = {
             "Executed": "Remote"
         }
     };
-
+ 
     reporter.generate(options);
