@@ -4,7 +4,6 @@ Feature: Guest user functionality on Hotels
 	
 Background:
 	Given I am on login page of Hotels
-
 @flight_healthcheck
 Scenario Outline: Validate if the user can book on Hotels
 	 When I go to Rehlat Home page
