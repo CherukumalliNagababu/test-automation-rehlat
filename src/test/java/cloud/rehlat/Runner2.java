@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
 						plugin = {"pretty", "html:target/reports"}
 		) */
 @CucumberOptions( 
-features = "src/test/resources/features/flight/english/GuestUser.feature",
+features = "src/test/resources/features/flight",
 tags = {"@flight_healthcheck"},
         format = {  
 	     "pretty", "html:Reports/cukes", "json:Reports/cukes/cucumber.json", "junit:Reports/cukes/junit.xml"})  
