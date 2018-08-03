@@ -105,10 +105,19 @@ public class BookingSummaryPage {
 		return status;
 	}
 
+	/**
+	 * this method is used to enter email id
+	 */
 	public void enterEmail() {
 		pageUtils.sendKeysAfterClearingElement(driver, txtEmail, "naga.ch199@gmail.com");
 	}
 
+	/**
+	 * this method is used to enter coupon code
+	 * 
+	 * @param dataMap
+	 * @throws InterruptedException
+	 */
 	public void couponCode(Map<String, String> dataMap) throws InterruptedException {
 		String CouponCode = dataMap.get("CouponCodeStatus");
 		String EnterCoupon = dataMap.get("EnterCoupon");
@@ -123,6 +132,10 @@ public class BookingSummaryPage {
 		}
 	}
 
+	/**
+	 * This method is used to click on the Show more details link in Booking
+	 * summary page
+	 */
 	public void verifyShowMoreDetails() {
 		pageUtils.clickElement(driver, linkShowMoreDetails);
 		pageUtils.clickElement(driver, btnFarerulesPopUp);
@@ -189,6 +202,12 @@ public class BookingSummaryPage {
 
 	}
 
+	/**
+	 * This method is used to get the details in fare break popUp page(while add
+	 * the baggage checkbox)
+	 * 
+	 * @throws InterruptedException
+	 */
 	public void addBaggageCheckbox() throws InterruptedException {
 
 		pageUtils.clickElement(driver, linkFareBreakup);
@@ -216,6 +235,13 @@ public class BookingSummaryPage {
 		System.out.println(totalname + "--------------------------------" + totalprice);
 		pageUtils.clickElement(driver, closePopUp);
 	}
+
+	/**
+	 * This method is used to get the details in fare break popUp page(Without
+	 * add checkbox)
+	 * 
+	 * @throws InterruptedException
+	 */
 
 	public void withOutAddBaggageCheckbox() throws InterruptedException {
 

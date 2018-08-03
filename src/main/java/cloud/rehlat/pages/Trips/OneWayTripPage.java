@@ -22,6 +22,7 @@ public class OneWayTripPage {
 	String userAccount;
 	String SelectedFromCity;
 	String SelectedToCity;
+
 	public OneWayTripPage(WebDriver driver) {
 		this.driver = driver;
 		this.pageUtils = PageUtils.getInstance();
@@ -65,27 +66,36 @@ public class OneWayTripPage {
 	private WebElement priceLowToHigh;
 	@FindBy(xpath = "(//a[contains(text(),'High to Low')])[2]")
 	private WebElement priceHighToLow;
-	
-	
 
+	/**
+	 * This method is used to enter city names
+	 * 
+	 * @param dataMap
+	 * @throws InterruptedException
+	 */
 	public void enterFromAndToCityNames(Map<String, String> dataMap) throws InterruptedException {
 		String fromCity = dataMap.get("fromCity");
 		String toCity = dataMap.get("toCity");
 		pageUtils.sendKeysAfterClearingElement(driver, txtFlyFrom, fromCity);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 		txtFlyFrom.sendKeys(Keys.TAB);
-		String userSelectFromValue=txtFlyFrom.getAttribute("value");
-		String[] getTextFrom=DataUtils.splitString(userSelectFromValue, " ");
-		 SelectedFromCity=getTextFrom[0];
+		String userSelectFromValue = txtFlyFrom.getAttribute("value");
+		String[] getTextFrom = DataUtils.splitString(userSelectFromValue, " ");
+		SelectedFromCity = getTextFrom[0];
 		pageUtils.sendKeysAfterClearingElement(driver, txtFlyTo, toCity);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 		txtFlyTo.sendKeys(Keys.TAB);
-		String userSelectToValue=txtFlyTo.getAttribute("value");
-		String[] getTextTo=DataUtils.splitString(userSelectToValue, " ");
-		 SelectedToCity=getTextTo[0];
+		String userSelectToValue = txtFlyTo.getAttribute("value");
+		String[] getTextTo = DataUtils.splitString(userSelectToValue, " ");
+		SelectedToCity = getTextTo[0];
 
 	}
 
+	/**
+	 * this method is used Select month
+	 * 
+	 * @throws InterruptedException
+	 */
 	public void selectmonth() throws InterruptedException {
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL_ENGINE);
 		pageUtils.clickElement(driver, btnDateFrom);
@@ -94,8 +104,11 @@ public class OneWayTripPage {
 		}
 	}
 
+	/**
+	 * this method is used Select date @throws
+	 */
 	public void selectDate() {
-		
+
 		List<WebElement> li = allDates;
 		for (WebElement we : li) {
 			String st = we.getText();
@@ -106,15 +119,18 @@ public class OneWayTripPage {
 		}
 	}
 
-	public void selectTravellerDetails(Map<String, String> dataMap)
-			throws InterruptedException {
-		
-		
+	/**
+	 * This method is used to select number of traveler details
+	 * 
+	 * @param dataMap
+	 * @throws InterruptedException
+	 */
+	public void selectTravellerDetails(Map<String, String> dataMap) throws InterruptedException {
+
 		String numofAdults = dataMap.get("adults");
 		String numofChilds = dataMap.get("childs");
 		String numofInfants = dataMap.get("infant");
-		
-		
+
 		pageUtils.clickElement(driver, drpTraveler);
 
 		int Adult = Integer.parseInt(numofAdults);
@@ -137,70 +153,63 @@ public class OneWayTripPage {
 		pageUtils.clickElement(driver, btnTravellerDone);
 	}
 
+	/**
+	 * This method is used to Click on Search button
+	 * 
+	 * @throws InterruptedException
+	 */
 	public void clickSearch() throws InterruptedException {
 		pageUtils.clickElement(driver, btnSearch);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 	}
-	
-	
-	
-	
-	public boolean verifyText()
-	{
-		boolean status=false;
+
+	/**
+	 * This method is used to verify the text
+	 * 
+	 * @return
+	 */
+	public boolean verifyText() {
+		boolean status = false;
 		pageUtils.isElementDisplayed(driver, headerText);
-		String getText=pageUtils.getTextOfElement(driver, headerText);
-		String[] Splitvalue=DataUtils.splitString(getText, " ");
-		String FromText=Splitvalue[2];
-		String ToText=Splitvalue[4];
-		if(FromText.equals(SelectedFromCity))
-		{
+		String getText = pageUtils.getTextOfElement(driver, headerText);
+		String[] Splitvalue = DataUtils.splitString(getText, " ");
+		String FromText = Splitvalue[2];
+		String ToText = Splitvalue[4];
+		if (FromText.equals(SelectedFromCity)) {
 			System.out.println("FLIGHTS:USER SELECTED FROM VALUE AND BOOK NOW PAGE HEADER VALUE IS MATCHING");
-			status=true;
-			
+			status = true;
+
+		} else {
+			Assert.assertTrue("FLIGHTS:USER SELECTED FROM VALUE AND BOOK NOW PAGE HEADER VALUE IS NOT MATCHING",
+					status);
+			status = false;
 		}
-		else
-		{
-			Assert.assertTrue("FLIGHTS:USER SELECTED FROM VALUE AND BOOK NOW PAGE HEADER VALUE IS NOT MATCHING", status);	
-			status=false;
-		}
-		if(ToText.equals(SelectedToCity))
-		{
+		if (ToText.equals(SelectedToCity)) {
 			System.out.println("FLIGHTS:USER SELECTED TO VALUE AND INSIDE BOOK NOW PAGE  VALUE IS MATCHING");
-			status=true;
+			status = true;
+		} else {
+			Assert.assertTrue("FLIGHTS:USER SELECTED TO VALUE AND BOOK NOW PAGE HEADER VALUE IS NOT MATCHING", status);
+			status = false;
 		}
-		else
-		{
-			Assert.assertTrue("FLIGHTS:USER SELECTED TO VALUE AND BOOK NOW PAGE HEADER VALUE IS NOT MATCHING", status);	
-			status=false;
-		}
-		String fromText=pageUtils.getTextOfElement(driver, fromTextInBook);
-		String toText=pageUtils.getTextOfElement(driver, toTextInBook);
-		if(fromText.equals(SelectedFromCity))
-		{
+		String fromText = pageUtils.getTextOfElement(driver, fromTextInBook);
+		String toText = pageUtils.getTextOfElement(driver, toTextInBook);
+		if (fromText.equals(SelectedFromCity)) {
 			System.out.println("FLIGHTS:USER SELECTED FROM VALUE AND INSIDE BOOK NOW PAGE  VALUE IS MATCHING");
-			status=true;
+			status = true;
+		} else {
+			Assert.assertTrue("FLIGHTS:USER SELECTED FROM VALUE AND INSIDE BOOK NOW PAGE  VALUE IS NOT MATCHING",
+					status);
+			status = false;
 		}
-		else
-		{
-			Assert.assertTrue("FLIGHTS:USER SELECTED FROM VALUE AND INSIDE BOOK NOW PAGE  VALUE IS NOT MATCHING", status);	
-			status=false;
-		}
-		if(toText.equals(SelectedToCity))
-		{
+		if (toText.equals(SelectedToCity)) {
 			System.out.println("FLIGHTS:USER SELECTED TO VALUE AND INSIDE BOOK NOW PAGE  VALUE IS MATCHING");
-			status=true;
-		}
-		else
-		{
+			status = true;
+		} else {
 			Assert.assertTrue("FLIGHTS:USER SELECTED TO VALUE AND INSIDE BOOK NOW PAGE  VALUE IS NOT MATCHING", status);
-			status=false;
+			status = false;
 		}
 		return status;
-		
+
 	}
-	
-	
-	
-	
+
 }

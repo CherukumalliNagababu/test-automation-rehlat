@@ -49,10 +49,17 @@ public class RegisterPage {
 	@FindBy(linkText="LOG OUT")
 	private  WebElement btnLogOut;
 	
+	/**
+	 * This method is used to enter Register details 
+	 * @return
+	 * @throws InterruptedException
+	 */
 	
 	public String enterRegisterDetails() throws InterruptedException
 	{
 		String firstName = TestDataUtils.getUniqueRegisterFirstName();
+		String firstName1 = TestDataUtils.getUniqueRegisterFirstName();
+		System.out.println(firstName +" "+firstName1);
 		//String displayName = TestDataUtils.getUniqueDisplayName();
 		String lastName  = TestDataUtils.getUniqueRegisterLastName();
 		String email = TestDataUtils.getUniqueEmailId();
@@ -70,11 +77,19 @@ public class RegisterPage {
 		return strCreatedUser;
 		
 	}
+	/**
+	 * this method is used to click on sign up button in home page
+	 * @throws InterruptedException
+	 */
 	public void  clickOnSignUp() throws InterruptedException {
 		pageUtils.mouseAction(driver, btnmouse);
 		pageUtils.clickElement(driver, btnHomepageSignUp);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 	}
+	/**
+	 * this method is used to click on logout
+	 * @throws InterruptedException
+	 */
 	 public void signOut() throws InterruptedException
 	 {
 		 pageUtils.mouseAction(driver, btnmouse); 

@@ -200,6 +200,12 @@ public class PaymentCardsPage {
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 	}
 
+	/**
+	 * This method is used to select card
+	 * @param dataMap
+	 * @throws InterruptedException
+	 */
+	
 	public void selectCard(Map<String, String> dataMap) throws InterruptedException {
 		String selectCard = dataMap.get("selectCard");
 		if (selectCard.equalsIgnoreCase("Debitcard")) {

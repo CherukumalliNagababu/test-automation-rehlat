@@ -21,9 +21,9 @@ public class HookUtils {
 	 */
 	@After
 	public void cleanUp(Scenario scenario) {
-		if (scenario.isFailed()) {
+		//if (scenario.isFailed()) {
 	         scenario.embed(((TakesScreenshot)BrowserUtils.driver).getScreenshotAs(OutputType.BYTES), "image/png");
-	    }
+	    //}
 		
 		
 		try {
