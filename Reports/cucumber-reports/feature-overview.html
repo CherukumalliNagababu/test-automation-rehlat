@@ -89,12 +89,12 @@ table.stats-table td {
             window.onload = function () {
                 var steps = Raphael("steps_chart");
                 steps.text(45, 280, "Steps").attr({ font: "30px sans-serif" });
-                steps.piechart(200, 150, 120, [ 6 ,  0.000001 ,  0.000001 ,  0.000001 ], { legend: ["%%.%% - Passed", "%%.%% - Failed", "%%.%% - Skipped", "%%.%% - Pending"], legendpos: "east", colors: ["#88dd11","#FBB917","#cc1134","#88aaff"]});
+                steps.piechart(200, 150, 120, [ 3 ,  0.000001 ,  0.000001 ,  0.000001 ], { legend: ["%%.%% - Passed", "%%.%% - Failed", "%%.%% - Skipped", "%%.%% - Pending"], legendpos: "east", colors: ["#88dd11","#FBB917","#cc1134","#88aaff"]});
 
 
                 var scenarios = Raphael("scenarios_chart");
                 scenarios.text(75, 280, "Scenarios").attr({ font: "30px sans-serif", fill: "white" });
-                scenarios.piechart(200, 150, 120, [ 2 , 0.000001 ], { legend: ["%%.%% - Passed", "%%.%% - Failed"], legendpos: "east", colors: ["#88dd11","#cc1134"], legendcolor: "white"});
+                scenarios.piechart(200, 150, 120, [ 1 , 0.000001 ], { legend: ["%%.%% - Passed", "%%.%% - Failed"], legendpos: "east", colors: ["#88dd11","#cc1134"], legendcolor: "white"});
             };
         </script>
         <noscript>
@@ -144,30 +144,30 @@ table.stats-table td {
 
           
           <tr>
-          <td style="text-align:left;"><a id="stats-Test Flight login functionality" href="test-resources-features-flight-english-GuestUser.feature.html">Test Flight login functionality</a></td>
-          <td id="stats-number-scenarios-Test Flight login functionality">2</td>
-          <td id="stats-number-scenarios-passed-Test Flight login functionality">2</td>
-          <td id="stats-number-scenarios-failed-Test Flight login functionality">0</td>
-          <td id="stats-number-steps-Test Flight login functionality">6</td>
-          <td id="stats-number-steps-passed-Test Flight login functionality">6</td>
-          <td id="stats-number-steps-failed-Test Flight login functionality">0</td>
-          <td id="stats-number-steps-skipped-Test Flight login functionality">0</td>
-          <td id="stats-number-steps-pending-Test Flight login functionality">0</td>
-          <td id="stats-duration-Test Flight login functionality">4 secs and 654 ms</td>
-          <td id="stats-status-Test Flight login functionality" style="background-color: #C5D88A;">passed</td>
+          <td style="text-align:left;"><a id="stats-Guest user functionality on Flights" href="test-resources-features-flight-english-GuestUser.feature.html">Guest user functionality on Flights</a></td>
+          <td id="stats-number-scenarios-Guest user functionality on Flights">1</td>
+          <td id="stats-number-scenarios-passed-Guest user functionality on Flights">1</td>
+          <td id="stats-number-scenarios-failed-Guest user functionality on Flights">0</td>
+          <td id="stats-number-steps-Guest user functionality on Flights">3</td>
+          <td id="stats-number-steps-passed-Guest user functionality on Flights">3</td>
+          <td id="stats-number-steps-failed-Guest user functionality on Flights">0</td>
+          <td id="stats-number-steps-skipped-Guest user functionality on Flights">0</td>
+          <td id="stats-number-steps-pending-Guest user functionality on Flights">0</td>
+          <td id="stats-duration-Guest user functionality on Flights">2 secs and 327 ms</td>
+          <td id="stats-status-Guest user functionality on Flights" style="background-color: #C5D88A;">passed</td>
           </tr>
       
 <tr>
 <td id="stats-total-features" style="background-color:lightgray;font-weight:bold;">1</td>
-<td id="stats-total-scenarios" style="background-color:lightgray;font-weight:bold;">2</td>
-<td id="stats-total-scenarios-passed" style="background-color:lightgray;font-weight:bold;">2</td>
+<td id="stats-total-scenarios" style="background-color:lightgray;font-weight:bold;">1</td>
+<td id="stats-total-scenarios-passed" style="background-color:lightgray;font-weight:bold;">1</td>
 <td id="stats-total-scenarios-failed" style="background-color:lightgray;font-weight:bold;">0</td>
-<td id="stats-total-steps" style="background-color:lightgray;font-weight:bold;">6</td>
-<td id="stats-total-steps-passed" style="background-color:lightgray;font-weight:bold;">6</td>
+<td id="stats-total-steps" style="background-color:lightgray;font-weight:bold;">3</td>
+<td id="stats-total-steps-passed" style="background-color:lightgray;font-weight:bold;">3</td>
 <td id="stats-total-steps-failed" style="background-color:lightgray;font-weight:bold;">0</td>
 <td id="stats-total-steps-skipped" style="background-color:lightgray;font-weight:bold;">0</td>
 <td id="stats-total-steps-pending" style="background-color:lightgray;font-weight:bold;">0</td>
-<td id="stats-total-duration" style="background-color:lightgray;font-weight:bold;">4 secs and 654 ms</td>
+<td id="stats-total-duration" style="background-color:lightgray;font-weight:bold;">2 secs and 327 ms</td>
 <td id="stats-total-totals" style="background-color:lightgray;font-weight:bold;">Totals</td>
 </tr></table>
 	</div>
@@ -179,7 +179,7 @@ table.stats-table td {
 	<div class="container_12">
 		<div class="grid_12 hr"></div>
 		<div class="grid_12 footer">
-			<p style="text-align:center;">Cucumber-JVM Jenkins Report Plugin - version: cucumber-reporting-0.0.22 - 24-07-2018 15:01:43</p>
+			<p style="text-align:center;">Cucumber-JVM Jenkins Report Plugin - version: cucumber-reporting-0.0.22 - 26-07-2018 10:55:56</p>
 		</div>
 	</div>
 	<div class="clear"></div>

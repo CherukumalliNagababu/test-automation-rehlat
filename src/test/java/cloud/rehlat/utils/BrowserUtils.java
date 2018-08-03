@@ -34,6 +34,8 @@ public class BrowserUtils {
 		getApplicationUrl();
 		driver.get(applicationUrl);
 		driver.manage().window().maximize();
+		onload_alert();
+		
 	}
 
 	public static WebDriver launchBrowser() {
@@ -47,8 +49,9 @@ public class BrowserUtils {
 			options.merge(capabilities);
 			options.setHeadless(System.getProperty("headless", "false").equals("true"));
 			options.addArguments("--window-size=1366,768");
+			//options.addArguments("--window-size=1500,900");
 			driver = new ChromeDriver(service, options);
-			driver.manage().window().maximize();
+			
 			driver.manage().deleteAllCookies();
 		}
 		/*
@@ -123,6 +126,7 @@ public class BrowserUtils {
 				case "STG":
 					engineEnvironment = BrowserConstants.ENV_STG;
 					applicationUrl = BrowserConstants.ENG_EG_STG_URL;
+					
 					break;
 
 				default:
@@ -279,5 +283,16 @@ public class BrowserUtils {
 				
 			}
 		}
+	}
+	
+	private static void onload_alert()
+	{
+		String stg=System.getProperty("environment", "STG");
+		if(stg.equals("STG"))
+		{
+		driver.switchTo().alert().sendKeys("ros@965");
+		driver.switchTo().alert().accept();
+		}
+		
 	}
 }

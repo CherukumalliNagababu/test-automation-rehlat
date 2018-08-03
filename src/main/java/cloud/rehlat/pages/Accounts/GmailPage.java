@@ -1,26 +1,32 @@
 package cloud.rehlat.pages.Accounts;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+
+import javax.mail.MessagingException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+
 import cloud.rehlat.constants.common.BrowserConstants;
 import cloud.rehlat.constants.common.DataConstants;
 import cloud.rehlat.utils.PageUtils;
 import cloud.rehlat.utils.TestDataUtils;
-
+import cloud.rehlat.utils.MailUtils;
 
 public class GmailPage {
 	public WebDriver driver;
 	private PageUtils pageUtils;
+	private MailUtils mailUtils;
 	String userAccount;
 
 	public GmailPage(WebDriver driver) {
 		this.driver = driver;
+		this.mailUtils = MailUtils.getInstance();
 		this.pageUtils = PageUtils.getInstance();
 		PageFactory.initElements(this.driver, this);
 	}
@@ -35,8 +41,14 @@ public class GmailPage {
 	@FindBy(xpath="//div[@id='passwordNext']/div[2]")
 	private WebElement btnPwdNext;
 	
-	public void enterGmailCredentials() throws InterruptedException {
-	    
+	/**
+	 * This method is used to enter the gmail details(login to gmail)
+	 * @throws InterruptedException
+	 * @throws IOException 
+	 * @throws MessagingException 
+	 */
+	public void enterGmailCredentials() throws InterruptedException, IOException {
+	   
 		pageUtils.switchWindows(driver);
 		pageUtils.sendKeysAfterClearingElement(driver, txtUsername, DataConstants.GMAIL_USERNAME);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
@@ -48,8 +60,25 @@ public class GmailPage {
 		pageUtils.switchToParentWindow(driver);
 		pageUtils.refreshPage(driver);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
-		
+		//verificationFor2fa();
 		
 	} 
 
+	
+	
+	
+	
+	/**
+	 * This method is used to complete the steps required for 2fa
+	 * @throws IOException 
+	 * @throws MessagingException 
+	 */
+	public void verificationFor2fa() throws MessagingException, IOException {
+		verifyMailPage engine2fa = new verifyMailPage(driver);
+		engine2fa.clickSendBackupCodeToMail();
+		String recoveryCode =engine2fa.goToRecoveryCodeMail();
+		engine2fa.enterRecoveryCode(recoveryCode);
+		engine2fa.clickSubmit();
+	}
+	
 }

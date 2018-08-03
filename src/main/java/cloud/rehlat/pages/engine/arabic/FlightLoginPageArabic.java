@@ -62,17 +62,28 @@ public class FlightLoginPageArabic {
 		pageUtils.sendKeysAfterClearingElement(driver, txtPassword, password);
 		pageUtils.clickElement(driver, btnNextpass);
 	}
-	
+	/**
+	 * this method is used to mouse over action in home page
+	 * @return
+	 */
 	public  FlightNavigationArabic LoginbuttonmouseOver() {
 		pageUtils.mouseAction(driver, btnmouse);
 		return new FlightNavigationArabic(driver) ;
 	}
+	/**
+	 * this method is used to click on SignUp 
+	 * @return
+	 */
 	public  FlightNavigationArabic clicksignbtn() throws InterruptedException {
 		pageUtils.clickElement(driver, btnSignIn);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 		return new FlightNavigationArabic(driver) ;
 		
 	}
+	/**
+	 * this method is used to get the text in home page
+	 * @return
+	 */
 	public  FlightNavigationArabic Homepage() {
 		pageUtils.getTextOfElement(driver, getText);
 		return new FlightNavigationArabic(driver) ;

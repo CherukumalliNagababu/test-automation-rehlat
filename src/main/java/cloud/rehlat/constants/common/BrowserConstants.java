@@ -5,10 +5,7 @@ public class BrowserConstants {
 	public static final String ENG = "ENG";
 	public static final String ARB = "ARB";
 	
-	//Application for Automation
-	public static final String CANOPY = "Canopy";
-	public static final String ENGINE = "Engine";
-
+	
 	
 	//English URLs
 	//SA

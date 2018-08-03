@@ -168,12 +168,12 @@ var options = {
  
     reporter.generate(options);
     */
-var reporter = require('cucumber-html-reporter');
+var reporter = require('cucumber-html-reporter12');
  
 var options = {
         theme: 'bootstrap',
-        jsonFile: 'Reports/cukes/cucumber.json',
-        output: 'Reports/cucumber_report.html',
+        jsonFile: 'test-automation-rehlat/Reports/cukes/cucumber.json',
+        output: 'test-automation-rehlat/Reports/cukes/cucumber_report.html',
         reportSuiteAsScenarios: true,
         launchReport: true,
         metadata: {

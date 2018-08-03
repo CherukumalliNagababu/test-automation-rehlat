@@ -7,7 +7,7 @@ public class EngineConstants {
 
 	// Page Titles
 	public static final String TITLE_REHLAT_COM = "Flight Booking, Airline Tickets, Hotels & Flight Deals - Rehlat";
-	public static final String TITLE_REHLAT_AE = "Rehlat";
+	public static final String TITLE_REHLAT_AE = "Flight & Hotels Booking Online, Airline Tickets & Deals | Rehlat.ae";
 	public static final String TITLE_REHLAT_SA = "Cheap Flight & Hotel Bookings Online - Airline Tickets, Airfares & Deals";
 	public static final String TITLE_REHLAT_EG = "Flight, Airlines and Hotels Online Booking, Great Deals & Offers | Rehlat Egypt";
 	public static final String TITLE_REHLAT_COM_FLIGHT = "Cheap Flights & Airline Tickets Booking – Great Flight Deals | Rehlat";

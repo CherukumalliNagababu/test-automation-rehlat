@@ -36,9 +36,9 @@ public class TravellerInformationArabicSteps extends StepUtils {
 	public void i_can_enter_Traveller_arabic_details(DataTable dataTable) throws Throwable {
 		Map<String, String> dataMap = getDataAsMap(dataTable);
 		travellerInformationArabicPage.adultDetails(dataMap);
-		travellerInformationArabicPage.childDetails_test(dataMap);
+		travellerInformationArabicPage.childDetails(dataMap);
 		travellerInformationArabicPage.infantsDetails(dataMap);
-		Thread.sleep(15000);
+		Thread.sleep(5000);
 
 	}
 

@@ -1,4 +1,4 @@
-set projectLocation=D:\SeleniumWorkSpace\test-automation-rehlat
+set projectLocation=D:\NewWorkSpace\test-automation-rehlat
 
 cd %projectLocation%
 

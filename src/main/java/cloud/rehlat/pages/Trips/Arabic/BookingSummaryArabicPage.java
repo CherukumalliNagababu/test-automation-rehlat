@@ -78,19 +78,16 @@ public class BookingSummaryArabicPage {
 	private WebElement btnContinueBooking;
 	@FindBy(css = "div.modal-header > button.close.btn_Close")
 	private WebElement closePopUp;
-	
-	
-	
-	
-	
+
 	/**
 	 * This method is used to click the ContinueBooking button
+	 * 
 	 * @return boolean
 	 */
 	public boolean clickContinueBooking() {
 		boolean status = false;
 		try {
-			
+
 			pageUtils.clickElement(driver, btnContinueBooking);
 			pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 			status = true;
@@ -100,15 +97,21 @@ public class BookingSummaryArabicPage {
 		}
 		return status;
 	}
-	
-	
-	
-	
+
+	/**
+	 * this method is used to enter email id
+	 */
 
 	public void enterEmail() {
 		pageUtils.sendKeysAfterClearingElement(driver, txtEmail, "naga.ch199@gmail.com");
 	}
 
+	/**
+	 * this method is used to enter coupon code
+	 * 
+	 * @param dataMap
+	 * @throws InterruptedException
+	 */
 	public void couponCode(Map<String, String> dataMap) throws InterruptedException {
 		String CouponCode = dataMap.get("CouponCodeStatus");
 		String EnterCoupon = dataMap.get("EnterCoupon");
@@ -122,18 +125,22 @@ public class BookingSummaryArabicPage {
 			pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 		}
 	}
- public void verifyShowMoreDetails()
- {
-	 pageUtils.clickElement(driver, linkShowMoreDetails);
-	 pageUtils.clickElement(driver, btnFarerulesPopUp);
-	 pageUtils.clickElement(driver, btnBaggageInformation);
-	 pageUtils.clickElement(driver, iconPopUpClose);
-	 
- }
- 
+
 	/**
-	 * This method is used to select/de-select the Add-On Baggage checkbox depending
-	 * on the input parameter
+	 * This method is used to click on the Show more details link in Booking
+	 * summary page
+	 */
+	public void verifyShowMoreDetails() {
+		pageUtils.clickElement(driver, linkShowMoreDetails);
+		pageUtils.clickElement(driver, btnFarerulesPopUp);
+		pageUtils.clickElement(driver, btnBaggageInformation);
+		pageUtils.clickElement(driver, iconPopUpClose);
+
+	}
+
+	/**
+	 * This method is used to select/de-select the Add-On Baggage checkbox
+	 * depending on the input parameter
 	 * 
 	 * @param addOnBaggage
 	 * @throws InterruptedException
@@ -162,8 +169,8 @@ public class BookingSummaryArabicPage {
 	}
 
 	/**
-	 * This method is used to select/de-select the Add-On Ooredoo checkbox depending
-	 * on the input parameter
+	 * This method is used to select/de-select the Add-On Ooredoo checkbox
+	 * depending on the input parameter
 	 * 
 	 * @param addOnOoredoo
 	 * @throws InterruptedException
@@ -190,6 +197,12 @@ public class BookingSummaryArabicPage {
 
 	}
 
+	/**
+	 * This method is used to get the details in fare break popUp page(while add
+	 * the baggage checkbox)
+	 * 
+	 * @throws InterruptedException
+	 */
 	public void addBaggageCheckbox() throws InterruptedException {
 
 		pageUtils.clickElement(driver, linkFareBreakup);
@@ -218,6 +231,12 @@ public class BookingSummaryArabicPage {
 
 	}
 
+	/**
+	 * This method is used to get the details in fare break popUp page(Without
+	 * add checkbox)
+	 * 
+	 * @throws InterruptedException
+	 */
 	public void withOutAddBaggageCheckbox() throws InterruptedException {
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 		pageUtils.clickElement(driver, linkFareBreakup);
@@ -227,7 +246,8 @@ public class BookingSummaryArabicPage {
 		String childname = pageUtils.getTextOfElement(driver, getChildName);
 		String infantname = pageUtils.getTextOfElement(driver, getInfantName);
 		String farename = pageUtils.getTextOfElement(driver, getFareName);
-		// String baggagename = pageUtils.getTextOfElement(driver, getAddonBaggageName);
+		// String baggagename = pageUtils.getTextOfElement(driver,
+		// getAddonBaggageName);
 		String totalname = pageUtils.getTextOfElement(driver, getTotalName);
 
 		String adultprice = pageUtils.getTextOfElement(driver, getAdultPrice);
@@ -248,7 +268,5 @@ public class BookingSummaryArabicPage {
 		pageUtils.clickElement(driver, closePopUp);
 
 	}
-	
-	
-	
+
 }

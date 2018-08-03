@@ -21,13 +21,13 @@ public class BookNowArabicPage {
 	String userAccount;
 	String SelectedFromCity;
 	String SelectedToCity;
+
 	public BookNowArabicPage(WebDriver driver) {
 		this.driver = driver;
 		this.pageUtils = PageUtils.getInstance();
 		PageFactory.initElements(this.driver, this);
 	}
 
-	
 	@FindBy(linkText = "السعر")
 	private WebElement btnPrice;
 	@FindBy(linkText = "من الأدنى إلى الأعلى")
@@ -60,49 +60,58 @@ public class BookNowArabicPage {
 	private WebElement btnBookNowFirst;
 	@FindBy(xpath = "//div[2]/div/div/div[2]/button")
 	private List<WebElement> numberOfFlights;
-	
-	
-	
-	
-	
-	
-	public void filter(String pricefilter)
-	{
+
+	/**
+	 * This method is used to filter the value(Hight to low OR Low to High) in
+	 * book now page
+	 * 
+	 * @param pricefilter
+	 */
+
+	public void filter(String pricefilter) {
 		pageUtils.clickElement(driver, btnPrice);
-		if("من الأدنى إلى الأعلى".equalsIgnoreCase(pricefilter))
-		{
+		if ("من الأدنى إلى الأعلى".equalsIgnoreCase(pricefilter)) {
 			pageUtils.clickElement(driver, priceLowToHigh);
-		}
-		else if("من الأعلى إلى الأدنى ".equalsIgnoreCase(pricefilter))
-		{
+		} else if ("من الأعلى إلى الأدنى ".equalsIgnoreCase(pricefilter)) {
 			pageUtils.clickElement(driver, priceHighToLow);
 		}
 	}
-	
 
-	public void flightDetailsPopUp() throws InterruptedException
-	{
+	/**
+	 * This method is used to get the details in flight Details PopUp page
+	 * 
+	 * @throws InterruptedException
+	 */
+	public void flightDetailsPopUp() throws InterruptedException {
 		pageUtils.clickElement(driver, linkFlightDetailsTop);
 		pageUtils.clickElement(driver, btnFarerulesPopUp);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 		pageUtils.clickElement(driver, btnBaggageInformation);
 	}
 
-	public void clickOnPopUpClose()
-	{
+	/**
+	 * This method is used to close the flight Details PopUp page
+	 */
+	public void clickOnPopUpClose() {
 		pageUtils.clickElement(driver, iconPopUpClose);
 	}
-	
-	
-	public void numberOfFlights() throws InterruptedException
-	{
-	List<WebElement> currentpage=numberOfFlights;
-	System.out.println("Number Of Flights In Current Page:"+currentpage.size());
-	pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
+
+	/**
+	 * this method is used to get the number of flights available in book now
+	 * page
+	 * 
+	 * @throws InterruptedException
+	 */
+	public void numberOfFlights() throws InterruptedException {
+		List<WebElement> currentpage = numberOfFlights;
+		System.out.println("Number Of Flights In Current Page:" + currentpage.size());
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 	}
-	
-	public void clickOnBookNow()
-	{
+
+	/**
+	 * This method is used to Click On Book now Top Button
+	 */
+	public void clickOnBookNow() {
 		pageUtils.clickElement(driver, btnBookNowFirst);
 	}
 }
