@@ -45,7 +45,6 @@ public class SearchHotelPage {
 	private WebElement btndropDown;
 	@FindBy(xpath = "//a[contains(text(),'+ Add Room')]")
 	private WebElement btnAddrooms;
-
 	@FindBy(xpath = "//div[@id='Room_1']/div/div/div[3]/div/select")
 	private WebElement selectAdults_room1;
 	@FindBy(xpath = "//div[@id='Room_1']/div/div[2]/div[3]/div/select")
@@ -96,9 +95,6 @@ public class SearchHotelPage {
 	@FindBy(id = "btnSearchNewHomePage")
 	private WebElement btnSearch;
 
-	
-	
-	
 	/**
 	 * This method is used to Click on Done button
 	 */

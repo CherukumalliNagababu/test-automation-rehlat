@@ -48,10 +48,9 @@ public class verifyMailPage {
 	public void clickSubmit() {
 		pageUtils.clickElement(driver, btnSubmit);
 	}
-
 	/**
 	 * This method is used to enter the recovery code sent to email
-	 * so that the user with 2fa activated can login to Canopy
+	 * 
 	 */
 	public void enterRecoveryCode(String recoveryCode) {
 		pageUtils.sendKeysAfterClearingElement(driver, txtRecoveryCode, recoveryCode);

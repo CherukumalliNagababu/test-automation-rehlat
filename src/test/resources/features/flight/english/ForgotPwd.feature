@@ -1,11 +1,8 @@
 #src/test/resources/features/flight/english/ForgotPwd.feature
-Feature: Guest user functionality on Flights 
-  As a User to be able to use Flights functionality
-  I want to be able to successfully login to Flights
-	
-Background:
+Feature: forgot password functionality
+ 
+	Background:
 	Given I am on login page of Flights
-
 @flight_healthcheck
 Scenario Outline: Validate if the user can forgotpassword
 	 When I go to Rehlat Home page

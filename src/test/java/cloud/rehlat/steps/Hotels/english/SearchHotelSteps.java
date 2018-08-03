@@ -22,20 +22,17 @@ public class SearchHotelSteps extends StepUtils {
 	WebDriver driver = BrowserUtils.getDriverInstance();
 	FlightNavigation FlightNavigation = FlightLoginSteps.FlightNavigation;
 	SearchHotelPage searchHotelPage = null;
-
 	@When("^I can click on hotel link$")
 	public void i_can_click_on_hotel_link() throws Throwable {
 		searchHotelPage = FlightNavigation.clickHotelLink();
 		Thread.sleep(2000);
 	}
-
 	@When("^I can enter Hotel city name$")
 	public void i_can_enter_Hotel_city_name(DataTable dataTable) throws Throwable {
 		Map<String, String> dataMap = getDataAsMap(dataTable);
 		searchHotelPage.enterHotelCityName(dataMap);
 
 	}
-
 	@When("^I can select CheckIn Date and CheckOut Date$")
 	public void i_can_select_CheckIn_date_and_CheckOut_date() throws Throwable {
 		searchHotelPage.selectCheckInmonth();
@@ -43,7 +40,6 @@ public class SearchHotelSteps extends StepUtils {
 		searchHotelPage.selectCheckOutmonth();
 		searchHotelPage.selectCheckOutDate();
 	}
-
 	@When("^I can select the hotel traveller Details$")
 	public void i_can_select_the_hotel_traveller_details(DataTable dataTable) throws Throwable {
 		Map<String, String> dataMap = getDataAsMap(dataTable);

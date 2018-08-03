@@ -29,7 +29,6 @@ public class ForgotpasswordSteps extends StepUtils {
 		forgotpasswordPage = FlightNavigation.LoginmouseOver();
 		forgotpasswordPage.clickOnSignIn();
 	}
-
 	@And("^I can enter the email and featch the OTP Through Mail$")
 	public void i_can_enter_email_and_get_the_otp_through_mail() throws Throwable {
 		forgotpasswordPage.enterEmail();
@@ -37,12 +36,10 @@ public class ForgotpasswordSteps extends StepUtils {
 		forgotpasswordPage.verificationFor2fa();
 
 	}
-
 	@And("^I can enter password details and click on login$")
 	public void i_can_enter_password_details_and_click_on_login() throws Throwable {
 		forgotpasswordPage.enterforgotPwdDetails();
 	}
-
 	@Then("^I can logout the account$")
 	public void i_can_logout_the_account() throws Throwable {
 		forgotpasswordPage.LogOut();
