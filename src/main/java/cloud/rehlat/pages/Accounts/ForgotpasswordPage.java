@@ -104,6 +104,7 @@ public class ForgotpasswordPage {
 	 */
 	public void  clickOnForgotPassword() throws InterruptedException {
 		pageUtils.clickElement(driver, linkForgotPassWord);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 	}
 	/**
 	 * This method is used to complete the steps required for 2fa

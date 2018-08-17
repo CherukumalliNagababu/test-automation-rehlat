@@ -1,9 +1,11 @@
 package cloud.rehlat;
+
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @RunWith(Cucumber.class)
 /*@CucumberOptions(
@@ -11,12 +13,12 @@ import cucumber.api.junit.Cucumber;
 				tags = {"@flight_healthcheck"},
 						plugin = {"pretty", "html:target/reports"}
 		) */
-@CucumberOptions( 
-features = "src/test/resources/features/flight",
-tags = {"@flight_healthcheck"},
-        format = {  
-	     "pretty", "html:Reports/cukes", "json:Reports/cukes/cucumber.json", "junit:Reports/cukes/junit.xml"})  
-public class Runner2 {
+@CucumberOptions(features = "src/test/resources/features/flight/english/GuestUser.feature", 
+tags = {"@flight_healthcheck" }, 
+format = { "pretty", "html:Reports/cukes", "json:Reports/cukes/cucumber.json",
+				"junit:Reports/cukes/junit.xml" })
+//public class Runner2 extends AbstractTestNGCucumberTests {
+	 public class Runner2 {
 
 	@BeforeClass
 	public static void setUp() {

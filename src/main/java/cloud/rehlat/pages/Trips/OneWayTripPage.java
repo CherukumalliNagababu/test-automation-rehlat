@@ -52,7 +52,7 @@ public class OneWayTripPage {
 	private WebElement clickInfantsIncrement;
 	@FindBy(xpath = "//a[contains(text(),'Done')]")
 	private WebElement btnTravellerDone;
-	@FindBy(xpath = "//button[@type='submit']")
+	@FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='Done'])[1]/following::button[1]")
 	private WebElement btnSearch;
 	@FindBy(xpath = "//ol/li[3]/span")
 	private WebElement headerText;

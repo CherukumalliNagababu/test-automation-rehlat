@@ -83,6 +83,7 @@ public class MailUtils {
 				System.out.println("MESSAGE " + (i + 1) + ":");
 				Message message =  messages[i];
 				subject = message.getSubject();
+				System.out.println(subject);
 				subject = subject.split("\\-")[0];
 				if(expectedMailSubject.equalsIgnoreCase(subject)) {
 					System.out.println("Subject: " + message.getSubject());

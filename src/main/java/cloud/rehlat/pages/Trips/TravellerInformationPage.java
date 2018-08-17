@@ -27,7 +27,7 @@ public class TravellerInformationPage {
 		PageFactory.initElements(this.driver, this);
 	}
 
-	@FindBy(id = "countries_title")
+	@FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='Contact'])[1]/following::span[3]")
 	private WebElement btndrpClick;
 	@FindBy(xpath = "//li[@class='enabled _msddli_']/span")
 	private List<WebElement> drpCountry;

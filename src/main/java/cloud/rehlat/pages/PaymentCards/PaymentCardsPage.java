@@ -59,7 +59,7 @@ public class PaymentCardsPage {
 	private WebElement selectMonth_C;
 	@FindBy(id = "ddlExpireYear_cc")
 	private WebElement selectYear_C;
-	@FindBy(xpath = "(//button[@type='submit'])[3]")
+	@FindBy(xpath = "//div[@id='CCAvenueCreditCard']/div/form/div[2]/button")
 	private WebElement btnPayNow_C;
 
 	// MADA card
@@ -114,11 +114,11 @@ public class PaymentCardsPage {
 	 */
 	public void enterDebitCardDetails() throws InterruptedException {
 		pageUtils.clickElement(driver, btnDebitCard);
-		pageUtils.sendKeysAfterClearingElement(driver, txt_D_CardNumber, "1234567894564515");
+		pageUtils.sendKeysAfterClearingElement(driver, txt_D_CardNumber, "4242424242424242");
 		pageUtils.sendKeysAfterClearingElement(driver, txt_D_CardName, "nagababu");
 		pageUtils.selectByIndexNumber(selectMonth_D, 2);
 		pageUtils.selectByIndexNumber(selectYear_D, 3);
-		pageUtils.sendKeysAfterClearingElement(driver, txt_D_CvvNumber, "235");
+		pageUtils.sendKeysAfterClearingElement(driver, txt_D_CvvNumber, "100");
 		pageUtils.clickElement(driver, btnPayNow_D);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 	}
@@ -130,11 +130,12 @@ public class PaymentCardsPage {
 	 */
 	public void enterCreditCardDetails() throws InterruptedException {
 		pageUtils.clickElement(driver, btnCreditCard);
-		pageUtils.sendKeysAfterClearingElement(driver, txt_C_CardNumber, "");
-		pageUtils.sendKeysAfterClearingElement(driver, txt_C_CardName, "");
+		pageUtils.sendKeysAfterClearingElement(driver, txt_C_CardNumber, "5436031030606378");
+		pageUtils.sendKeysAfterClearingElement(driver, txt_C_CardName, "nagababu");
 		pageUtils.selectByIndexNumber(selectMonth_C, 2);
 		pageUtils.selectByIndexNumber(selectYear_C, 3);
-		pageUtils.sendKeysAfterClearingElement(driver, txt_C_CvvNumber, "");
+		pageUtils.sendKeysAfterClearingElement(driver, txt_C_CvvNumber, "257");
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 		pageUtils.clickElement(driver, btnPayNow_C);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 	}
@@ -146,11 +147,11 @@ public class PaymentCardsPage {
 	 */
 	public void enterMadaCardDetails() throws InterruptedException {
 		pageUtils.clickElement(driver, btnMADA);
-		pageUtils.sendKeysAfterClearingElement(driver, txt_MADA_CardNumber, "");
-		pageUtils.sendKeysAfterClearingElement(driver, txt_MADA_CardName, "");
+		pageUtils.sendKeysAfterClearingElement(driver, txt_MADA_CardNumber, "4242424242424242");
+		pageUtils.sendKeysAfterClearingElement(driver, txt_MADA_CardName, "nagababu");
 		pageUtils.selectByIndexNumber(selectMonth_MADA, 2);
 		pageUtils.selectByIndexNumber(selectYear_MADA, 3);
-		pageUtils.sendKeysAfterClearingElement(driver, txt_MADA_CvvNumber, "");
+		pageUtils.sendKeysAfterClearingElement(driver, txt_MADA_CvvNumber, "100");
 		pageUtils.clickElement(driver, btnPayNow_MADA);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 	}

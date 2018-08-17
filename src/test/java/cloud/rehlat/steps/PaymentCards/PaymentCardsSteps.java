@@ -34,6 +34,7 @@ public class PaymentCardsSteps extends StepUtils {
 	public void i_can_enter_the_card_details(DataTable dataTable) throws Throwable {
 		Map<String, String> dataMap = getDataAsMap(dataTable);
 		paymentCardsPage.selectCard(dataMap);
+		Thread.sleep(15000);
 
 	}
 
