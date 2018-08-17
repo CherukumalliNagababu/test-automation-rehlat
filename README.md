@@ -1,1 +1,1 @@
-TestAutomation selenium
+TestAutomation
