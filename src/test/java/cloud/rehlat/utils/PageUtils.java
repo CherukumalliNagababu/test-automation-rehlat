@@ -63,7 +63,7 @@ public class PageUtils {
 	 * @param WebElement
 	 */
 	public void clickElement(WebDriver driver, WebElement element) {
-		long timeoutInSeconds = 20;
+		long timeoutInSeconds = 30;
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		element = wait.until(ExpectedConditions.elementToBeClickable(element));
 		waitForElementToLoad(driver, element);

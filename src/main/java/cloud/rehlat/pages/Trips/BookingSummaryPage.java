@@ -61,11 +61,11 @@ public class BookingSummaryPage {
 	private WebElement getAddonBaggageName;
 	@FindBy(xpath = "//div[2]/div/div[6]/div/div/span[2]")
 	private WebElement getAddonBaggagePrice;
-	@FindBy(xpath = "//div[@class='fare_review_wrap']/div[10]/div/div/span[1]")
+	@FindBy(xpath = "//div[@class='fare_review_wrap']/div[11]/div/div/span[1]")
 	private WebElement getTotalName;
 	@FindBy(xpath = "//div[@class='fare_review_wrap']/div[11]/div/div/span[1]")
 	private WebElement getTotalName_tst;
-	@FindBy(xpath = "//div[@class='fare_review_wrap']/div[10]/div/div/span[2]")
+	@FindBy(xpath = "//div[@class='fare_review_wrap']/div[11]/div/div/span[2]")
 	private WebElement getTotalPrice;
 	@FindBy(xpath = "//div[@class='fare_review_wrap']/div[11]/div/div/span[2]")
 	private WebElement getTotalPrice_tst;
