@@ -28,6 +28,12 @@ public class BookNowSteps extends StepUtils{
 		BookNowPage.filter("Low to high");
 		
 	}
+	@When("^I can verify Airlines Names$")
+	public void i_can_verify_Airlines_names() throws Throwable {
+		BookNowPage.listOfAirlineNames();
+		
+
+	}
 	@When("^I can verify price details in flightdetails Pop up page$")
 	public void i_can_verify_price_details_in_flight_details_popUp_page() throws Throwable {
 		

@@ -37,7 +37,8 @@ public class SearchHotelPage {
 	private WebElement btnCheckInDate;
 	@FindBy(id = "CheckOutHotelDatePicker")
 	private WebElement btnCheckOutDate;
-	@FindBy(xpath = "//div[@class='fa fa-chevron-right']")
+	//@FindBy(xpath = "//div[@class='fa fa-chevron-right']")
+	@FindBy(xpath="//form[@id='hotelsForm']/div[3]/div/div/div/div/div[2]/div[2]/div/div[3]/div[2]")
 	private WebElement btnDateIcon;
 	@FindBy(xpath = ".//*[@id='hotelsForm']/div/div/div/div/div[1]/div[2]//table/tbody/tr/td")
 	private List<WebElement> allDates;
@@ -118,7 +119,7 @@ public class SearchHotelPage {
 	public void enterHotelCityName(Map<String, String> dataMap) throws InterruptedException {
 		String cityName = dataMap.get("cityName");
 		pageUtils.sendKeysAfterClearingElement(driver, txtHotelSerchBox, cityName);
-		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 		txtHotelSerchBox.sendKeys(Keys.TAB);
 		String userSelectFromValue = txtHotelSerchBox.getAttribute("value");
 		String[] getTextFrom = DataUtils.splitString(userSelectFromValue, " ");
@@ -131,9 +132,11 @@ public class SearchHotelPage {
 	 * @throws InterruptedException
 	 */
 	public void selectCheckInmonth() throws InterruptedException {
-		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL_ENGINE);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 		pageUtils.clickElement(driver, btnCheckInDate);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 		for (int i = 0; i < 1; i++) {
+			pageUtils.isElementDisplayed(driver, btnDateIcon);
 			pageUtils.clickElement(driver, btnDateIcon);
 		}
 	}

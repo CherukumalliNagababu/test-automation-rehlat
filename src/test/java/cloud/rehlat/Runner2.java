@@ -14,9 +14,11 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 						plugin = {"pretty", "html:target/reports"}
 		) */
 @CucumberOptions(features = "src/test/resources/features/flight/english/GuestUser.feature", 
-tags = {"@flight_healthcheck" }, 
+tags = {"@flight_healthcheck1" }, 
+
 format = { "pretty", "html:Reports/cukes", "json:Reports/cukes/cucumber.json",
 				"junit:Reports/cukes/junit.xml" })
+
 //public class Runner2 extends AbstractTestNGCucumberTests {
 	 public class Runner2 {
 

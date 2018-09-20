@@ -42,7 +42,7 @@ public class PaymentCardsPage {
 	private WebElement selectMonth_D;
 	@FindBy(id = "ddlExpireYear_dc")
 	private WebElement selectYear_D;
-	@FindBy(css = "button.btn.pay_button")
+	@FindBy(xpath = "//button[@class='btn pay_button']/i")
 	private WebElement btnPayNow_D;
 
 	// credit card
@@ -59,7 +59,7 @@ public class PaymentCardsPage {
 	private WebElement selectMonth_C;
 	@FindBy(id = "ddlExpireYear_cc")
 	private WebElement selectYear_C;
-	@FindBy(xpath = "//div[@id='CCAvenueCreditCard']/div/form/div[2]/button")
+	@FindBy(xpath = "//button[@class='btn pay_button']/i")
 	private WebElement btnPayNow_C;
 
 	// MADA card
@@ -75,7 +75,7 @@ public class PaymentCardsPage {
 	private WebElement selectMonth_MADA;
 	@FindBy(id = "ddlExpireYear_mada")
 	private WebElement selectYear_MADA;
-	@FindBy(xpath = "(//button[@type='submit'])[4]")
+	@FindBy(xpath = "//button[@class='btn pay_button']/i")
 	private WebElement btnPayNow_MADA;
 
 	// Visa CheckOut Card

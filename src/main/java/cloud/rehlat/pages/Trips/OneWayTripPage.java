@@ -37,7 +37,8 @@ public class OneWayTripPage {
 	private WebElement txtFlyTo;
 	@FindBy(id = "Fromdated1")
 	private WebElement btnDateFrom;
-	@FindBy(xpath = "//div[@class='fa fa-chevron-right']")
+	
+	@FindBy(xpath = "//div[@class='fa fa-chevron-right']")//
 	private WebElement dateIconBtnFrom;
 	@FindBy(xpath = ".//*[@id='flightForm']/div/div/div/div/div[1]/div[2]//table/tbody/tr/td")
 	private List<WebElement> allDates;

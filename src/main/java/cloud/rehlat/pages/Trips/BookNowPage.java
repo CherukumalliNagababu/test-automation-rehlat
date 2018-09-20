@@ -60,6 +60,20 @@ public class BookNowPage {
 	private WebElement btnBookNowFirst;
 	@FindBy(xpath = "//div[2]/div/div/div[2]/button")
 	private List<WebElement> numberOfFlights;
+	
+	
+	@FindBy(xpath = "//div[2]/ul/li/a/span[1]")
+	private List<WebElement> listOfAirlines;
+	
+	
+	public void listOfAirlineNames()
+	{
+		for(WebElement Airlines:listOfAirlines)
+		{
+			String AirlineNames=Airlines.getText();
+			System.out.println("AirlineNames:"+AirlineNames);
+		}
+	}
 
 	/**
 	 * This method is used to filter the value(Hight to low OR Low to High) in

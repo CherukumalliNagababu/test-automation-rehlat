@@ -10,7 +10,7 @@ Scenario Outline: Validate if the user can forgotpassword
 	 And I can enter the email and featch the OTP Through Mail
 	 When I can enter password details and click on login
 	 Then I can logout the account
-     
+    
      
      Examples:
      |User|
