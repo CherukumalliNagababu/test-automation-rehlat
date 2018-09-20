@@ -3011,9 +3011,9 @@ public class TravellerInformationPage {
 	 * @throws Exception
 	 */
 	public void enterContactDetails() throws Exception {
-		pageUtils.clickElement(driver, btndrpClick);
+		//pageUtils.clickElement(driver, btndrpClick);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
-		pageUtils.selectCountry(drpCountry, "India (91)");
+		//pageUtils.selectCountry(drpCountry, "India (91)");
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 
 		pageUtils.sendKeysAfterClearingElement(driver, txtPhoneNumber, DataConstants.USER_PHONE_NUMBER);

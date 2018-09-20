@@ -164,7 +164,7 @@ public class PageUtils {
 	 * @param element
 	 */
 	public void waitForElementToLoad(WebDriver driver, WebElement element) {
-		long timeoutInSeconds = 65;
+		long timeoutInSeconds = 160;
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}

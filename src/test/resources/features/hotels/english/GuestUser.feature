@@ -15,6 +15,6 @@ Scenario Outline: Validate if the user can book on Hotels
      |rooms		|<rooms>|
      Examples:
 	|userName	|cityName|rooms	|
-	|******		|MCT	 |5		|
+	|******		|MCT	 |4		|
 	
 	
