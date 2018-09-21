@@ -13,12 +13,11 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 				tags = {"@flight_healthcheck"},
 						plugin = {"pretty", "html:target/reports"}
 		) */
-@CucumberOptions(features = "src/test/resources/features/flight/english/GuestUser.feature", 
-tags = {"@flight_healthcheck1" }, 
-
+@CucumberOptions(//features = "src/test/resources/features/flight/discounts.feature", 
+features = "src/test/resources/features/flight/english/MultiCityTrip.feature",
+tags = {"@flight_healthcheck" }, 
 format = { "pretty", "html:Reports/cukes", "json:Reports/cukes/cucumber.json",
 				"junit:Reports/cukes/junit.xml" })
-
 //public class Runner2 extends AbstractTestNGCucumberTests {
 	 public class Runner2 {
 
@@ -28,7 +27,7 @@ format = { "pretty", "html:Reports/cukes", "json:Reports/cukes/cucumber.json",
 		System.setProperty("pathToDriver", System.getProperty("pathToDriver", "D:\\jarfiles\\chromedriver.exe"));
 		System.setProperty("foreground", System.getProperty("foreground", "false"));
 		System.setProperty("target", System.getProperty("target", "ENG"));
-		System.setProperty("environment", System.getProperty("environment", "PRD"));
+		System.setProperty("environment", System.getProperty("environment", "STG"));
 		System.setProperty("application", System.getProperty("application", "EG"));
 		System.setProperty("url", System.getProperty("url", "https://www.rehlat.com.sa/en/"));
 		System.setProperty("headless", "true1");

@@ -27,7 +27,8 @@ public class BrowserConstants {
 	public static final String ENG_AE_PRD_URL = "https://www.rehlat.ae/";
 	public static final String ENG_AE_QA_TST_URL = "http://192.168.1.9:8090/en/";
 	public static final String ENG_AE_STG_URL = "http://stage.rehlat.ae/";
-	
+	//JAZEERA
+	public static final String ENG_JZ_PRD_URL = "http://www.jazeeraairways.com/";
 	
 	//Arabic URLs
 	//SA

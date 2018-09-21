@@ -37,8 +37,8 @@ public class SearchHotelPage {
 	private WebElement btnCheckInDate;
 	@FindBy(id = "CheckOutHotelDatePicker")
 	private WebElement btnCheckOutDate;
-	//@FindBy(xpath = "//div[@class='fa fa-chevron-right']")
-	@FindBy(xpath="//form[@id='hotelsForm']/div[3]/div/div/div/div/div[2]/div[2]/div/div[3]/div[2]")
+	////div[@class='fa fa-chevron-right']
+	@FindBy(xpath = ".//*[@id='hotelsForm']/div[3]/div/div[1]/div/div/div[2]/div[2]/div[1]/div[3]/div[2]")
 	private WebElement btnDateIcon;
 	@FindBy(xpath = ".//*[@id='hotelsForm']/div/div/div/div/div[1]/div[2]//table/tbody/tr/td")
 	private List<WebElement> allDates;
@@ -46,6 +46,7 @@ public class SearchHotelPage {
 	private WebElement btndropDown;
 	@FindBy(xpath = "//a[contains(text(),'+ Add Room')]")
 	private WebElement btnAddrooms;
+
 	@FindBy(xpath = "//div[@id='Room_1']/div/div/div[3]/div/select")
 	private WebElement selectAdults_room1;
 	@FindBy(xpath = "//div[@id='Room_1']/div/div[2]/div[3]/div/select")
@@ -96,6 +97,9 @@ public class SearchHotelPage {
 	@FindBy(id = "btnSearchNewHomePage")
 	private WebElement btnSearch;
 
+	
+	
+	
 	/**
 	 * This method is used to Click on Done button
 	 */
@@ -132,11 +136,9 @@ public class SearchHotelPage {
 	 * @throws InterruptedException
 	 */
 	public void selectCheckInmonth() throws InterruptedException {
-		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL_ENGINE);
 		pageUtils.clickElement(driver, btnCheckInDate);
-		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 		for (int i = 0; i < 1; i++) {
-			pageUtils.isElementDisplayed(driver, btnDateIcon);
 			pageUtils.clickElement(driver, btnDateIcon);
 		}
 	}

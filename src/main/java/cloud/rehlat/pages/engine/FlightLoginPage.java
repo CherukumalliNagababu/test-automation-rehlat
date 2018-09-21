@@ -43,7 +43,8 @@ public class FlightLoginPage {
 	@FindBy(xpath="//div[@id='passwordNext']/div[2]")
 	private WebElement btnNextpass;
 	
-	
+	@FindBy(linkText="Plan")
+	private  WebElement JgetText;
 	
 	/**
 	 * This method is used to enter the login credentials of the user on Engine
@@ -89,6 +90,9 @@ public class FlightLoginPage {
 		pageUtils.getTextOfElement(driver, getText);
 		return new FlightNavigation(driver) ;
 	}
-	
+	public  FlightNavigation JHomepage() {
+		pageUtils.getTextOfElement(driver, JgetText);
+		return new FlightNavigation(driver) ;
+	}
 	
 }

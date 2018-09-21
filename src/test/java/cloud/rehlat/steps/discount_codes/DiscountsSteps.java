@@ -1,4 +1,4 @@
-package cloud.rehlat.steps.PaymentCards;
+package cloud.rehlat.steps.discount_codes;
 
 import java.util.Map;
 
@@ -18,23 +18,25 @@ import cloud.rehlat.pages.PaymentCards.PaymentCardsPage;
 import cloud.rehlat.pages.Trips.BookNowPage;
 import cloud.rehlat.pages.Trips.BookingSummaryPage;
 import cloud.rehlat.pages.Trips.OneWayTripPage;
+import cloud.rehlat.pages.discount_codes.DiscountsPage;
 
-public class PaymentCardsSteps extends StepUtils {
+public class DiscountsSteps extends StepUtils {
 	WebDriver driver = BrowserUtils.getDriverInstance();
 	FlightNavigation FlightNavigation = FlightLoginSteps.FlightNavigation;
-	PaymentCardsPage paymentCardsPage = null;
+	DiscountsPage discountsPage = null;
 
-	@Then("^I can navigative to payment page$")
-	public void i_can_navigative_to_payment_page() throws Throwable {
-		paymentCardsPage = FlightNavigation.headerText();
+	
+	@When("^I go to select OneWay Radio button using for discounts$")
+	public void i_go_to_select_oneway_radio_button_using_for_discounts() throws Throwable {
 
+		discountsPage = FlightNavigation.clickOneWayUsingExcel();
+		Thread.sleep(2000);
 	}
-
-	@When("^I can enter the card details$")
-	public void i_can_enter_the_card_details(DataTable dataTable) throws Throwable {
-		Map<String, String> dataMap = getDataAsMap(dataTable);
-		paymentCardsPage.selectCard(dataMap);
-		Thread.sleep(10000);
+	@When("^I can enter From and To city names using excel sheet$")
+	public void i_can_enter_from_and_to_city_names_using_excel_sheet() throws Throwable {
+		
+		discountsPage.readExcel();
+		
 
 	}
 

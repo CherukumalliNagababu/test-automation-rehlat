@@ -11,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import cloud.rehlat.constants.common.BrowserConstants;
+import cloud.rehlat.pages.Accounts.FacebookPage;
 import cloud.rehlat.pages.Accounts.ForgotpasswordPage;
 import cloud.rehlat.pages.Accounts.GmailPage;
 import cloud.rehlat.pages.Accounts.verifyMailPage;
@@ -19,191 +20,264 @@ import cloud.rehlat.pages.PaymentCards.PaymentCardsPage;
 import cloud.rehlat.pages.Register.RegisterPage;
 import cloud.rehlat.pages.Trips.BookNowPage;
 import cloud.rehlat.pages.Trips.BookingSummaryPage;
+import cloud.rehlat.pages.Trips.MultiCityPage;
 import cloud.rehlat.pages.Trips.OneWayTripPage;
+import cloud.rehlat.pages.Trips.RoundTripPage;
 import cloud.rehlat.pages.Trips.TravellerInformationPage;
 import cloud.rehlat.pages.Trips.Arabic.BookNowArabicPage;
 import cloud.rehlat.pages.Trips.Arabic.BookingSummaryArabicPage;
 import cloud.rehlat.pages.Trips.Arabic.OneWayTripArabicPage;
+import cloud.rehlat.pages.discount_codes.DiscountsPage;
+import cloud.rehlat.pages.discount_codes.JazeeraairwaysPage;
+import cloud.rehlat.pages.homepage_links.english.TopLeftsideLinksPage;
 import cloud.rehlat.utils.PageUtils;
 import cloud.rehlat.utils.TestDataUtils;
 
 public class FlightNavigation {
 	private WebDriver driver;
 	private PageUtils pageUtils;
-	
+
 	public FlightNavigation(WebDriver driver) {
 		this.driver = driver;
 		this.pageUtils = PageUtils.getInstance();
 		this.pageUtils = PageUtils.getInstance();
 		PageFactory.initElements(this.driver, this);
 	}
-	
-	
-	
-	
-	@FindBy(css=".ros_Header_theme_acc_txt")
-	private  WebElement btnmouse;
-	@FindBy(linkText="Sign In")
-	private  WebElement btnSignIn;
-	
-	@FindBy(css="#customBtn")
+
+	@FindBy(css = ".ros_Header_theme_acc_txt")
+	private WebElement btnmouse;
+	@FindBy(linkText = "Sign In")
+	private WebElement btnSignIn;
+
+	@FindBy(css = "#customBtn")
 	private WebElement btnGmail;
+	@FindBy(xpath="//div[@id='signUp_new']/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/a/span")
+	private WebElement btnFacebook;
 	
-	@FindBy(id="radio_1")
+	@FindBy(id = "radio_1")
 	private WebElement radioOneWay;
-	@FindBy(xpath=".//*[@id='resetAll']")
+	// RoundTrip radio button
+	@FindBy(id = "radio_2")
+	private WebElement radioRoundTrip;
+
+	// MultiCity radio button
+	@FindBy(id = "radio_3")
+	private WebElement radioMulticity;
+	
+	@FindBy(xpath = ".//*[@id='resetAll']")
 	private WebElement linkAllResetInBookNow;
-	@FindBy(css="h4.panel-title")
+	@FindBy(css = "h4.panel-title")
 	private WebElement txtlabel;
-	@FindBy(css="span.pax_type")
+	@FindBy(css = "span.pax_type")
 	private WebElement txtValue;
-	//header links
-	@FindBy(linkText="Flights")
+	// header links
+	@FindBy(linkText = "Flights")
 	private WebElement btnFlight;
-	@FindBy(linkText="Hotels")
+	@FindBy(linkText = "Hotels")
 	private WebElement btnHotel;
-	@FindBy(linkText="Deals")
+	@FindBy(linkText = "Deals")
 	private WebElement btnDeals;
-	@FindBy(xpath="//a[contains(text(),'Inspirations')]")
+	@FindBy(xpath = "//a[contains(text(),'Inspirations')]")
 	private WebElement btnInspirations;
-	//Register page
-	@FindBy(xpath="//li[3]/a/div/span")
+	// Register page
+	@FindBy(xpath = "//li[3]/a/div/span")
 	private WebElement getTextRegister;
-	//payment page
+	// payment page
 	@FindBy(xpath = "//div[@id='container']/div/div/div/a/h4")
 	private WebElement paymentHeaderText;
-	
-	
-	
+	// jazeera
+	@FindBy(xpath = ".//*[@id='OptOneWay']")
+	private WebElement chkJezeera;
+
 	/**
 	 * This method is used to open the mouse over of login
 	 */
-	public  void LoginbuttonmouseOver() {
+	public void LoginbuttonmouseOver() {
 		pageUtils.mouseAction(driver, btnmouse);
 	}
+
 	/**
-	 * This method is used to click on the Sign in  
-	 
+	 * This method is used to click on the Sign in
+	 * 
 	 */
-	public  void clicksignbtn() {
+	public void clicksignbtn() {
 		pageUtils.clickElement(driver, btnSignIn);
-		
+
 	}
+
 	/**
 	 * this method is used to click on Flight link in home page
+	 * 
 	 * @return
 	 */
-	public  void clickFlightLink() throws InterruptedException {
+	public void clickFlightLink() throws InterruptedException {
 		pageUtils.clickElement(driver, btnFlight);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL);
-		
+
 	}
+
 	/**
 	 * this method is used to click on Hotel link in home page
+	 * 
 	 * @return
 	 */
-	public  SearchHotelPage clickHotelLink() throws InterruptedException {
+	public SearchHotelPage clickHotelLink() throws InterruptedException {
 		pageUtils.clickElement(driver, btnHotel);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL);
 		return new SearchHotelPage(driver);
-		
+
 	}
+
 	/**
 	 * this method is used to click on Deals link in home page
+	 * 
 	 * @return
 	 */
-	public  void clickDealLink() throws InterruptedException {
+	public void clickDealLink() throws InterruptedException {
 		pageUtils.clickElement(driver, btnDeals);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL);
-		
+
 	}
+
 	/**
 	 * this method is used to click on Inspritions link in home page
+	 * 
 	 * @return
 	 */
-	public  void clickInspritionsLink() throws InterruptedException {
+	public void clickInspritionsLink() throws InterruptedException {
 		pageUtils.clickElement(driver, btnInspirations);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL);
-		
+
 	}
-	/*public  RegisterPage getTextOfRegister() {
-		String text=pageUtils.getTextOfElement(driver, getTextRegister);
-		System.out.println(text);
-		return new RegisterPage(driver);
-	}*/
-	
+	/*
+	 * public RegisterPage getTextOfRegister() { String
+	 * text=pageUtils.getTextOfElement(driver, getTextRegister);
+	 * System.out.println(text); return new RegisterPage(driver); }
+	 */
+
 	/**
 	 * this method is used to get the text in Register page
+	 * 
 	 * @return
 	 */
-	public  RegisterPage getTextOfRegister() {
-		String text=pageUtils.getTextOfElement(driver, getTextRegister);
+	public RegisterPage getTextOfRegister() {
+		String text = pageUtils.getTextOfElement(driver, getTextRegister);
 		System.out.println(text);
 		return new RegisterPage(driver);
 	}
+
 	/**
 	 * this method is used to click on gmail button
+	 * 
 	 * @return
 	 */
-	public  GmailPage clickgmail() {
+	public GmailPage clickgmail() {
 		pageUtils.clickElement(driver, btnGmail);
 		return new GmailPage(driver);
 	}
-	
+
+	public  FacebookPage clickfacebook() {
+		pageUtils.clickElement(driver, btnFacebook);
+		return new FacebookPage(driver);
+
+	}
 	/**
 	 * this method is used to click on Oneway Radio button
+	 * 
 	 * @return
 	 */
-	public  OneWayTripPage clickOneWay() {
+	public OneWayTripPage clickOneWay() {
 		pageUtils.clickElement(driver, radioOneWay);
 		return new OneWayTripPage(driver);
 	}
+
+	public RoundTripPage clickRound() {
+		pageUtils.clickElement(driver, radioRoundTrip);
+		return new RoundTripPage(driver);
+	}
+
+	public MultiCityPage clickMutliCity() {
+		pageUtils.clickElement(driver, radioMulticity);
+		return new MultiCityPage(driver);
+	}
+
 	/**
-	 * this method is used to click on AllRest link in book now page
+	 * this method is used to click on Oneway Radio using excel sheet button
+	 * 
 	 * @return
 	 */
-	public  BookNowPage clickAllReset() {
+	public DiscountsPage clickOneWayUsingExcel() {
+		pageUtils.clickElement(driver, radioOneWay);
+		return new DiscountsPage(driver);
+	}
+
+	/**
+	 * this method is used to click on jazerra
+	 * 
+	 * @return
+	 */
+	public JazeeraairwaysPage clickOneWayjazeera() {
+		pageUtils.clickElement(driver, chkJezeera);
+		return new JazeeraairwaysPage(driver);
+	}
+
+	/**
+	 * this method is used to click on AllRest link in book now page
+	 * 
+	 * @return
+	 */
+	public BookNowPage clickAllReset() {
 		pageUtils.clickElement(driver, linkAllResetInBookNow);
 		return new BookNowPage(driver);
 	}
+
 	/**
 	 * this method is used to get the text in booking summary page
+	 * 
 	 * @return
 	 */
-	
-	public  BookingSummaryPage getText() throws InterruptedException {
-		
-		String text=pageUtils.getTextOfElement(driver, txtlabel);
+
+	public BookingSummaryPage getText() throws InterruptedException {
+
+		String text = pageUtils.getTextOfElement(driver, txtlabel);
 		System.out.println(text);
 		return new BookingSummaryPage(driver);
 	}
-	
+
 	/**
-	 * this method is used to get the text in TravellerInformation  page
+	 * this method is used to get the text in TravellerInformation page
+	 * 
 	 * @return
 	 */
-	public  TravellerInformationPage getTextValue() {
-		String text=pageUtils.getTextOfElement(driver, txtValue);
+	public TravellerInformationPage getTextValue() {
+		String text = pageUtils.getTextOfElement(driver, txtValue);
 		System.out.println(text);
 		return new TravellerInformationPage(driver);
 	}
-	
-	
+
 	/**
 	 * this method is used to get the text in Payment page
+	 * 
 	 * @return
 	 */
-	public  PaymentCardsPage headerText()
-	{
-		String text=pageUtils.getTextOfElement(driver, paymentHeaderText);
+	public PaymentCardsPage headerText() {
+		String text = pageUtils.getTextOfElement(driver, paymentHeaderText);
 		System.out.println(text);
 		return new PaymentCardsPage(driver);
 	}
+
 	/**
 	 * This method is used to open the mouse over of login
 	 */
-	public  ForgotpasswordPage LoginmouseOver() {
+	public ForgotpasswordPage LoginmouseOver() {
 		pageUtils.mouseAction(driver, btnmouse);
 		return new ForgotpasswordPage(driver);
 	}
+
+	public TopLeftsideLinksPage getTheText() {
+		String st = pageUtils.getTextOfElement(driver, btnFlight);
+		System.out.println(st);
+		return new TopLeftsideLinksPage(driver);
+	}
+
 }

@@ -38,7 +38,7 @@ Scenario Outline: Validate if the user can book OneWay Trip
 	|******		|CreditCard		|DXB		|MCT	|2		|1	  | 2    |NO			|NO              |		|
 	
 	
-@flight_healthcheck1 
+    @flight_healthcheck1 
     Scenario Outline: Validate if the user can book OneWay Trip
 	 When I go to Rehlat Home page
      When I go to select OneWay Radio button

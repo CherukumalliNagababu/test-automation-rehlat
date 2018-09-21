@@ -64,7 +64,14 @@ public class BookNowPage {
 	
 	@FindBy(xpath = "//div[2]/ul/li/a/span[1]")
 	private List<WebElement> listOfAirlines;
-	
+	@FindBy(xpath = "(//a[contains(text(),'Flight Details')])[3]")
+	private WebElement linkFlightDetailsTopRoundTrip;
+	@FindBy(xpath = "(//a[contains(text(),'Flight Details')])")
+	private WebElement linkFlightDetailsTopMulticity;
+	@FindBy(xpath = ".//*[@id='customeTab']/li[3]/a")
+	private WebElement btnBaggageInformation_Mul;
+	@FindBy(xpath = "//div[2]/div/div[2]/button")
+	private WebElement btnBookNowFirstMulti;
 	
 	public void listOfAirlineNames()
 	{
@@ -170,6 +177,186 @@ public class BookNowPage {
 
 		pageUtils.clickElement(driver, btnBaggageInformation);
 	}
+
+	public void flightDetailsPopUp_OneWay() throws InterruptedException {
+		pageUtils.clickElement(driver, linkFlightDetailsTop);
+		pageUtils.clickElement(driver, btnFarerulesPopUp);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL_ENGINE);
+
+		try {
+			if (txtOfAdultName.isDisplayed()) {
+				System.out.println(1);
+				String AdultName = pageUtils.getTextOfElement(driver, txtOfAdultName);
+				String[] get = DataUtils.splitString(AdultName, " ");
+				String Numof = get[0];
+
+				String[] get1 = DataUtils.splitString(AdultName, "\\(");
+				String[] spli = get1[1].split(" ");
+				String[] spli1 = spli[2].split("\\)");
+				String PerPersonValue = spli1[0];
+				Double Multi = Double.parseDouble(Numof) * Double.parseDouble(PerPersonValue);
+				Double AdultsTotal = new Double(Multi);
+				// System.out.println("Adults Total Value:"+AdultsTotal);
+				System.out.println(AdultName + "------" + Numof + "*" + PerPersonValue + "=" + AdultsTotal);
+
+			}
+		} catch (Exception e) {
+			System.out.println("Adults Details are Not Displayed");
+		}
+
+		try {
+			if (txtOfChildName.isDisplayed()) {
+				String childName = pageUtils.getTextOfElement(driver, txtOfChildName);
+				String[] get = DataUtils.splitString(childName, " ");
+				String numofChilds = get[0];
+				String[] ch2 = DataUtils.splitString(childName, "\\(");
+				String[] ch3 = ch2[1].split(" ");
+				String[] ch4 = ch3[2].split("\\)");
+				String PerPersonChildvalue = ch4[0];
+				Double MultiChild = Double.parseDouble(numofChilds) * Double.parseDouble(PerPersonChildvalue);
+				Double ChildTotal = new Double(MultiChild);
+				// System.out.println("Child Total Value::" + ChildTotal);
+				System.out.println(childName + "------" + numofChilds + "*" + PerPersonChildvalue + "=" + ChildTotal);
+
+			}
+		} catch (Exception e) {
+			System.out.println("Child Details are Not Displayed");
+		}
+		try {
+			if (txtOfInfantsName.isDisplayed()) {
+				String infantsName = pageUtils.getTextOfElement(driver, txtOfInfantsName);
+				String[] get = DataUtils.splitString(infantsName, " ");
+				String numofinfants = get[0];
+				String[] I2 = DataUtils.splitString(infantsName, "\\(");
+				String[] I3 = I2[1].split(" ");
+				String[] I4 = I3[2].split("\\)");
+				String PerPersonInfantvalue = I4[0];
+				Double MultiInfants = Double.parseDouble(numofinfants) * Double.parseDouble(PerPersonInfantvalue);
+				Double InfantTotal = new Double(MultiInfants);
+				// System.out.println("Infants Total value::" + InfantTotal);
+				System.out
+						.println(infantsName + "-----" + numofinfants + "*" + PerPersonInfantvalue + "=" + InfantTotal);
+			}
+
+		} catch (Exception e) {
+			System.out.println("Infants Details are Not Displayed");
+		}
+		String taxName = pageUtils.getTextOfElement(driver, txtOftaxname);
+		String taxValue = pageUtils.getTextOfElement(driver, txtOfTotalValue);
+		System.out.println(taxName + "---------------" + taxValue);
+
+		String priceName = pageUtils.getTextOfElement(driver, txtOfPriceName);
+		String priceValue = pageUtils.getTextOfElement(driver, txtOfPriceValue);
+		System.out.println("-------------------------------------------------------------------------------");
+		System.out.println(priceName + "-----------------" + priceValue);
+
+		pageUtils.clickElement(driver, btnBaggageInformation);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL_ENGINE);
+	}
+
+	
+	public void flightDetailsPopUp_RoundTrip() throws InterruptedException {
+		pageUtils.clickElement(driver, linkFlightDetailsTopRoundTrip);
+
+		pageUtils.clickElement(driver, btnFarerulesPopUp);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL_ENGINE);
+		try {
+			if (txtOfAdultName.isDisplayed()) {
+				System.out.println(1);
+				String AdultName = pageUtils.getTextOfElement(driver, txtOfAdultName);
+				String[] get = DataUtils.splitString(AdultName, " ");
+				String Numof = get[0];
+
+				String[] get1 = DataUtils.splitString(AdultName, "\\(");
+				String[] spli = get1[1].split(" ");
+				String[] spli1 = spli[2].split("\\)");
+				String PerPersonValue = spli1[0];
+				Double Multi = Double.parseDouble(Numof) * Double.parseDouble(PerPersonValue);
+				Double AdultsTotal = new Double(Multi);
+				// System.out.println("Adults Total Value:"+AdultsTotal);
+				System.out.println(AdultName + "------" + Numof + "*" + PerPersonValue + "=" + AdultsTotal);
+
+			}
+		} catch (Exception e) {
+			System.out.println("Adults Details are Not Displayed");
+		}
+
+		try {
+			if (txtOfChildName.isDisplayed()) {
+				String childName = pageUtils.getTextOfElement(driver, txtOfChildName);
+				String[] get = DataUtils.splitString(childName, " ");
+				String numofChilds = get[0];
+				String[] ch2 = DataUtils.splitString(childName, "\\(");
+				String[] ch3 = ch2[1].split(" ");
+				String[] ch4 = ch3[2].split("\\)");
+				String PerPersonChildvalue = ch4[0];
+				Double MultiChild = Double.parseDouble(numofChilds) * Double.parseDouble(PerPersonChildvalue);
+				Double ChildTotal = new Double(MultiChild);
+				// System.out.println("Child Total Value::" + ChildTotal);
+				System.out.println(childName + "------" + numofChilds + "*" + PerPersonChildvalue + "=" + ChildTotal);
+
+			}
+		} catch (Exception e) {
+			System.out.println("Child Details are Not Displayed");
+		}
+		try {
+			if (txtOfInfantsName.isDisplayed()) {
+				String infantsName = pageUtils.getTextOfElement(driver, txtOfInfantsName);
+				String[] get = DataUtils.splitString(infantsName, " ");
+				String numofinfants = get[0];
+				String[] I2 = DataUtils.splitString(infantsName, "\\(");
+				String[] I3 = I2[1].split(" ");
+				String[] I4 = I3[2].split("\\)");
+				String PerPersonInfantvalue = I4[0];
+				Double MultiInfants = Double.parseDouble(numofinfants) * Double.parseDouble(PerPersonInfantvalue);
+				Double InfantTotal = new Double(MultiInfants);
+				// System.out.println("Infants Total value::" + InfantTotal);
+				System.out
+						.println(infantsName + "-----" + numofinfants + "*" + PerPersonInfantvalue + "=" + InfantTotal);
+			}
+
+		} catch (Exception e) {
+			System.out.println("Infants Details are Not Displayed");
+		}
+		String taxName = pageUtils.getTextOfElement(driver, txtOftaxname);
+		String taxValue = pageUtils.getTextOfElement(driver, txtOfTotalValue);
+		System.out.println(taxName + "---------------" + taxValue);
+
+		String priceName = pageUtils.getTextOfElement(driver, txtOfPriceName);
+		String priceValue = pageUtils.getTextOfElement(driver, txtOfPriceValue);
+		System.out.println("-------------------------------------------------------------------------------");
+		System.out.println(priceName + "-----------------" + priceValue);
+
+		pageUtils.clickElement(driver, btnBaggageInformation);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL_ENGINE);
+	}
+
+	public void flightDetailsPopUp_MultiCity() throws InterruptedException {
+		pageUtils.clickElement(driver, linkFlightDetailsTopMulticity);
+
+		pageUtils.clickElement(driver, btnFarerulesPopUp);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL_ENGINE);
+
+
+		pageUtils.clickElement(driver, btnBaggageInformation_Mul);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL_ENGINE);
+	}
+	
+	
+	/**
+	 * This method is used to Click On Book now Top Button
+	 */
+	public void clickOnBookNow_One_Way() {
+		pageUtils.clickElement(driver, btnBookNowFirst);
+		
+	}
+
+public void clickOnBookNow_RoundTrip() {
+	pageUtils.clickElement(driver, btnBookNowFirst);
+ }
+public void clickOnBookNow_MultiCity() {
+	pageUtils.clickElement(driver, btnBookNowFirstMulti);
+ }
 
 	/**
 	 * This method is used to close the flight Details PopUp page

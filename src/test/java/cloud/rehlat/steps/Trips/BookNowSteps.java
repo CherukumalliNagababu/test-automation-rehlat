@@ -43,6 +43,34 @@ public class BookNowSteps extends StepUtils{
 		BookNowPage.clickOnBookNow();
 		
 	}
+	@When("^I can verify price details in flightdetails Pop up page in one way$")
+	public void i_can_verify_price_details_in_flight_details_popUp_page_in_One_way() throws Throwable {
+		
+		BookNowPage.flightDetailsPopUp_OneWay();
+		BookNowPage.clickOnPopUpClose();
+		BookNowPage.numberOfFlights();
+		BookNowPage.clickOnBookNow_One_Way();
+		
+	}
+
+	@When("^I can verify price details in flightdetails Pop up page in Round Trip$")
+	public void i_can_verify_price_details_in_flight_details_popUp_page_in_Round_Trip() throws Throwable {
+		
+		BookNowPage.flightDetailsPopUp_RoundTrip();
+		BookNowPage.clickOnPopUpClose();
+		BookNowPage.numberOfFlights();
+		BookNowPage.clickOnBookNow_RoundTrip();
+		
+	}
+	@When("^I can verify price details in flightdetails Pop up page in Multi city$")
+	public void i_can_verify_price_details_in_flight_details_popUp_page_in_Multi_city() throws Throwable {
+		
+		BookNowPage.flightDetailsPopUp_MultiCity();
+		BookNowPage.clickOnPopUpClose();
+		BookNowPage.numberOfFlights();
+		BookNowPage.clickOnBookNow_MultiCity();
+		
+	}
 
 
 }

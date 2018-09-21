@@ -164,7 +164,7 @@ public class PageUtils {
 	 * @param element
 	 */
 	public void waitForElementToLoad(WebDriver driver, WebElement element) {
-		long timeoutInSeconds = 160;
+		long timeoutInSeconds = 100;
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
@@ -662,6 +662,6 @@ public class PageUtils {
 	public void scrollDown(WebDriver driver) {
 
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("window.scrollBy(0,500)", "");
+		jse.executeScript("window.scrollBy(0,1500)", "");
 	}
 }

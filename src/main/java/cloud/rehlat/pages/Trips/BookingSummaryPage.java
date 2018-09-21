@@ -11,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import cloud.rehlat.constants.common.BrowserConstants;
+import cloud.rehlat.constants.common.DataConstants;
 import cloud.rehlat.utils.DataUtils;
 import cloud.rehlat.utils.PageUtils;
 import cloud.rehlat.utils.TestDataUtils;
@@ -77,9 +78,9 @@ public class BookingSummaryPage {
 	private WebElement btnApply;
 	@FindBy(xpath = "//a[contains(text(),'Show more details')]")
 	private WebElement linkShowMoreDetails;
-	@FindBy(linkText = "Fare Rules")
+	@FindBy(xpath = " //a[contains(text(),'Fare Rules')]")
 	private WebElement btnFarerulesPopUp;
-	@FindBy(linkText = "Baggage Information")
+	@FindBy(xpath = ".//*[@id='customeTab']/li[3]/a")
 	private WebElement btnBaggageInformation;
 	@FindBy(xpath = "(//img[contains(@src,'/Content/images/close-icon.png')])[6]")
 	private WebElement iconPopUpClose;
@@ -109,7 +110,7 @@ public class BookingSummaryPage {
 	 * this method is used to enter email id
 	 */
 	public void enterEmail() {
-		pageUtils.sendKeysAfterClearingElement(driver, txtEmail, "naga.ch199@gmail.com");
+		pageUtils.sendKeysAfterClearingElement(driver, txtEmail, DataConstants.GMAIL_USERNAME);
 	}
 
 	/**

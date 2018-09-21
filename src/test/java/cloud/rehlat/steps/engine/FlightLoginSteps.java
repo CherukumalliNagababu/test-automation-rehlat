@@ -35,6 +35,11 @@ public class FlightLoginSteps extends StepUtils{
 	{
 		FlightNavigation=FlightLoginPage.Homepage();
 	}
+	@When("^I go to Jazeera Home page$")
+	public void i_go_to_jazeera_Home_page() throws InterruptedException
+	{
+		FlightNavigation=FlightLoginPage.JHomepage();
+	}
 	
 	@Then("^I can navigate to Rehlat Home page successfully$")
 	public void i_can_navigate_to_Rehlat_home_page_successfully() throws Throwable {

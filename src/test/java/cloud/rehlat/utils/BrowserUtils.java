@@ -183,10 +183,19 @@ public class BrowserUtils {
 				default:
 					applicationUrl = BrowserConstants.ENG_COM_PRD_URL;
 					break;
-				}
+					}
 				break;
+			case "JZ":
+
+				switch (environment) {
+				case "PRD":
+					engineEnvironment = BrowserConstants.ENV_DEV;
+					applicationUrl = BrowserConstants.ENG_JZ_PRD_URL;
+					break;
 				
 			}
+				break;
+		}
 		}
 				
 				else if (target.equalsIgnoreCase(BrowserConstants.ARB)) {

@@ -19,6 +19,7 @@ public class DataConstants {
 
 	public static final String USER_PHONE_NUMBER = "9030220071";
 	public static final String USER_SELECT_DATE = "10";
+	public static final String USER_SELECT_DATE1 = "12";
 	// Hotels
 	public static final String USER_SELECT_CHECK_IN_DATE = "10";
 	public static final String USER_SELECT_CHECK_OUT_DATE = "14";
@@ -55,7 +56,9 @@ public class DataConstants {
 
 	public static final String GMAIL_USERNAME = "naga.ch199@gmail.com";
 	public static final String GMAIL_PASSWORD = "naga@qtselenium88";
-
+//FB
+	public static final String  FACEBOOK_USERNAME = "123456789";
+	public static final String FACEBOOK_PASSWORD = "123456789";
 	
 	//Forgot password email
 	public static final String FORGOT_MAIL_USERNAME = "qa.automationrehlat@gmail.com";
