@@ -1,5 +1,7 @@
 package cloud.rehlat.pages.Hotels.english;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -97,9 +99,22 @@ public class SearchHotelPage {
 	@FindBy(id = "btnSearchNewHomePage")
 	private WebElement btnSearch;
 
+	@FindBy(xpath = ".//*[@id='ul-0']/li")
+	private List<WebElement> listCityNames;
 	
 	
 	
+	/**
+	 * this method is used to click on Hotel link in home page
+	 * 
+	 * @return
+	 */
+	public SearchHotelPage clickHotelLink() throws InterruptedException {
+		pageUtils.clickElement(driver, btnHotel);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL);
+		return new SearchHotelPage(driver);
+
+	}
 	/**
 	 * This method is used to Click on Done button
 	 */
@@ -426,4 +441,61 @@ public class SearchHotelPage {
 		}
 		return status;
 	}
+	
+	
+	/**
+	 * This method is used to enter city name
+	 * 
+	 * @param dataMap
+	 * @throws InterruptedException
+	 */
+	public void enterHotelCityName_Duplicate(Map<String, String> dataMap) throws InterruptedException {
+		String cityName = dataMap.get("cityName");
+		pageUtils.sendKeysAfterClearingElement(driver, txtHotelSerchBox, cityName);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
+		//txtHotelSerchBox.sendKeys(Keys.TAB);
+		for(WebElement e:listCityNames)
+		{
+			String s=e.getText();
+			System.out.println(s);
+		}
+		
+		
+		/*List<WebElement> WE1 = listCityNames;
+		System.out.println("Total Number :" + WE1.size());
+		Thread.sleep(2000);
+
+		ArrayList<String> list = new ArrayList<>();
+
+		for (WebElement element1 : WE1) {
+			list.add(element1.getText());
+		}
+		ArrayList<String> unique = removeDuplicates(list);
+		//System.out.println("unique:" + unique.size());
+		for (String element : unique) {
+			System.out.println("----------------------------------------------");
+			System.out.println("Dupilcate Element:" + element);
+			System.out.println("----------------------------------------------");
+	}*/
+	}
+
+		static ArrayList<String> removeDuplicates(ArrayList<String> list) {
+
+			// Store unique items in result.
+			ArrayList<String> result = new ArrayList<>();
+
+			// Record encountered Strings in HashSet.
+			HashSet<String> set = new HashSet<>();
+
+			// Loop over argument list.
+			for (String item : list) {
+
+				// If String is not in set, add it to the list and the set.
+				if (!set.contains(item)) {
+					result.add(item);
+					set.add(item);
+				}
+			}
+			return result;
+		}
 }

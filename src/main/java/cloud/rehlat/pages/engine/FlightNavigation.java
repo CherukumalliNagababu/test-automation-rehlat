@@ -27,8 +27,11 @@ import cloud.rehlat.pages.Trips.TravellerInformationPage;
 import cloud.rehlat.pages.Trips.Arabic.BookNowArabicPage;
 import cloud.rehlat.pages.Trips.Arabic.BookingSummaryArabicPage;
 import cloud.rehlat.pages.Trips.Arabic.OneWayTripArabicPage;
+import cloud.rehlat.pages.callcenter.ConfirmationPendingPage;
+import cloud.rehlat.pages.discount_codes.AirarabiaAirwaysPage;
 import cloud.rehlat.pages.discount_codes.DiscountsPage;
 import cloud.rehlat.pages.discount_codes.JazeeraairwaysPage;
+import cloud.rehlat.pages.discount_codes.jazeeraairwaysServicesPage;
 import cloud.rehlat.pages.homepage_links.english.TopLeftsideLinksPage;
 import cloud.rehlat.utils.PageUtils;
 import cloud.rehlat.utils.TestDataUtils;
@@ -51,19 +54,19 @@ public class FlightNavigation {
 
 	@FindBy(css = "#customBtn")
 	private WebElement btnGmail;
-	@FindBy(xpath="//div[@id='signUp_new']/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/a/span")
+	@FindBy(xpath = "//div[@id='signUp_new']/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/a/span")
 	private WebElement btnFacebook;
-	
-	@FindBy(id = "radio_1")
+
+	@FindBy(xpath = "//md-radio-button[@id='radio_1']/div/div")
 	private WebElement radioOneWay;
 	// RoundTrip radio button
-	@FindBy(id = "radio_2")
+	@FindBy(xpath = "//md-radio-button[@id='radio_2']/div/div[2]")
 	private WebElement radioRoundTrip;
 
 	// MultiCity radio button
-	@FindBy(id = "radio_3")
+	@FindBy(xpath = "//md-radio-button[@id='radio_3']/div/div")
 	private WebElement radioMulticity;
-	
+
 	@FindBy(xpath = ".//*[@id='resetAll']")
 	private WebElement linkAllResetInBookNow;
 	@FindBy(css = "h4.panel-title")
@@ -88,6 +91,16 @@ public class FlightNavigation {
 	// jazeera
 	@FindBy(xpath = ".//*[@id='OptOneWay']")
 	private WebElement chkJezeera;
+	@FindBy(xpath = "//h2")
+	private WebElement getText;
+
+	// AirArabia
+	@FindBy(xpath = "//div[@id='tabs-flights']/div/div/div/form/div[3]/div/input[2]")
+	private WebElement chkAirarabia;
+
+	// callcenter
+	@FindBy(id = "Email")
+	private WebElement chkTextBox;
 
 	/**
 	 * This method is used to open the mouse over of login
@@ -176,11 +189,12 @@ public class FlightNavigation {
 		return new GmailPage(driver);
 	}
 
-	public  FacebookPage clickfacebook() {
+	public FacebookPage clickfacebook() {
 		pageUtils.clickElement(driver, btnFacebook);
 		return new FacebookPage(driver);
 
 	}
+
 	/**
 	 * this method is used to click on Oneway Radio button
 	 * 
@@ -219,6 +233,34 @@ public class FlightNavigation {
 	public JazeeraairwaysPage clickOneWayjazeera() {
 		pageUtils.clickElement(driver, chkJezeera);
 		return new JazeeraairwaysPage(driver);
+	}
+
+	public jazeeraairwaysServicesPage getTextOf() {
+		String t = pageUtils.getTextOfElement(driver, getText);
+		System.out.println(t);
+		return new jazeeraairwaysServicesPage(driver);
+	}
+
+	/**
+	 * this method is used to click on AirArabia
+	 * 
+	 * @return
+	 */
+	public AirarabiaAirwaysPage clickOneWayAirarabia() {
+		pageUtils.scrollDown(driver);
+		pageUtils.clickElement(driver, chkAirarabia);
+		return new AirarabiaAirwaysPage(driver);
+	}
+
+	/**
+	 * this method is used to click on AirArabia
+	 * 
+	 * @return
+	 */
+	public ConfirmationPendingPage chkTextBox() {
+
+		pageUtils.clickElement(driver, chkTextBox);
+		return new ConfirmationPendingPage(driver);
 	}
 
 	/**

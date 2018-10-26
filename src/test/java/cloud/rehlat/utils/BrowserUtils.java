@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.Parameters;
 
 import cloud.rehlat.constants.common.BrowserConstants;
 import cloud.rehlat.constants.engine.EngineConstants;
@@ -28,7 +29,19 @@ public class BrowserUtils {
 		return driver;
 	}
 
-	@Before
+	
+	 private static void initializeSystemProperties() {
+		 System.setProperty("browser", System.getProperty("browser", "chrome"));
+			System.setProperty("pathToDriver", System.getProperty("pathToDriver", "D:\\jarfiles\\chromedriver.exe"));
+			System.setProperty("foreground", System.getProperty("foreground", "false"));
+			System.setProperty("target", System.getProperty("target", "ENG"));
+			System.setProperty("environment", System.getProperty("environment", "PRD"));
+			System.setProperty("application", System.getProperty("application", "COM"));
+			System.setProperty("url", System.getProperty("url", "https://www.rehlat.com.sa/en/"));
+			String s=System.setProperty("headless", "true1");
+	    }
+	 
+	 @Before
 	public static void launchUrl() throws InterruptedException {
 		launchBrowser();
 		getApplicationUrl();
@@ -37,8 +50,12 @@ public class BrowserUtils {
 		onload_alert();
 		
 	}
-
+	
+	 
+	
+	
 	public static WebDriver launchBrowser() {
+		initializeSystemProperties();
 		String browser = System.getProperty("browser");
 		if (browser.equalsIgnoreCase(BrowserConstants.CHROME)) {
 			String userdir = System.getProperty("pathToDriver");
@@ -195,7 +212,64 @@ public class BrowserUtils {
 				
 			}
 				break;
+				
+			case "JZS":
+
+				switch (environment) {
+				case "PRD":
+					engineEnvironment = BrowserConstants.ENV_DEV;
+					applicationUrl = BrowserConstants.ENG_JZS_PRD_URL;
+					break;
+				
+			}
+				break;
+			case "AA":
+
+				switch (environment) {
+				case "PRD":
+					engineEnvironment = BrowserConstants.ENV_DEV;
+					applicationUrl = BrowserConstants.ENG_AA_PRD_URL;
+					break;
+				
+			}
+				break;
+			case "PGS":
+
+				switch (environment) {
+				case "PRD":
+					engineEnvironment = BrowserConstants.ENV_DEV;
+					applicationUrl = BrowserConstants.ENG_PGS_PRD_URL;
+					break;
+				
+			}
+				break;
 		}
+		}
+		else if (target.equalsIgnoreCase(BrowserConstants.CC)) {
+			switch (application.toUpperCase()) {
+
+			case "SA":
+				// applicationUrl = System.getProperty("url");
+				switch (environment) {
+				case "PRD":
+					engineEnvironment = BrowserConstants.ENV_DEV;
+					applicationUrl = BrowserConstants.CC_SA_PRD_URL;
+					break;
+				case "TST":
+					engineEnvironment = BrowserConstants.ENV_TST;
+					applicationUrl = BrowserConstants.CC_SA_QA_TST_URL;
+					break;
+				case "STG":
+					engineEnvironment = BrowserConstants.ENV_STG;
+					applicationUrl = BrowserConstants.CC_SA_STG_URL;
+					break;
+
+				default:
+					applicationUrl = BrowserConstants.ARB_SA_PRD_URL;
+					break;
+				}
+				break;
+			}
 		}
 				
 				else if (target.equalsIgnoreCase(BrowserConstants.ARB)) {

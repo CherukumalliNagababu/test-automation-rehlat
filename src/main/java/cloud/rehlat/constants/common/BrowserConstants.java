@@ -4,6 +4,7 @@ public class BrowserConstants {
 	//Target for Automation
 	public static final String ENG = "ENG";
 	public static final String ARB = "ARB";
+	public static final String CC = "CC";
 	
 	
 	
@@ -29,7 +30,11 @@ public class BrowserConstants {
 	public static final String ENG_AE_STG_URL = "http://stage.rehlat.ae/";
 	//JAZEERA
 	public static final String ENG_JZ_PRD_URL = "http://www.jazeeraairways.com/";
-	
+	public static final String ENG_JZS_PRD_URL = "https://api.jazeeraairways.com/j9utilitiesservice/Service.asmx?op=ArrivalStations";
+	//AirArabia
+			public static final String ENG_AA_PRD_URL = "https://www.airarabia.com/";
+			//pegasus
+			public static final String ENG_PGS_PRD_URL = "https://www.flypgs.com/en";
 	//Arabic URLs
 	//SA
 		public static final String ARB_SA_PRD_URL = "https://www.rehlat.com.sa/";
@@ -51,6 +56,14 @@ public class BrowserConstants {
 		public static final String ARB_AE_QA_TST_URL = "http://192.168.1.9:8090/en/";
 		public static final String ARB_AE_STG_URL = "http://stage.rehlat.ae/";
 	
+		
+	//Call Center
+		//SA
+				public static final String CC_SA_PRD_URL = "http://sacallcenter.rehlat.com/";
+				public static final String CC_SA_QA_TST_URL = "http://192.168.1.9:8090/en/";
+				public static final String CC_SA_STG_URL = "http://stagesa.rehlat.com/en/";
+				
+		
 	//Environments for Engine Titles
 	public static final String ENV_DEV = " [Dev] - ";
 	public static final String ENV_TST = " [Test] - ";

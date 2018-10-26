@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -664,4 +665,16 @@ public class PageUtils {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,1500)", "");
 	}
+	public String DaybeforeYesterdaytimestamp() {
+		 Calendar cal = Calendar.getInstance();
+		 cal.add(Calendar.DATE, -2);
+		  return new SimpleDateFormat("d-M-yyyy").format(cal.getTime());
+		  
+		}
+	public  String Yesterdaytimestamp() {
+		 Calendar cal = Calendar.getInstance();
+		 cal.add(Calendar.DATE, -1);
+		  return new SimpleDateFormat("d-M-yyyy").format(cal.getTime());
+		  
+		}
 }

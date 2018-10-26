@@ -45,6 +45,14 @@ public class FlightLoginPage {
 	
 	@FindBy(linkText="Plan")
 	private  WebElement JgetText;
+	@FindBy(xpath="//h3")
+	private  WebElement JSgetText;
+	
+	@FindBy(xpath="//div[@id='search_tabs']/div/div/div/ul/li/a")
+	private  WebElement AAgetText;
+	
+	@FindBy(id="Email")
+	private  WebElement txtGet;
 	
 	/**
 	 * This method is used to enter the login credentials of the user on Engine
@@ -94,5 +102,18 @@ public class FlightLoginPage {
 		pageUtils.getTextOfElement(driver, JgetText);
 		return new FlightNavigation(driver) ;
 	}
+	public  FlightNavigation JSHomepage() {
+		pageUtils.getTextOfElement(driver, JSgetText);
+		return new FlightNavigation(driver) ;
+	}
 	
+	public  FlightNavigation AAHomepage() {
+		pageUtils.getTextOfElement(driver,AAgetText);
+		return new FlightNavigation(driver) ;
+	}
+	
+	public  FlightNavigation CallCenter() {
+		pageUtils.getTextOfElement(driver,txtGet);
+		return new FlightNavigation(driver) ;
+	}
 }
