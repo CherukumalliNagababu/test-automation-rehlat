@@ -29,7 +29,7 @@ public class OneWayTripPage {
 		PageFactory.initElements(this.driver, this);
 	}
 
-	@FindBy(id = "radio_1")
+	@FindBy(xpath = "//md-radio-button[@id='radio_1']/div/div")
 	private WebElement radioOneWay;
 	@FindBy(id = "autoFlyingFrom1")
 	private WebElement txtFlyFrom;

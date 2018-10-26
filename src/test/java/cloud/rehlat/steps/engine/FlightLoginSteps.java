@@ -30,6 +30,7 @@ public class FlightLoginSteps extends StepUtils{
 	public void i_am_on_login_page_of_Hotels() throws Throwable {
 		FlightLoginPage = new FlightLoginPage(driver);
 	}
+	
 	@When("^I go to Rehlat Home page$")
 	public void i_go_to_Home_page() throws InterruptedException
 	{
@@ -39,6 +40,21 @@ public class FlightLoginSteps extends StepUtils{
 	public void i_go_to_jazeera_Home_page() throws InterruptedException
 	{
 		FlightNavigation=FlightLoginPage.JHomepage();
+	}
+	@When("^I go to Jazeera Services Home page$")
+	public void i_go_to_jazeera_Services_Home_page() throws InterruptedException
+	{
+		FlightNavigation=FlightLoginPage.JSHomepage();
+	}
+	@When("^I go to Airarabia Home page$")
+	public void i_go_to_airarabia_Home_page() throws InterruptedException
+	{
+		FlightNavigation=FlightLoginPage.AAHomepage();
+	}
+	@When("^I go to call center Home page$")
+	public void i_go_to_call_center_Home_page() throws InterruptedException
+	{
+		FlightNavigation=FlightLoginPage.CallCenter();
 	}
 	
 	@Then("^I can navigate to Rehlat Home page successfully$")

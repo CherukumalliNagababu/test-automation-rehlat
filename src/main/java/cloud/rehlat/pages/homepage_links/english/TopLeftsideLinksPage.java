@@ -42,6 +42,9 @@ public class TopLeftsideLinksPage {
 		pageUtils.clickElement(driver, btnFlight);
 		String text=pageUtils.getTextOfElement(driver, radioOneWay);
 		System.out.println(text);
+		pageUtils.clickElement(driver, btnHotel);
+		String text1=pageUtils.getTextOfElement(driver, radioOneWay);
+		System.out.println(text1);
 	}
 
 }

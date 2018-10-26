@@ -1,6 +1,7 @@
 package cloud.rehlat.utils;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class DataUtils {
@@ -12,6 +13,18 @@ public class DataUtils {
 		strDate = dateFormat.format(date);
 		return strDate;
 	}
+	public static String DaybeforeYesterdayDate(String format) {
+		 Calendar cal = Calendar.getInstance();
+		 cal.add(Calendar.DATE, -2);
+		  return new SimpleDateFormat(format).format(cal.getTime());
+		  
+		}
+	public static String YesterdayDate(String format) {
+		 Calendar cal = Calendar.getInstance();
+		 cal.add(Calendar.DATE, -1);
+		  return new SimpleDateFormat(format).format(cal.getTime());
+		  
+		}
 
 	public static String[] splitString(String input, String delimiter) {
 		String [] arrSplitString = input.split(delimiter);

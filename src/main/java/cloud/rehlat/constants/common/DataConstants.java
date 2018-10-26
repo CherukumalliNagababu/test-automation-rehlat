@@ -2,6 +2,8 @@ package cloud.rehlat.constants.common;
 
 import java.io.File;
 
+import cloud.rehlat.utils.BrowserUtils;
+
 public class DataConstants {
 	// User role codes
 	public static final String ROLE_SUPER_ADMIN = "SA";
@@ -98,6 +100,8 @@ public class DataConstants {
 	public static final String NEW_REGISTER_PASSWORD = "TestAutomation@1";
 	public static final String ADULT_NEW_NAME = "David";
 	public static final String CHILD_NEW_NAME = "test";
+	
+	public static final String featurePath ="src/test/resources/features/flight/english/OneWay.feature";
 
 	// Paths of files to upload
 	public static final String CANOPY_DOCUMENT_PATH = System.getProperty("user.dir") + File.separator + "src"

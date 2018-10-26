@@ -24,7 +24,9 @@ public class SearchHotelSteps extends StepUtils {
 	SearchHotelPage searchHotelPage = null;
 	@When("^I can click on hotel link$")
 	public void i_can_click_on_hotel_link() throws Throwable {
-		searchHotelPage = FlightNavigation.clickHotelLink();
+		searchHotelPage=new SearchHotelPage(driver);
+		//searchHotelPage = FlightNavigation.clickHotelLink();
+		searchHotelPage.clickHotelLink();
 		Thread.sleep(2000);
 	}
 	@When("^I can enter Hotel city name$")
@@ -49,4 +51,12 @@ public class SearchHotelSteps extends StepUtils {
 		Assert.assertTrue("HOTEL: ERROR OCCURRED WHILE ENTERING THE TRAVELLER DETAILS -> HOTEL SEARCH PAGE", status);
 	}
 
+	
+	@When("^I can enter Hotel city name and verify duplicate names$")
+	public void i_can_enter_Hotel_city_name_and_verify_duplicate_names(DataTable dataTable) throws Throwable {
+		Map<String, String> dataMap = getDataAsMap(dataTable);
+		searchHotelPage.enterHotelCityName_Duplicate(dataMap);
+		
+
+	}
 }
