@@ -23,7 +23,7 @@ public class RoundTripSteps extends StepUtils {
 	
 	@When("^I go to select Round Radio button$")
 	public void i_go_to_select_round() throws Throwable {
-
+		FlightNavigation=new FlightNavigation(driver);
 		roundTripPage = FlightNavigation.clickRound();
 		Thread.sleep(2000);
 	}

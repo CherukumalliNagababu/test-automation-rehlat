@@ -64,7 +64,7 @@ public class BookNowPage {
 	
 	@FindBy(xpath = "//div[2]/ul/li/a/span[1]")
 	private List<WebElement> listOfAirlines;
-	@FindBy(xpath = "(//a[contains(text(),'Flight Details')])[3]")
+	@FindBy(xpath = "(//a[contains(text(),'Flight Details')])[2]")
 	private WebElement linkFlightDetailsTopRoundTrip;
 	@FindBy(xpath = "(//a[contains(text(),'Flight Details')])")
 	private WebElement linkFlightDetailsTopMulticity;

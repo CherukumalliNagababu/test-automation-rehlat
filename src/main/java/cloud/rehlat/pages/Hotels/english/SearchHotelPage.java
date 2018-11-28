@@ -1,9 +1,13 @@
 package cloud.rehlat.pages.Hotels.english;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
@@ -102,8 +106,187 @@ public class SearchHotelPage {
 	@FindBy(xpath = ".//*[@id='ul-0']/li")
 	private List<WebElement> listCityNames;
 	
+	@FindBy(xpath = ".//*[@id='hotelsFound']")
+	private WebElement numOfHoteslText;
+	@FindBy(linkText = "Book Now")
+	private WebElement btnBookNow;
+	@FindBy(xpath = ".//*[@id='selectedRoomPrice']")
+	private WebElement getPriceTop;
+	@FindBy(xpath = "//div[@id='pricesticky']//div[2]/span[2]")
+	private WebElement getPriceBelow;
+	
+	@FindBy(xpath = "//div[@class='hotelMain_CheckIn']/span[2]")
+	private WebElement getCheckInDate;
+	@FindBy(xpath = "//div[@class='hotelMain_CheckOut']/span[2]")
+	private WebElement getCheckOutDate;
+	@FindBy(xpath = "//div[@class='hotelMain_roomPrice']/div[2]")
+	private WebElement getPriceQB;
+	@FindBy(linkText = "Quick Book")
+	private WebElement btnQuickBook;
+	@FindBy(xpath = "//div[@id='pricesticky']/span")
+	private WebElement btnBookNowBelow;
+	
+	@FindBy(id = "CheckInDatePicker")
+	private WebElement checkInDateSearch;
+	@FindBy(id = "CheckOutDatePicker")
+	private WebElement CheckOutDatePickerSearch;
+	
+	@FindBy(xpath = "//tr/td[2]/span/span")
+	private WebElement finalAmount;
+	@FindBy(xpath = "//div/div/table/tbody/tr/td[2]/span/a/div/img")
+	private WebElement finalAmountInfo;
+	@FindBy(css = "button.close.btn_Close")
+	private WebElement btnClosePopUp;
+	
+	//pop up Details
+	@FindBy(xpath = ".//*[@id='myPriceBreakUpModal']/div[2]/div/div[2]/div/div[1]/div/div/span[2]")
+	private WebElement roomChargesText;
+	@FindBy(xpath = ".//*[@id='myPriceBreakUpModal']/div[2]/div/div[2]/div/div[1]/div/div/span[1]/span")
+	private WebElement roomChargesValue;
+	@FindBy(xpath = ".//*[@id='myPriceBreakUpModal']/div[2]/div/div[2]/div/div[2]/div/div/span[1]")
+	private WebElement discountText;
+	@FindBy(xpath = ".//*[@id='myPriceBreakUpModal']/div[2]/div/div[2]/div/div[2]/div/div/span[2]/span")
+	private WebElement discountValue;
+	@FindBy(xpath = ".//*[@id='myPriceBreakUpModal']/div[2]/div/div[2]/div/div[3]/div/div/span[1]")
+	private WebElement karamPointText;
+	@FindBy(xpath = ".//*[@id='myPriceBreakUpModal']/div[2]/div/div[2]/div/div[3]/div/div/span[2]/span")
+	private WebElement karamPointValue;
+	@FindBy(xpath = ".//*[@id='myPriceBreakUpModal']/div[2]/div/div[2]/div/div[4]/div/div/span[1]")
+	private WebElement paybleAmountText;
+	@FindBy(xpath = ".//*[@id='myPriceBreakUpModal']/div[2]/div/div[2]/div/div[4]/div/div/span[2]")
+	private WebElement paybleAmountValue;
+	@FindBy(xpath = ".//*[@id='txtCoupon']")
+	private WebElement txtCoupon;
+	@FindBy(xpath = "//button[@class='codeapply']")
+	private WebElement btnApply;
 	
 	
+	
+	
+	/**
+	 * This method is used to Click on Quick Book button
+	 * @throws InterruptedException 
+	 */
+	public void clickOnQuickBook() throws InterruptedException
+	{
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
+		pageUtils.clickElement(driver, btnQuickBook);
+	}
+	/**
+	 * This method is used to Click on  Book now below button
+	 * @throws InterruptedException 
+	 */
+	public void clickOnBookNowBelow() throws InterruptedException
+	{
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
+		pageUtils.clickElement(driver, btnBookNowBelow);
+	}
+	/**
+	 * This method is used to verify the price
+	 * @throws InterruptedException 
+	 */
+	public boolean verifyPrice() throws InterruptedException
+	{
+		boolean status=false;
+		String topPrice=pageUtils.getTextOfElement(driver, getPriceTop);
+		System.out.println("Top Price:"+topPrice);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
+		String qbPrice=pageUtils.getTextOfElement(driver, getPriceQB);
+		System.out.println("QB Price:"+qbPrice);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
+		String belowPrice=pageUtils.getTextOfElement(driver, getPriceBelow);
+		System.out.println("Below Price:"+belowPrice);
+		if(topPrice.equals(belowPrice))
+		{
+			System.out.println("Both Price Values Are matching");
+			status=true;
+			
+		}
+		else
+		{
+			System.out.println("Both Price Values Are Not matching");
+			Assert.assertTrue("Both Price Values Are Not matching", status);
+			status=false;
+		}
+		return status;
+	}
+	/**
+	 * This method is used to verify the CheckIn And CheckOutDates
+	 * @throws InterruptedException 
+	 */
+	public boolean verifyCheckInAndCheckOutDates() throws InterruptedException
+	{
+		boolean status=false;
+		String checkInSearch=checkInDateSearch.getAttribute("value");
+		System.out.println("Check In Date:"+checkInSearch);
+		String checkInMonth=checkInSearch.split(" ")[1];
+		System.out.println("checkIn Month:"+checkInMonth);
+		String checkOutSearch=CheckOutDatePickerSearch.getAttribute("value");
+		System.out.println("Check Out Date:"+checkOutSearch);
+		String checkOutMonth=checkOutSearch.split(" ")[1];
+		System.out.println("checkOut Month:"+checkOutMonth);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
+		String getcheckIn=pageUtils.getTextOfElement(driver, getCheckInDate);
+		System.out.println("Get The Check In Date:"+getcheckIn);
+		String getcheckInMonth=getcheckIn.split("-")[1];
+		System.out.println("getcheckIn Month:"+getcheckInMonth);
+		String AftergetcheckIn=getcheckIn.replaceAll("-", " ");
+		AftergetcheckIn=AftergetcheckIn.replaceAll(getcheckInMonth, checkInMonth);
+		System.out.println("After replace CheckIn Date:"+AftergetcheckIn);
+		String getcheckOut=pageUtils.getTextOfElement(driver, getCheckOutDate);
+		System.out.println("Get The Check Out Date:"+getcheckOut);
+		String getcheckOutMonth=getcheckOut.split("-")[1];
+		System.out.println("getcheckOut Month:"+getcheckOutMonth);
+		String AftergetcheckOut=getcheckOut.replaceAll("-", " ");
+		AftergetcheckOut=AftergetcheckOut.replaceAll(getcheckOutMonth, checkOutMonth);
+		System.out.println("After replace CheckOut Date:"+AftergetcheckOut);
+		if(checkInSearch.equals(AftergetcheckIn))
+		{
+			System.out.println("Check In Dates are  Matching");
+			status=true;
+		}
+		else
+		{
+			System.out.println("Check In Dates are Not Matching");
+			Assert.assertTrue("Check In Dates are Not Matching", status);
+			status=false;
+		}
+		
+		if(checkOutSearch.equals(AftergetcheckOut))
+		{
+			System.out.println("Check Out Dates are  Matching");
+			status=true;
+		}
+		else
+		{
+			System.out.println("Check Out Dates are Not Matching");
+			Assert.assertTrue("Check Out Dates are Not Matching", status);
+			status=false;
+		}
+		return status;
+		
+	}
+	
+	/**
+	 * This method is used to Click on BookNow button
+	 * @return 
+	 */
+	public boolean clickOnBookNow()
+	{
+		boolean status = false;
+		try {
+		String s=pageUtils.getTextOfElement(driver, numOfHoteslText);
+		System.out.println(s);
+		pageUtils.clickElement(driver, btnBookNow);
+		pageUtils.switchWindows(driver);
+		status = true;
+	} catch (Exception e) {
+		System.out.println("EXCEPTION OCCURRED: " + e.getMessage());
+		e.printStackTrace();
+		status = false;
+	}
+	return status;
+	}
 	/**
 	 * this method is used to click on Hotel link in home page
 	 * 
@@ -112,6 +295,8 @@ public class SearchHotelPage {
 	public SearchHotelPage clickHotelLink() throws InterruptedException {
 		pageUtils.clickElement(driver, btnHotel);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL);
+		
+		
 		return new SearchHotelPage(driver);
 
 	}
@@ -122,6 +307,15 @@ public class SearchHotelPage {
 	{
 		pageUtils.clickElement(driver, btnDone);
 	}
+	
+	/**
+	 * This method is used to get the Dates
+	 */
+	public void getTheDates()
+	{
+		
+	}
+	
 	/**
 	 * This method is used to Click on Search button
 	 */
@@ -461,7 +655,7 @@ public class SearchHotelPage {
 		}
 		
 		
-		/*List<WebElement> WE1 = listCityNames;
+		List<WebElement> WE1 = listCityNames;
 		System.out.println("Total Number :" + WE1.size());
 		Thread.sleep(2000);
 
@@ -470,13 +664,18 @@ public class SearchHotelPage {
 		for (WebElement element1 : WE1) {
 			list.add(element1.getText());
 		}
-		ArrayList<String> unique = removeDuplicates(list);
-		//System.out.println("unique:" + unique.size());
-		for (String element : unique) {
-			System.out.println("----------------------------------------------");
-			System.out.println("Dupilcate Element:" + element);
-			System.out.println("----------------------------------------------");
-	}*/
+		Set<String> duplicateElements=new HashSet<>();
+		
+		Collections.sort(list);
+		for (int i = 1; i < list.size(); i++) {
+			if(list.get(i-1).equals(list.get(i))){
+				duplicateElements.add(list.get(i));
+			}
+		}
+		System.out.println("Duplicate Elements : "+duplicateElements);
+		
+		
+		
 	}
 
 		static ArrayList<String> removeDuplicates(ArrayList<String> list) {
@@ -498,4 +697,6 @@ public class SearchHotelPage {
 			}
 			return result;
 		}
+		
+		
 }

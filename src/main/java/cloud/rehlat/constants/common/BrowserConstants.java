@@ -35,7 +35,19 @@ public class BrowserConstants {
 			public static final String ENG_AA_PRD_URL = "https://www.airarabia.com/";
 			//pegasus
 			public static final String ENG_PGS_PRD_URL = "https://www.flypgs.com/en";
-	//Arabic URLs
+			//MY
+			public static final String ENG_MY_PRD_URL = "https://www.mayaislandair.com/";
+	//MEA
+			public static final String ENG_MEA_PRD_URL = "https://www.mea.com.lb/english/home";
+		//RJ	
+			public static final String ENG_RJ_PRD_URL = "https://www.rj.com/";
+			//RB
+			public static final String ENG_RB_PRD_URL = "https://www.flyroyalbrunei.com/brunei/en/";
+				
+			//Emirates
+			public static final String ENG_EM_PRD_URL = "https://www.emirates.com/in/english/";
+			
+			//Arabic URLs
 	//SA
 		public static final String ARB_SA_PRD_URL = "https://www.rehlat.com.sa/";
 		public static final String ARB_SA_QA_TST_URL = "http://192.168.1.9:8090/en/";
@@ -82,4 +94,6 @@ public class BrowserConstants {
 	public static final String WAIT_LONG = "15000";
 	public static final String WAIT_VERY_LONG = "25000";
 	public static final String WAIT_EXCEPTIONAL_CASES = "45000";
+	
+	public static final String WAIT_SMALL1 = "5000000";
 }

@@ -269,6 +269,7 @@ public class FlightNavigation {
 	 * @return
 	 */
 	public BookNowPage clickAllReset() {
+		pageUtils.isElementDisplayed(driver, linkAllResetInBookNow);
 		pageUtils.clickElement(driver, linkAllResetInBookNow);
 		return new BookNowPage(driver);
 	}

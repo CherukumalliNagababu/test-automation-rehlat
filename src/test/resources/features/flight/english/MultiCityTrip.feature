@@ -8,7 +8,7 @@ Background:
 	
 
 @flight_healthcheck
-Scenario Outline: Validate if the user can sigh-in gmail account and book the ticket in Round Trip
+Scenario Outline: Validate if the user can sigh-in gmail account and book the ticket in MultiCity Trip
 	 When I go to signUp button
 	 When I go to login gmail account
      When I go to select MultiCity Radio button

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Repricing reports ]" parallel="tests">
+  <test name="Regression Test">
+    <classes>
+      <class name="cloud.rehlat.Runner2"/>
+    </classes>
+  </test> <!-- Regression Test -->
+  <test name="Regression Test(failed)" parallel="tests">
+    <classes>
+      <class name="cloud.rehlat.Runner2">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="feature" invocation-numbers="0"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- cloud.rehlat.Runner2 -->
+    </classes>
+  </test> <!-- Regression Test(failed) -->
+</suite> <!-- Failed suite [Repricing reports ] -->

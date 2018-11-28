@@ -33,6 +33,6 @@ Scenario Outline: Validate if the user can sigh-in gmail account and book the ti
      |infant|<infant>|
     And I can enter contact details and Click PaySecurel button
     Examples:
-	|userName	|passWord	|fromCity	|toCity	|adults|childs|infant|addOnBaggage|CouponCodeStatus|EnterCoupon|
-	|******		|****** 	|LON		|HYD	|2		|1	  | 1    |NO			|NO              |		|
+	|userName	|passWord|fromCity	|toCity	|adults|childs|infant|addOnBaggage|CouponCodeStatus|EnterCoupon|
+	|******		|******	|LON		|HYD	|2		|1	  | 1    |NO			|NO              |		|
 	

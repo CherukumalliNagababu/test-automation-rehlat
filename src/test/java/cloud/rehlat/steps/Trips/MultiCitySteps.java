@@ -23,7 +23,7 @@ public class MultiCitySteps extends StepUtils {
 	
 	@When("^I go to select MultiCity Radio button$")
 	public void i_go_to_select_multicity() throws Throwable {
-
+		FlightNavigation=new FlightNavigation(driver);
 		multiCityPage = FlightNavigation.clickMutliCity();
 		Thread.sleep(2000);
 	}

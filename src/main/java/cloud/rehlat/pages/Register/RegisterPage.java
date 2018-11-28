@@ -69,7 +69,7 @@ public class RegisterPage {
 		pageUtils.sendKeysAfterClearingElement(driver, txtLastName, lastName);
 		pageUtils.sendKeysAfterClearingElement(driver, txtHomeMail, email);
 		pageUtils.sendKeysAfterClearingElement(driver, txtHomePwd, password);
-		pageUtils.sendKeysAfterClearingElement(driver, txtHomeConfirmPwd, password);
+		//pageUtils.sendKeysAfterClearingElement(driver, txtHomeConfirmPwd, password);
 		pageUtils.clickElement(driver, btnSignUp);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 		String strCreatedUser = pageUtils.getTextOfElement(driver, getRegisteredName);

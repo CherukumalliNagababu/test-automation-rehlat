@@ -2,13 +2,13 @@
   "name": "selenium-cucumber-js",
   "version": "1.5.13",
   "description": "JavaScript browser automation framework using official selenium-webdriver and cucumber-js",
-  "main": "index.js",
+  "main": "glupfile.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "node glupfile.js"
   },
   "author": {
-    "name": "John Doherty",
-    "email": "contact@johndoherty.info",
+    "name": "Nagababu",
+    "email": "Naga.ch199@gmail.com",
     "url": "https://courseof.life/johndoherty"
   },
   "license": "ISC",
@@ -53,14 +53,18 @@
     "geckodriver": "1.1.2",
     "merge": "1.2.0",
     "phantomjs-prebuilt": "2.1.12",
+    "request": "^2.88.0",
     "require-dir": "0.3.2",
-    "selenium-webdriver": "3.0.0"
+    "selenium-webdriver": "3.0.0",
+    "useragent": "^2.3.0",
+    "yamlparser": "0.0.2"
   },
   "devDependencies": {
     "cucumber-html-reporter": "^2.0.3",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-plugin-import": "^2.2.0"
+    "eslint-plugin-import": "^2.2.0",
+    "gulp": "^3.9.1"
   },
   "eslintConfig": {
     "extends": "airbnb-base",

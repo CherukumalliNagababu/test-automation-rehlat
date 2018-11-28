@@ -17,9 +17,9 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 						plugin = {"pretty", "html:target/reports"}
 		) */
 
-@CucumberOptions(//features = "src/test/resources/features/flight/Pegasus.feature", 
-//features = "src/test/resources/features/flight/english/OneWay.feature",
-features = "src/test/resources/features/hotels/english/GuestUser.feature",
+@CucumberOptions(//features = "src/test/resources/features/flight/Mayaislandair.feature", 
+features = "src/test/resources/features/flight/english/HomepageLinks.feature",
+//features = "src/test/resources/features/hotels/english/GuestUser.feature",
 //features = "src/test/resources/features/callCenter/ConfirmationPending.feature",
 		//features=DataConstants.featurePath,	
 tags = {"@flight_healthcheck" }, 
@@ -33,6 +33,7 @@ public class Runner2 extends AbstractTestNGCucumberTests {
 	/*@BeforeClass
 	public static void setUp() {
 		System.setProperty("browser", System.getProperty("browser", "chrome"));
+		9985625356
 		System.setProperty("pathToDriver", System.getProperty("pathToDriver", "D:\\jarfiles\\chromedriver.exe"));
 		System.setProperty("foreground", System.getProperty("foreground", "false"));
 		System.setProperty("target", System.getProperty("target", "ENG"));

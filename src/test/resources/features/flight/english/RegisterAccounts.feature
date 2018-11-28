@@ -13,4 +13,4 @@ Scenario Outline: Validate if the user have create Register account successfully
 	 
 	 Examples:
 	|numberOfAccountsCreated|
-	|1						|
+	|2						|

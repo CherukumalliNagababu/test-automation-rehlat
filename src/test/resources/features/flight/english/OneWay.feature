@@ -5,7 +5,6 @@ Feature: Oneway Trip functionality
 	
 Background:
 	Given I am on login page of Flights
-	
 #@flight_healthcheck
 Scenario Outline: Validate if the user can successfully navigate to Homepage,Flight,Hotels,Deals pages 
 	 When I go to Rehlat Home page
@@ -15,6 +14,14 @@ Scenario Outline: Validate if the user can successfully navigate to Homepage,Fli
 	 When I can navigate to Deal Home page successfully
     
  Examples:
+	|userName	|passWord	|
+	|******		|****** 	|
+	
+	#@flight_healthcheck
+Scenario Outline: Validate if the user can sigh-in gmail account and book the ticket in OneWay Trip
+	
+     When I go to select OneWay Radio button
+      Examples:
 	|userName	|passWord	|
 	|******		|****** 	|
 	
@@ -45,5 +52,5 @@ Scenario Outline: Validate if the user can sigh-in gmail account and book the ti
     And I can enter contact details and Click PaySecurel button
     Examples:
 	|userName	|passWord	|fromCity	|toCity	|adults|childs|infant|addOnBaggage|CouponCodeStatus|EnterCoupon|
-	|******		|****** 	|JED		|CAI	|2		|2	  | 2    |NO			|NO              |		|
+	|******		|****** 	|JED		|CAI	|2		|2	  | 2    |NO			|Yes              |SWEETNOV		|
 	

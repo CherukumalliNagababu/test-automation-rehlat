@@ -3017,6 +3017,7 @@ public class TravellerInformationPage {
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 
 		pageUtils.sendKeysAfterClearingElement(driver, txtPhoneNumber, DataConstants.USER_PHONE_NUMBER);
+		pageUtils.sendKeysAfterClearingElement(driver, txtPhoneNumber, DataConstants.USER_PHONE_NUMBER);
 	}
 
 	/**
