@@ -28,7 +28,7 @@ public class OneWayTripSteps extends StepUtils {
 	
 	@When("^I go to select OneWay Radio button$")
 	public void i_go_to_select_oneway() throws Throwable {
-
+		FlightNavigation=new FlightNavigation(driver);
 		OneWayTripPage = FlightNavigation.clickOneWay();
 		Thread.sleep(2000);
 	}

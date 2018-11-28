@@ -2,20 +2,27 @@ package cloud.rehlat.steps.engine;
 
 
 
+import java.util.Map;
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
-
+import cloud.rehlat.constants.common.BrowserConstants;
+import cloud.rehlat.constants.common.DataConstants;
+import cloud.rehlat.constants.engine.EngineConstants;
 import cloud.rehlat.pages.engine.FlightLoginPage;
 import cloud.rehlat.utils.BrowserUtils;
 import cloud.rehlat.utils.StepUtils;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cloud.rehlat.pages.engine.FlightNavigation;
 
 public class FlightLoginSteps extends StepUtils{
-
+	public static final String SA = null;
+	
+	protected static String userRole;
 	WebDriver driver = BrowserUtils.getDriverInstance();   
 	FlightLoginPage FlightLoginPage = null;
 	
@@ -100,6 +107,7 @@ public class FlightLoginSteps extends StepUtils{
 	@When("^I go to signUp button$")
 	public void i_go_to_mouseover_clickSignUpIn() throws InterruptedException
 	{
+		FlightNavigation=new FlightNavigation(driver);
 		FlightNavigation=FlightLoginPage.LoginbuttonmouseOver();
 		FlightNavigation=FlightLoginPage.clicksignUpbtn();
 		
@@ -108,6 +116,75 @@ public class FlightLoginSteps extends StepUtils{
 	}
 	
 	
+	@When("^I am launching the url$")
+	public void i_launching_the_url(DataTable dataTable) throws Throwable {
+		Map<String, String> dataMap = getDataAsMap(dataTable);
+		 userRole = dataMap.get("userRole");
+		 String env = dataMap.get("environment");
+		 if(env.equalsIgnoreCase(DataConstants.ENV_PRD)){
+		if (userRole.equalsIgnoreCase(DataConstants.ROLE_SA)) {
+			
+			
+			 driver.get(BrowserConstants.ENG_SA_PRD_URL);
+		
+		} else if (userRole.equalsIgnoreCase(DataConstants.ROLE_COM)) {
+			 driver.get(BrowserConstants.ENG_COM_PRD_URL);
+			
+		}
+		else if (userRole.equalsIgnoreCase(DataConstants.ROLE_AE)) {
+			 driver.get(BrowserConstants.ENG_AE_PRD_URL);
+			
+		} else if (userRole.equalsIgnoreCase(DataConstants.ROLE_EG)) {
+			
+			 driver.get(BrowserConstants.ENG_EG_PRD_URL);
+		} 
+	}
+		 else if(env.equalsIgnoreCase(DataConstants.ENV_STG)){
+			 if (userRole.equalsIgnoreCase(DataConstants.ROLE_SA)) {
+					
+					
+				 driver.get(BrowserConstants.ENG_SA_STG_URL);
+				 driver.switchTo().alert().sendKeys("ros@965");
+					driver.switchTo().alert().accept();
+			
+			} else if (userRole.equalsIgnoreCase(DataConstants.ROLE_COM)) {
+				 driver.get(BrowserConstants.ENG_COM_STG_URL);
+				 driver.switchTo().alert().sendKeys("ros@965");
+					driver.switchTo().alert().accept();
+				
+			}
+			else if (userRole.equalsIgnoreCase(DataConstants.ROLE_AE)) {
+				 driver.get(BrowserConstants.ENG_AE_STG_URL);
+				 driver.switchTo().alert().sendKeys("ros@965");
+					driver.switchTo().alert().accept();
+				
+			} else if (userRole.equalsIgnoreCase(DataConstants.ROLE_EG)) {
+				
+				 driver.get(BrowserConstants.ENG_EG_STG_URL);
+				 driver.switchTo().alert().sendKeys("ros@965");
+					driver.switchTo().alert().accept();
+			}  
+		 }
+		 else if(env.equalsIgnoreCase(DataConstants.ENV_TST)){
+			
+			 if (userRole.equalsIgnoreCase(DataConstants.ROLE_SA)) {
+					
+					
+				 driver.get(BrowserConstants.ENG_SA_QA_TST_URL);
+			
+			} else if (userRole.equalsIgnoreCase(DataConstants.ROLE_COM)) {
+				 driver.get(BrowserConstants.ENG_COM_QA_TST_URL);
+				
+			}
+			else if (userRole.equalsIgnoreCase(DataConstants.ROLE_AE)) {
+				 driver.get(BrowserConstants.ENG_AE_QA_TST_URL);
+				
+			} else if (userRole.equalsIgnoreCase(DataConstants.ROLE_EG)) {
+				
+				 driver.get(BrowserConstants.ENG_EG_QA_TST_URL);
+			}  
+		 }
+	}
 	
 	
 }

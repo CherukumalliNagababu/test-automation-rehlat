@@ -42,15 +42,19 @@ public class RoundTripPage {
 
 	@FindBy(xpath = "//div[@class='fa fa-chevron-right']")
 	private WebElement dateIconBtnFrom;
-	@FindBy(xpath = ".//*[@id='flightForm']/div/div/div/div/div[1]/div[2]//table/tbody/tr/td")
-	private List<WebElement> allDates;
+	/*@FindBy(xpath = ".//*[@id='flightForm']/div/div/div/div/div[1]/div[2]//table/tbody/tr/td")
+	private List<WebElement> allDates;*/
+	@FindBy(xpath = ".//*[@id='divOnewayRound']/div/div/div[2]/div/div[1]/div[2]/div[2]/div/table/tbody/tr/td")
+    private List<WebElement> allDates;
 	
 	@FindBy(id = "Todatedropd1")
 	private WebElement btnDateTo;
 	@FindBy(xpath = "//div[@class='fa fa-chevron-right']")
 	private WebElement dateIconBtnTo;
-	@FindBy(xpath = ".//*[@id='flightForm']/div/div/div/div/div[1]/div[2]//table/tbody/tr/td")
-	private List<WebElement> allDates1;
+	/*@FindBy(xpath = ".//*[@id='flightForm']/div/div/div/div/div[1]/div[2]//table/tbody/tr/td")
+	private List<WebElement> allDates1;*/
+	@FindBy(xpath = ".//*[@id='divOnewayRound']/div/div/div[2]/div/div[1]/div[2]/div[2]/div/table/tbody/tr/td")
+    private List<WebElement> allDates1;
 	
 	
 	@FindBy(id = "dropdownMenu1")
@@ -124,10 +128,12 @@ public class RoundTripPage {
 	}
 	/**
 	 * this method is used Select date @throws
+	 * @throws InterruptedException 
 	 */
-	public void selectDate() {
+	public void selectDate() throws InterruptedException {
 
 		List<WebElement> li = allDates;
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL_ENGINE);
 		for (WebElement we : li) {
 			String st = we.getText();
 			if (st.equalsIgnoreCase(DataConstants.USER_SELECT_DATE)) {
@@ -136,9 +142,10 @@ public class RoundTripPage {
 			}
 		}
 	}
-		public void selectDate1() {
+		public void selectDate1() throws InterruptedException {
 
 			List<WebElement> li = allDates1;
+			pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL_ENGINE);
 			for (WebElement we : li) {
 				String st = we.getText();
 				if (st.equalsIgnoreCase(DataConstants.USER_SELECT_DATE1)) {

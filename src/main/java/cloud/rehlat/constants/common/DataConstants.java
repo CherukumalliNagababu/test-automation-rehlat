@@ -1,6 +1,9 @@
 package cloud.rehlat.constants.common;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import cloud.rehlat.utils.BrowserUtils;
 
@@ -18,6 +21,18 @@ public class DataConstants {
 	public static final String USERNAME_CU = "canopy_static";
 	public static final String USERNAME_RM = "automation_rm";
 	public static final String USERNAME_CU_LS = "automation_cu";
+	
+	
+	//
+	public static final String ROLE_SA = "SA";
+	public static final String ROLE_COM = "COM";
+	public static final String ROLE_AE= "AE";
+	public static final String ROLE_EG = "EG";
+	
+	//Environments for Engine Titles
+		public static final String ENV_PRD = "PRD";
+		public static final String ENV_TST = "TST";
+		public static final String ENV_STG = "STG";
 
 	public static final String USER_PHONE_NUMBER = "9030220071";
 	public static final String USER_SELECT_DATE = "10";
@@ -34,7 +49,7 @@ public class DataConstants {
 	public static final String R1_CHILDS2_AGE = "13";
 	// Room2
 	public static final String R2_NUM_ADULTS = "2";
-	public static final String R2_NUM_CHILDS = "2";
+	public static final String R2_NUM_CHILDS = "1";
 	public static final String R2_CHILDS1_AGE = "12";
 	public static final String R2_CHILDS2_AGE = "13";
 	// Room3
@@ -48,7 +63,7 @@ public class DataConstants {
 	public static final String R4_CHILDS1_AGE = "12";
 	public static final String R4_CHILDS2_AGE = "13";
 	// Room5
-	public static final String R5_NUM_ADULTS = "3";
+	public static final String R5_NUM_ADULTS = "4";
 	public static final String R5_NUM_CHILDS = "1";
 	public static final String R5_CHILDS1_AGE = "12";
 	public static final String R5_CHILDS2_AGE = "13";
@@ -107,4 +122,38 @@ public class DataConstants {
 	public static final String CANOPY_DOCUMENT_PATH = System.getProperty("user.dir") + File.separator + "src"
 			+ File.separator + "main" + File.separator + "resources" + File.separator + "cloud" + File.separator
 			+ "canopy" + File.separator + "documents" + File.separator + "visualizer" + File.separator;
+
+
+	/**
+	 * Get the path to the document resources based on availability of shared storage (In the case of k8s & grid)
+	 * @return {String} the absolute path to the documents folder
+	 */
+	private static String getDocumentPath() {
+		String resourcesPath = System.getenv("RESOURCES_PATH");
+		if (resourcesPath == null || resourcesPath.trim().isEmpty() || !Files.exists(Paths.get(resourcesPath))) {
+			Path currentPath = Paths.get(System.getProperty("user.dir"));
+			return Paths.get(currentPath.toString(), "src", "main", "resources", "cloud", "Rehlat", "documents").toString();
+		}
+		return Paths.get(resourcesPath, "cloud", "canopy", "documents").toString();
+	}
+
+	public static String getDownloadsPath() {
+		String resourcesPath = System.getenv("RESOURCES_PATH");
+		if (resourcesPath == null || resourcesPath.trim().isEmpty() || !Files.exists(Paths.get(resourcesPath))) {
+			return System.getProperty("user.dir").replace("\\", "/") + "/downloads";
+		}
+		return Paths.get(resourcesPath, "downloads").toString();
+	}
+
+	
+	/**
+	 * Get the path to a engine document
+	 * @param file {String} The filename
+	 * @return {String} the absolute path to the document file
+	 */
+	public static String getDocumentPath(String file) {
+		return Paths.get(getDocumentPath(), "Flights", file).toString();
+	}
+
+
 }

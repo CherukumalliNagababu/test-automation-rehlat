@@ -44,7 +44,7 @@ public class ForgotpasswordPage {
 	private WebElement txtPassWord;
 	@FindBy(id = "ConfirmPasswordhome")
 	private WebElement txtConfirmPassword;
-	@FindBy(xpath = "//div/div/div[2]/button")
+	@FindBy(xpath = ".//*[@id='divResetPasswordhome']/div/div[1]/a")
 	private WebElement btnLogin;
 	@FindBy(linkText = "LOG OUT")
 	private WebElement btnLogOut;
@@ -88,7 +88,7 @@ public class ForgotpasswordPage {
 		pageUtils.sendKeysAfterClearingElement(driver, txtPassWord, pwd);
 		pageUtils.sendKeysAfterClearingElement(driver, txtConfirmPassword, pwd);
 		pageUtils.clickElement(driver, btnLogin);
-		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_MEDIUM);
 	}
 
 	/**

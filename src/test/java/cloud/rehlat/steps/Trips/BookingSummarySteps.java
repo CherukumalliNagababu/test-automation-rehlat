@@ -26,6 +26,7 @@ public class BookingSummarySteps extends StepUtils {
 	@When("^I can verify add on check box$")
 	public void i_can_verify_text_and_select_filter(DataTable dataTable) throws Throwable {
 		Map<String, String> dataMap = getDataAsMap(dataTable);
+		FlightNavigation=new FlightNavigation(driver);
 		bookingSummaryPage = FlightNavigation.getText();
 		bookingSummaryPage.clickAddOnBaggage(dataMap);
 

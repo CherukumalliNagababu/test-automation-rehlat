@@ -52,6 +52,15 @@ public class SearchHotelSteps extends StepUtils {
 	}
 
 	
+	@When("^I can click on Book now and Verify the Price and Dates$")
+	public void i_can_click_on_book_now_and_verify_the_price_and_dates() throws Throwable {
+		boolean status=searchHotelPage.clickOnBookNow();
+		 status= status && searchHotelPage.verifyPrice();
+		 status= status && searchHotelPage.verifyCheckInAndCheckOutDates();
+		 searchHotelPage.clickOnBookNowBelow();
+		Assert.assertTrue("HOTEL: ERROR OCCURRED WHILE VERIFY THE PRICE AND DATES -> HOTEL SEARCH PAGE", status);
+	}
+	
 	@When("^I can enter Hotel city name and verify duplicate names$")
 	public void i_can_enter_Hotel_city_name_and_verify_duplicate_names(DataTable dataTable) throws Throwable {
 		Map<String, String> dataMap = getDataAsMap(dataTable);

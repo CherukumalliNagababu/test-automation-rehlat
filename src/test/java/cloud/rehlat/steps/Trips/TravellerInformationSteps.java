@@ -25,7 +25,7 @@ public class TravellerInformationSteps extends StepUtils {
 
 	@When("^I can navigative to traveller Information page$")
 	public void i_go_navigative_traveller_information_page() throws Throwable {
-
+		FlightNavigation=new FlightNavigation(driver);
 		travellerInformationPage = FlightNavigation.getTextValue();
 		Thread.sleep(2000);
 	}

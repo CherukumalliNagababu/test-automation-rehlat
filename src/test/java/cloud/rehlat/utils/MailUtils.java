@@ -71,7 +71,7 @@ public class MailUtils {
 			props.setProperty("mail.store.protocol", "imaps");
 			Session session = Session.getDefaultInstance(props, null);
 			store = session.getStore("imaps");
-			store.connect("imap.googlemail.com", "qa.automationrehlat@gmail.com", "naga@automation");
+			store.connect("imap.googlemail.com", "qa.automationrehlat@gmail.com", "naga@automation9");
 			folder = (IMAPFolder) store.getFolder("inbox");
 			if (!folder.isOpen()) {
 				folder.open(Folder.READ_WRITE);

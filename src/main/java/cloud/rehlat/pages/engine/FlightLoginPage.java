@@ -116,4 +116,7 @@ public class FlightLoginPage {
 		pageUtils.getTextOfElement(driver,txtGet);
 		return new FlightNavigation(driver) ;
 	}
+	
+	
+	
 }

@@ -24,6 +24,7 @@ public class BookNowSteps extends StepUtils{
 
 	@When("^I can verify text and select the filter$")
 	public void i_can_verify_text_and_select_filter() throws Throwable {
+		FlightNavigation=new FlightNavigation(driver);
 		BookNowPage=FlightNavigation.clickAllReset();
 		BookNowPage.filter("Low to high");
 		

@@ -129,7 +129,7 @@ public class BookingSummaryPage {
 			pageUtils.sendKeysAfterClearingElement(driver, txtCouponCode, EnterCoupon);
 
 			pageUtils.clickElement(driver, btnApply);
-			pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
+			pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_LONG);
 		}
 	}
 
@@ -272,10 +272,17 @@ public class BookingSummaryPage {
 			System.out.println("Infants Not selected");
 		}
 
-		String farename = pageUtils.getTextOfElement(driver, getFareName);
-		String fareprice = pageUtils.getTextOfElement(driver, getFarePrice);
-		System.out.println(farename + "--------------------------------------" + fareprice);
+		try {
+			if (getFareName.isDisplayed()) {
+				String farename = pageUtils.getTextOfElement(driver, getFareName);
+				String fareprice = pageUtils.getTextOfElement(driver, getFarePrice);
+				System.out.println(farename + "--------------------------------------" + fareprice);
 
+			}
+		} catch (Exception e) {
+			System.out.println("Fare Name Not Displayed");
+		}
+		
 		if ("TST".equalsIgnoreCase(System.getProperty("environment", "TST"))) {
 			totalname = pageUtils.getTextOfElement(driver, getTotalName_tst);
 			totalprice = pageUtils.getTextOfElement(driver, getTotalPrice_tst);
@@ -287,6 +294,8 @@ public class BookingSummaryPage {
 			System.out.println("-------------------------------------------------------------------------------");
 			System.out.println(totalname + "--------------------------------" + totalprice);
 		}
+		
+		
 
 		pageUtils.clickElement(driver, closePopUp);
 

@@ -9,11 +9,15 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Parameters;
 
+import cloud.rehlat.constants.common.DataConstants;
 import cloud.rehlat.constants.common.BrowserConstants;
 import cloud.rehlat.constants.engine.EngineConstants;
+import cloud.rehlat.steps.engine.FlightLoginSteps;
 import cucumber.api.java.Before;
 
-public class BrowserUtils {
+public class BrowserUtils  {
+	 static int totalScenarios = 0;
+	 static int scenariosCompleted = 0;
 	public static WebDriver driver = null;
 	public static String applicationUrl = null;
 	public static String engineEnvironment = null;
@@ -21,6 +25,7 @@ public class BrowserUtils {
 	public static String TITLE_REHLAT_HOTEL = null;
 	public static String TITLE_REHLAT_DEAL = null;
 	public static String TITLE_REHLAT_HOME = null;
+	 private static boolean hasInitialized = false;
 	
 	public static WebDriver getDriverInstance() {
 		if (driver == null) {
@@ -31,14 +36,26 @@ public class BrowserUtils {
 
 	
 	 private static void initializeSystemProperties() {
+		 totalScenarios = Integer.parseInt(System.getProperty("totalScenarios", "0"));
 		 System.setProperty("browser", System.getProperty("browser", "chrome"));
 			System.setProperty("pathToDriver", System.getProperty("pathToDriver", "D:\\jarfiles\\chromedriver.exe"));
 			System.setProperty("foreground", System.getProperty("foreground", "false"));
 			System.setProperty("target", System.getProperty("target", "ENG"));
 			System.setProperty("environment", System.getProperty("environment", "PRD"));
-			System.setProperty("application", System.getProperty("application", "COM"));
+			System.setProperty("application", System.getProperty("application", "AE"));
 			System.setProperty("url", System.getProperty("url", "https://www.rehlat.com.sa/en/"));
-			String s=System.setProperty("headless", "true1");
+			System.setProperty("headless", "true1");
+			System.setProperty("verbose", System.getProperty("verbose", "false"));
+
+		    if (!hasInitialized) {
+		        hasInitialized = true;
+	           
+	            System.out.printf(
+	                    "[DEBUG] Using Flight documents path: %s\n",
+	                   DataConstants.getDocumentPath("some-file.pdf")
+	                   
+	            );
+	        }
 	    }
 	 
 	 @Before
@@ -212,6 +229,16 @@ public class BrowserUtils {
 				
 			}
 				break;
+			case "EM":
+
+				switch (environment) {
+				case "PRD":
+					engineEnvironment = BrowserConstants.ENV_DEV;
+					applicationUrl = BrowserConstants.ENG_EM_PRD_URL;
+					break;
+				
+			}
+				break;
 				
 			case "JZS":
 
@@ -239,6 +266,46 @@ public class BrowserUtils {
 				case "PRD":
 					engineEnvironment = BrowserConstants.ENV_DEV;
 					applicationUrl = BrowserConstants.ENG_PGS_PRD_URL;
+					break;
+				
+			}
+				break;
+			case "MY":
+
+				switch (environment) {
+				case "PRD":
+					engineEnvironment = BrowserConstants.ENV_DEV;
+					applicationUrl = BrowserConstants.ENG_MY_PRD_URL;
+					break;
+				
+			}
+				break;
+			case "MEA":
+
+				switch (environment) {
+				case "PRD":
+					engineEnvironment = BrowserConstants.ENV_DEV;
+					applicationUrl = BrowserConstants.ENG_MEA_PRD_URL;
+					break;
+				
+			}
+				break;
+			case "RJ":
+
+				switch (environment) {
+				case "PRD":
+					engineEnvironment = BrowserConstants.ENV_DEV;
+					applicationUrl = BrowserConstants.ENG_RJ_PRD_URL;
+					break;
+				
+			}
+				break;
+			case "RB":
+
+				switch (environment) {
+				case "PRD":
+					engineEnvironment = BrowserConstants.ENV_DEV;
+					applicationUrl = BrowserConstants.ENG_RB_PRD_URL;
 					break;
 				
 			}
