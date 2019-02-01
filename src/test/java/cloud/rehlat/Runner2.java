@@ -28,7 +28,6 @@ format = { "pretty", "html:Reports/cukes", "json:Reports/cukes/cucumber.json",
 
 public class Runner2 extends AbstractTestNGCucumberTests {
 	// public class Runner2 {
-
 	/*@BeforeClass
 	public static void setUp() {
 		System.setProperty("browser", System.getProperty("browser", "chrome"));
