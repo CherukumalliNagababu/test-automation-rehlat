@@ -58,15 +58,19 @@ public class BookingSummaryPage {
 	private WebElement getFareName;
 	@FindBy(xpath = "//div[2]/div/div[2]/div/div/span[2]")
 	private WebElement getFarePrice;
-	@FindBy(xpath = "//div[2]/div/div[6]/div/div/span[1]")
+	@FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='Discount'])[1]/following::span[1]")
+	private WebElement getFlightDiscountName;
+	@FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='Discount'])[1]/following::span[2]")
+	private WebElement getFlightDiscountPrice;
+	@FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='Add - ons'])[1]/following::span[1]")
 	private WebElement getAddonBaggageName;
-	@FindBy(xpath = "//div[2]/div/div[6]/div/div/span[2]")
+	@FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='Add - ons'])[1]/following::span[3]")
 	private WebElement getAddonBaggagePrice;
-	@FindBy(xpath = "//div[@class='fare_review_wrap']/div[11]/div/div/span[1]")
+	@FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='Additional Baggage'])[1]/following::span[4]")
 	private WebElement getTotalName;
 	@FindBy(xpath = "//div[@class='fare_review_wrap']/div[11]/div/div/span[1]")
 	private WebElement getTotalName_tst;
-	@FindBy(xpath = "//div[@class='fare_review_wrap']/div[11]/div/div/span[2]")
+	@FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='Additional Baggage'])[1]/following::span[5]")
 	private WebElement getTotalPrice;
 	@FindBy(xpath = "//div[@class='fare_review_wrap']/div[11]/div/div/span[2]")
 	private WebElement getTotalPrice_tst;
@@ -281,6 +285,28 @@ public class BookingSummaryPage {
 			}
 		} catch (Exception e) {
 			System.out.println("Fare Name Not Displayed");
+		}
+		
+		try {
+			if (getFlightDiscountName.isDisplayed()) {
+				String FlightDiscountName = pageUtils.getTextOfElement(driver, getFlightDiscountName);
+				String FlightDiscountprice = pageUtils.getTextOfElement(driver, getFlightDiscountPrice);
+				System.out.println(FlightDiscountName + "---------------------------" + FlightDiscountprice);
+
+			}
+		} catch (Exception e) {
+			System.out.println("Flight Discount Not Displayed");
+		}
+		
+		try {
+			if (getAddonBaggageName.isDisplayed()) {
+				String AddonBaggageName = pageUtils.getTextOfElement(driver, getAddonBaggageName);
+				String AddonBaggageNameprice = pageUtils.getTextOfElement(driver, getAddonBaggagePrice);
+				System.out.println(AddonBaggageName + "--------------------------------------" + AddonBaggageNameprice);
+
+			}
+		} catch (Exception e) {
+			System.out.println("Addon Baggage Not Displayed");
 		}
 		
 		if ("TST".equalsIgnoreCase(System.getProperty("environment", "TST"))) {

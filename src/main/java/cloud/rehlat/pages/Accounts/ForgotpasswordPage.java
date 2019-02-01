@@ -1,8 +1,7 @@
 package cloud.rehlat.pages.Accounts;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+
 
 import javax.mail.MessagingException;
 
@@ -15,17 +14,17 @@ import cloud.rehlat.constants.common.BrowserConstants;
 import cloud.rehlat.constants.common.DataConstants;
 import cloud.rehlat.utils.PageUtils;
 import cloud.rehlat.utils.TestDataUtils;
-import cloud.rehlat.utils.MailUtils;
+
 
 public class ForgotpasswordPage {
 	public WebDriver driver;
 	private PageUtils pageUtils;
-	private MailUtils mailUtils;
+
 	String userAccount;
 
 	public ForgotpasswordPage(WebDriver driver) {
 		this.driver = driver;
-		this.mailUtils = MailUtils.getInstance();
+	
 		this.pageUtils = PageUtils.getInstance();
 		PageFactory.initElements(this.driver, this);
 	}

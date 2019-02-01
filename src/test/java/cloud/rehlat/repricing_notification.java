@@ -3,8 +3,7 @@ package cloud.rehlat;
 
 import org.junit.runner.RunWith;
 
-import cloud.rehlat.constants.common.DataConstants;
-import cloud.rehlat.utils.BrowserUtils;
+
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import cucumber.api.testng.AbstractTestNGCucumberTests;

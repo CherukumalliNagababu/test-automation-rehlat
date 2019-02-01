@@ -1,12 +1,9 @@
 package cloud.rehlat;
-import java.io.File;
 
-import org.codehaus.plexus.util.Os;
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
-import com.cucumber.listener.Reporter;
+
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;

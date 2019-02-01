@@ -16,6 +16,7 @@ import cloud.rehlat.pages.engine.FlightNavigation;
 import cloud.rehlat.steps.engine.FlightLoginSteps;
 import cloud.rehlat.pages.Trips.BookNowPage;
 import cloud.rehlat.pages.Trips.OneWayTripPage;
+import cloud.rehlat.pages.Trips.ParticularAirlinePage;
 
 public class BookNowSteps extends StepUtils{
 	WebDriver driver = BrowserUtils.getDriverInstance(); 
@@ -35,6 +36,11 @@ public class BookNowSteps extends StepUtils{
 		
 
 	}
+	@When("^I can select the Airline name$")
+    public void i_can_select_the_airline_name() throws Throwable {
+    	BookNowPage.airLineShowMoreLink();
+		BookNowPage.SelectAirline("Emirates");
+    }
 	@When("^I can verify price details in flightdetails Pop up page$")
 	public void i_can_verify_price_details_in_flight_details_popUp_page() throws Throwable {
 		

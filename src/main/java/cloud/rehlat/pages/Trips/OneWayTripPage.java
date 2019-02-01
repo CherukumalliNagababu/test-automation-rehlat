@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -40,7 +41,7 @@ public class OneWayTripPage {
 	
 	@FindBy(xpath = "//div[@class='fa fa-chevron-right']")//
 	private WebElement dateIconBtnFrom;
-	@FindBy(xpath = ".//*[@id='flightForm']/div/div/div/div/div[1]/div[2]//table/tbody/tr/td")
+	@FindBy(xpath = ".//*[@id='divOnewayRound']/div/div/div[2]/div/div[1]/div[2]/div[2]/div/table/tbody/tr/td")
 	private List<WebElement> allDates;
 	@FindBy(id = "dropdownMenu1")
 	private WebElement drpTraveler;
@@ -100,7 +101,7 @@ public class OneWayTripPage {
 	public void selectmonth() throws InterruptedException {
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL_ENGINE);
 		pageUtils.clickElement(driver, btnDateFrom);
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 3; i++) {
 			pageUtils.clickElement(driver, dateIconBtnFrom);
 		}
 	}
@@ -150,10 +151,28 @@ public class OneWayTripPage {
 		for (int i = 0; i < infant; i++) {
 			pageUtils.clickElement(driver, clickInfantsIncrement);
 		}
+		
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
-		pageUtils.clickElement(driver, btnTravellerDone);
+		
+		//pageUtils.clickElement(driver, btnTravellerDone);
 	}
 
+	/**
+	 * This method is used for close below pop 
+	 */
+	public void below_popUp()
+	{
+		try{
+			
+				driver.findElement(By.xpath(".//*[@id='webklipper-publisher-widget-container-notification-close-div']")).click();
+				System.out.println("Below Pop Up Is  Displayed");
+              
+		}
+		catch(Exception e)
+		{
+			System.out.println("Below Pop Up Is Not Displayed");
+		}
+	}
 	/**
 	 * This method is used to Click on Search button
 	 * 

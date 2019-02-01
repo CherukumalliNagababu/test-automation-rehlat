@@ -6,15 +6,4 @@
       <class name="cloud.rehlat.Runner2"/>
     </classes>
   </test> <!-- Regression Test -->
-  <test name="Regression Test(failed)" parallel="tests">
-    <classes>
-      <class name="cloud.rehlat.Runner2">
-        <methods>
-          <include name="setUpClass"/>
-          <include name="feature" invocation-numbers="0"/>
-          <include name="tearDownClass"/>
-        </methods>
-      </class> <!-- cloud.rehlat.Runner2 -->
-    </classes>
-  </test> <!-- Regression Test(failed) -->
 </suite> <!-- Failed suite [Repricing reports ] -->

@@ -22,7 +22,8 @@ public class MayaislandairSteps extends StepUtils {
 	@When("^I can go to Mayaislandair Page$")
 	public void i_can_go_to_emiratepage() throws Throwable {
 		mayaislandairPage=new MayaislandairPage(driver);
-		mayaislandairPage.searchResults();
+		mayaislandairPage.getValues();
+		//mayaislandairPage.searchResults();
 		
 	}
 

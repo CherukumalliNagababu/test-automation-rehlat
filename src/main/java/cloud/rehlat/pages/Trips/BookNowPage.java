@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +15,8 @@ import cloud.rehlat.constants.common.BrowserConstants;
 import cloud.rehlat.utils.DataUtils;
 import cloud.rehlat.utils.PageUtils;
 import cloud.rehlat.utils.TestDataUtils;
+import jxl.write.WriteException;
+import jxl.write.biff.RowsExceededException;
 
 public class BookNowPage {
 	public WebDriver driver;
@@ -72,7 +75,12 @@ public class BookNowPage {
 	private WebElement btnBaggageInformation_Mul;
 	@FindBy(xpath = "//div[2]/div/div[2]/button")
 	private WebElement btnBookNowFirstMulti;
+	@FindBy(xpath = ".//*[@id='InnerDiv']/div[2]/div[2]/div/div[3]/table/tbody/tr/td[2]")
+	private List<WebElement> airLineNames;
 	
+	//ShowMore Airlines Link
+    @FindBy(xpath = ".//*[@id='InnerDiv']/div[2]/div[2]/div/div[3]/span[1]/a")
+    private WebElement lnkAirLineShomeMore;
 	public void listOfAirlineNames()
 	{
 		for(WebElement Airlines:listOfAirlines)
@@ -358,12 +366,57 @@ public void clickOnBookNow_MultiCity() {
 	pageUtils.clickElement(driver, btnBookNowFirstMulti);
  }
 
+
+public void airLineShowMoreLink() throws InterruptedException
+{
+    pageUtils.scrollDown(driver);
+    try{
+        if(lnkAirLineShomeMore.isDisplayed()){
+    pageUtils.clickElement(driver, lnkAirLineShomeMore);
+        }
+    }
+    catch(Exception e)
+    {
+        
+    }
+    //airLineName("Emirates");
+    
+}
 	/**
 	 * This method is used to close the flight Details PopUp page
 	 */
 	public void clickOnPopUpClose() {
 		pageUtils.clickElement(driver, iconPopUpClose);
 	}
+	
+	 public  void SelectAirline(String value) throws InterruptedException, RowsExceededException, WriteException
+	    {
+	        
+	        for (int i = 1; i < airLineNames.size(); i++) {
+	            String test = driver.findElement(By.xpath(".//*[@id='InnerDiv']/div[2]/div[2]/div/div[3]/table/tbody/tr[" + i + "]/td[2]")).getText();
+	            System.out.println("AirLine Name:" + test);
+	            
+	            
+	            
+	            if (value.equals(test)) {
+	                System.out.println("value:"+value);
+	                String one=test;
+	                WebElement e = driver.findElement(By.xpath(".//*[@id='InnerDiv']/div[2]/div[2]/div/div[3]/table/tbody/tr[" + i + "]/td[1]"));
+	               e.click();
+	              pageUtils.waitForFixedTime(BrowserConstants.WAIT_VERY_SMALL);
+	              break;
+	            }
+	            else
+	            {
+	                 System.out.println("No Airlines Found");
+	                
+	                 
+	            }
+	        
+	    
+	    }
+	        
+	    }
 
 	/**
 	 * this method is used to get the number of flights available in book now

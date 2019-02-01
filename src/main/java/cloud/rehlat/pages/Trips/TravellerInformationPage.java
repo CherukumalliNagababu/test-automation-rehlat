@@ -3,6 +3,7 @@ package cloud.rehlat.pages.Trips;
 import java.util.List;
 import java.util.Map;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,13 +28,13 @@ public class TravellerInformationPage {
 		PageFactory.initElements(this.driver, this);
 	}
 
-	@FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='Contact'])[1]/following::span[3]")
+	@FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='Contact'])[1]/following::span[4]")
 	private WebElement btndrpClick;
 	@FindBy(xpath = "//li[@class='enabled _msddli_']/span")
 	private List<WebElement> drpCountry;
 	@FindBy(id = "PhonenumberTraveller")
 	private WebElement txtPhoneNumber;
-	@FindBy(css = "#btnMakepayment")
+	@FindBy(xpath = "//a/div[3]/button")
 	private WebElement btnPaySecurely;
 	// payment page
 	@FindBy(xpath = "//a[@id='Payment']/div")
@@ -290,6 +291,8 @@ public class TravellerInformationPage {
 	private WebElement drpChildYear1;
 	@FindBy(xpath = "//div[@id='ChildPass_0']/div[2]/div/input")
 	private WebElement txtChildPassportNum1;
+	@FindBy(xpath = ".//*[@id='DocNumber0']")
+	private WebElement txtChildPassportNum1_N;
 	@FindBy(id = "Child_Nationality_0")
 	private WebElement drpChildnationality1;
 	@FindBy(id = "Child_IssuingCountryCode_0")
@@ -319,6 +322,8 @@ public class TravellerInformationPage {
 	private WebElement drpChildYear2;
 	@FindBy(xpath = "//div[@id='ChildPass_1']/div[2]/div/input")
 	private WebElement txtChildPassportNum2;
+	@FindBy(xpath = ".//*[@id='DocNumber1']")
+	private WebElement txtChildPassportNum2_N;
 	@FindBy(id = "Child_Nationality_1")
 	private WebElement drpChildnationality2;
 	@FindBy(id = "Child_IssuingCountryCode_1")
@@ -348,6 +353,8 @@ public class TravellerInformationPage {
 	private WebElement drpChildYear3;
 	@FindBy(xpath = "//div[@id='ChildPass_2']/div[2]/div/input")
 	private WebElement txtChildPassportNum3;
+	@FindBy(xpath = ".//*[@id='DocNumber2']")
+	private WebElement txtChildPassportNum3_N;
 	@FindBy(id = "Child_Nationality_2")
 	private WebElement drpChildnationality3;
 	@FindBy(id = "Child_IssuingCountryCode_2")
@@ -377,6 +384,8 @@ public class TravellerInformationPage {
 	private WebElement drpChildYear4;
 	@FindBy(xpath = "//div[@id='ChildPass_3']/div[2]/div/input")
 	private WebElement txtChildPassportNum4;
+	@FindBy(xpath = ".//*[@id='DocNumber3']")
+	private WebElement txtChildPassportNum4_N;
 	@FindBy(id = "Child_Nationality_3")
 	private WebElement drpChildnationality4;
 	@FindBy(id = "Child_IssuingCountryCode_3")
@@ -406,6 +415,8 @@ public class TravellerInformationPage {
 	private WebElement drpChildYear5;
 	@FindBy(xpath = "//div[@id='ChildPass_4']/div[2]/div/input")
 	private WebElement txtChildPassportNum5;
+	@FindBy(xpath = ".//*[@id='DocNumber4']")
+	private WebElement txtChildPassportNum5_N;
 	@FindBy(id = "Child_Nationality_4")
 	private WebElement drpChildnationality5;
 	@FindBy(id = "Child_IssuingCountryCode_4")
@@ -435,6 +446,8 @@ public class TravellerInformationPage {
 	private WebElement drpChildYear6;
 	@FindBy(xpath = "//div[@id='ChildPass_5']/div[2]/div/input")
 	private WebElement txtChildPassportNum6;
+	@FindBy(xpath = ".//*[@id='DocNumber5']")
+	private WebElement txtChildPassportNum6_N;
 	@FindBy(id = "Child_Nationality_5")
 	private WebElement drpChildnationality6;
 	@FindBy(id = "Child_IssuingCountryCode_5")
@@ -464,6 +477,8 @@ public class TravellerInformationPage {
 	private WebElement drpChildYear7;
 	@FindBy(xpath = "//div[@id='ChildPass_6']/div[2]/div/input")
 	private WebElement txtChildPassportNum7;
+	@FindBy(xpath = ".//*[@id='DocNumber6']")
+	private WebElement txtChildPassportNum7_N;
 	@FindBy(id = "Child_Nationality_6")
 	private WebElement drpChildnationality7;
 	@FindBy(id = "Child_IssuingCountryCode_6")
@@ -493,6 +508,8 @@ public class TravellerInformationPage {
 	private WebElement drpChildYear8;
 	@FindBy(xpath = "//div[@id='ChildPass_7']/div[2]/div/input")
 	private WebElement txtChildPassportNum8;
+	@FindBy(xpath = ".//*[@id='DocNumber7']")
+	private WebElement txtChildPassportNum8_N;
 	@FindBy(id = "Child_Nationality_7")
 	private WebElement drpChildnationality8;
 	@FindBy(id = "Child_IssuingCountryCode_7")
@@ -734,6 +751,12 @@ public class TravellerInformationPage {
 	private WebElement drpInfantExpMonth8;
 	@FindBy(id = "PassInfantYear8")
 	private WebElement drpInfantExpYear8;
+	
+	//un check
+	@FindBy(xpath = "(//input[@value='none'])[2]")
+	private WebElement unCheck_Online;
+	
+	
 
 	public void infant_nation_issuingcountry1() {
 		try {
@@ -827,7 +850,7 @@ public class TravellerInformationPage {
 		pageUtils.selectByVisibleText(drpInfantG1, "Male");
 		pageUtils.selectByVisibleText(drpInfantDate1, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth1, "May");
-		pageUtils.selectByVisibleText(drpInfantYear1, "2017");
+		pageUtils.selectByVisibleText(drpInfantYear1, "2018");
 		infant1_passport();
 
 	}
@@ -850,7 +873,7 @@ public class TravellerInformationPage {
 		pageUtils.selectByVisibleText(drpInfantG2, "Male");
 		pageUtils.selectByVisibleText(drpInfantDate2, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth2, "May");
-		pageUtils.selectByVisibleText(drpInfantYear2, "2017");
+		pageUtils.selectByVisibleText(drpInfantYear2, "2018");
 		infant2_passport();
 	}
 
@@ -872,7 +895,7 @@ public class TravellerInformationPage {
 		pageUtils.selectByVisibleText(drpInfantG3, "Male");
 		pageUtils.selectByVisibleText(drpInfantDate3, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth3, "May");
-		pageUtils.selectByVisibleText(drpInfantYear3, "2017");
+		pageUtils.selectByVisibleText(drpInfantYear3, "2018");
 		infant3_passport();
 
 	}
@@ -895,7 +918,7 @@ public class TravellerInformationPage {
 		pageUtils.selectByVisibleText(drpInfantG4, "Male");
 		pageUtils.selectByVisibleText(drpInfantDate4, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth4, "May");
-		pageUtils.selectByVisibleText(drpInfantYear4, "2017");
+		pageUtils.selectByVisibleText(drpInfantYear4, "2018");
 		infant4_passport();
 	}
 
@@ -917,7 +940,7 @@ public class TravellerInformationPage {
 		pageUtils.selectByVisibleText(drpInfantG5, "Male");
 		pageUtils.selectByVisibleText(drpInfantDate5, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth5, "May");
-		pageUtils.selectByVisibleText(drpInfantYear5, "2017");
+		pageUtils.selectByVisibleText(drpInfantYear5, "2018");
 		infant5_passport();
 	}
 
@@ -939,7 +962,7 @@ public class TravellerInformationPage {
 		pageUtils.selectByVisibleText(drpInfantG6, "Male");
 		pageUtils.selectByVisibleText(drpInfantDate6, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth6, "May");
-		pageUtils.selectByVisibleText(drpInfantYear6, "2017");
+		pageUtils.selectByVisibleText(drpInfantYear6, "2018");
 		infant6_passport();
 	}
 
@@ -961,7 +984,7 @@ public class TravellerInformationPage {
 		pageUtils.selectByVisibleText(drpInfantG7, "Male");
 		pageUtils.selectByVisibleText(drpInfantDate7, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth7, "May");
-		pageUtils.selectByVisibleText(drpInfantYear7, "2017");
+		pageUtils.selectByVisibleText(drpInfantYear7, "2018");
 		infant7_passport();
 	}
 
@@ -983,7 +1006,7 @@ public class TravellerInformationPage {
 		pageUtils.selectByVisibleText(drpInfantG8, "Male");
 		pageUtils.selectByVisibleText(drpInfantDate8, "12");
 		pageUtils.selectByVisibleText(drpInfantMonth8, "May");
-		pageUtils.selectByVisibleText(drpInfantYear8, "2017");
+		pageUtils.selectByVisibleText(drpInfantYear8, "2018");
 		infant8_passport();
 	}
 
@@ -1001,10 +1024,10 @@ public class TravellerInformationPage {
 		}
 	}
 
-	public void child1_passport() {
+	/*public void child1_passport() {
 		try {
 			if (txtChildPassportNum1.isDisplayed()) {
-				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum1, "243535");
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum1, "243535");
 				pageUtils.selectByVisibleText(drpChildnationality1, "India");
 				pageUtils.selectByVisibleText(drpChildIssuing1, "India");
 			}
@@ -1016,7 +1039,7 @@ public class TravellerInformationPage {
 	public void child2_passport() {
 		try {
 			if (txtChildPassportNum2.isDisplayed()) {
-				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum2, "243535");
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum2, "243535");
 				pageUtils.selectByVisibleText(drpChildnationality2, "India");
 				pageUtils.selectByVisibleText(drpChildIssuing2, "India");
 			}
@@ -1028,7 +1051,7 @@ public class TravellerInformationPage {
 	public void child3_passport() {
 		try {
 			if (txtChildPassportNum3.isDisplayed()) {
-				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum3, "243535");
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum3, "243535");
 				pageUtils.selectByVisibleText(drpChildnationality3, "India");
 				pageUtils.selectByVisibleText(drpChildIssuing3, "India");
 			}
@@ -1040,7 +1063,7 @@ public class TravellerInformationPage {
 	public void child4_passport() {
 		try {
 			if (txtChildPassportNum4.isDisplayed()) {
-				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum4, "243535");
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum4, "243535");
 				pageUtils.selectByVisibleText(drpChildnationality4, "India");
 				pageUtils.selectByVisibleText(drpChildIssuing4, "India");
 			}
@@ -1052,7 +1075,7 @@ public class TravellerInformationPage {
 	public void child5_passport() {
 		try {
 			if (txtChildPassportNum5.isDisplayed()) {
-				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum5, "243535");
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum5, "243535");
 				pageUtils.selectByVisibleText(drpChildnationality5, "India");
 				pageUtils.selectByVisibleText(drpChildIssuing5, "India");
 			}
@@ -1064,7 +1087,7 @@ public class TravellerInformationPage {
 	public void child6_passport() {
 		try {
 			if (txtChildPassportNum6.isDisplayed()) {
-				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum6, "243535");
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum6, "243535");
 				pageUtils.selectByVisibleText(drpChildnationality6, "India");
 				pageUtils.selectByVisibleText(drpChildIssuing6, "India");
 			}
@@ -1076,7 +1099,7 @@ public class TravellerInformationPage {
 	public void child7_passport() {
 		try {
 			if (txtChildPassportNum7.isDisplayed()) {
-				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum7, "243535");
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum7, "243535");
 				pageUtils.selectByVisibleText(drpChildnationality7, "India");
 				pageUtils.selectByVisibleText(drpChildIssuing7, "India");
 			}
@@ -1088,7 +1111,104 @@ public class TravellerInformationPage {
 	public void child8_passport() {
 		try {
 			if (txtChildPassportNum8.isDisplayed()) {
-				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum8, "243535");
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum8, "243535");
+				pageUtils.selectByVisibleText(drpChildnationality8, "India");
+				pageUtils.selectByVisibleText(drpChildIssuing8, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}*/
+	
+	
+	public void child1_passport_N() {
+		try {
+			if (drpChildnationality1.isDisplayed()) {
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum1, "243535");
+				pageUtils.selectByVisibleText(drpChildnationality1, "India");
+				pageUtils.selectByVisibleText(drpChildIssuing1, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void child2_passport_N() {
+		try {
+			if (drpChildnationality2.isDisplayed()) {
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum2, "243535");
+				pageUtils.selectByVisibleText(drpChildnationality2, "India");
+				pageUtils.selectByVisibleText(drpChildIssuing2, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void child3_passport_N() {
+		try {
+			if (drpChildnationality3.isDisplayed()) {
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum3, "243535");
+				pageUtils.selectByVisibleText(drpChildnationality3, "India");
+				pageUtils.selectByVisibleText(drpChildIssuing3, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void child4_passport_N() {
+		try {
+			if (drpChildnationality4.isDisplayed()) {
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum4, "243535");
+				pageUtils.selectByVisibleText(drpChildnationality4, "India");
+				pageUtils.selectByVisibleText(drpChildIssuing4, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void child5_passport_N() {
+		try {
+			if (drpChildnationality5.isDisplayed()) {
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum5, "243535");
+				pageUtils.selectByVisibleText(drpChildnationality5, "India");
+				pageUtils.selectByVisibleText(drpChildIssuing5, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void child6_passport_N() {
+		try {
+			if (drpChildnationality6.isDisplayed()) {
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum6, "243535");
+				pageUtils.selectByVisibleText(drpChildnationality6, "India");
+				pageUtils.selectByVisibleText(drpChildIssuing6, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void child7_passport_N() {
+		try {
+			if (drpChildnationality7.isDisplayed()) {
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum7, "243535");
+				pageUtils.selectByVisibleText(drpChildnationality7, "India");
+				pageUtils.selectByVisibleText(drpChildIssuing7, "India");
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
+	public void child8_passport_N() {
+		try {
+			if (drpChildnationality8.isDisplayed()) {
+				//pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum8, "243535");
 				pageUtils.selectByVisibleText(drpChildnationality8, "India");
 				pageUtils.selectByVisibleText(drpChildIssuing8, "India");
 			}
@@ -1109,6 +1229,7 @@ public class TravellerInformationPage {
 	public void AdultNumber1_passportexpiry() {
 		try {
 			if (drpChildExpDate1.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum2_N, "243535");
 				pageUtils.selectByVisibleText(drpChildExpDate1, "15");
 				pageUtils.selectByVisibleText(drpChildExpMonth1, "Jun");
 				pageUtils.selectByVisibleText(drpChildExpYear1, "2027");
@@ -1131,6 +1252,7 @@ public class TravellerInformationPage {
 	public void AdultNumber2_passportexpiry() {
 		try {
 			if (drpChildExpDate2.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum3_N, "2435335");
 				pageUtils.selectByVisibleText(drpChildExpDate2, "15");
 				pageUtils.selectByVisibleText(drpChildExpMonth2, "Jun");
 				pageUtils.selectByVisibleText(drpChildExpYear2, "2027");
@@ -1152,6 +1274,7 @@ public class TravellerInformationPage {
 	public void AdultNumber3_passportexpiry() {
 		try {
 			if (drpChildExpDate3.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum4_N, "243535");
 				pageUtils.selectByVisibleText(drpChildExpDate3, "15");
 				pageUtils.selectByVisibleText(drpChildExpMonth3, "Jun");
 				pageUtils.selectByVisibleText(drpChildExpYear3, "2027");
@@ -1173,6 +1296,7 @@ public class TravellerInformationPage {
 	public void AdultNumber4_passportexpiry() {
 		try {
 			if (drpChildExpDate4.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum5_N, "243535");
 				pageUtils.selectByVisibleText(drpChildExpDate4, "15");
 				pageUtils.selectByVisibleText(drpChildExpMonth4, "Jun");
 				pageUtils.selectByVisibleText(drpChildExpYear4, "2027");
@@ -1195,6 +1319,7 @@ public class TravellerInformationPage {
 	public void AdultNumber5_passportexpiry() {
 		try {
 			if (drpChildExpDate5.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum6_N, "243535");
 				pageUtils.selectByVisibleText(drpChildExpDate5, "15");
 				pageUtils.selectByVisibleText(drpChildExpMonth5, "Jun");
 				pageUtils.selectByVisibleText(drpChildExpYear5, "2027");
@@ -1216,6 +1341,7 @@ public class TravellerInformationPage {
 	public void AdultNumber6_passportexpiry() {
 		try {
 			if (drpChildExpDate6.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum7_N, "243535");
 				pageUtils.selectByVisibleText(drpChildExpDate6, "15");
 				pageUtils.selectByVisibleText(drpChildExpMonth6, "Jun");
 				pageUtils.selectByVisibleText(drpChildExpYear6, "2027");
@@ -1238,6 +1364,7 @@ public class TravellerInformationPage {
 
 		try {
 			if (drpChildExpDate7.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum8_N, "243535");
 				pageUtils.selectByVisibleText(drpChildExpDate7, "15");
 				pageUtils.selectByVisibleText(drpChildExpMonth7, "Jun");
 				pageUtils.selectByVisibleText(drpChildExpYear7, "2027");
@@ -1259,6 +1386,7 @@ public class TravellerInformationPage {
 
 		try {
 			if (drpChildExpDate8.isDisplayed()) {
+				pageUtils.sendKeysAfterClearingElement(driver, txtChildPassportNum8_N, "243535");
 				pageUtils.selectByVisibleText(drpChildExpDate8, "15");
 				pageUtils.selectByVisibleText(drpChildExpMonth8, "Jun");
 				pageUtils.selectByVisibleText(drpChildExpYear8, "2027");
@@ -1269,6 +1397,8 @@ public class TravellerInformationPage {
 	}
 
 	public void infantsDetails(Map<String, String> dataMap) {
+		
+		pageUtils.scrollDown_Small(driver);
 		String childnum = dataMap.get("childs");
 		String adult = dataMap.get("adults");
 		String infant = dataMap.get("infant");
@@ -1906,7 +2036,7 @@ public class TravellerInformationPage {
 			} else if ("8".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child1_passport();
+			child1_passport_N();
 
 		}
 
@@ -1934,7 +2064,7 @@ public class TravellerInformationPage {
 			} else if ("8".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child1_passport();
+			child1_passport_N();
 
 			pageUtils.selectByVisibleText(drpChildG2, "Male");
 			randomNames();
@@ -1957,7 +2087,7 @@ public class TravellerInformationPage {
 				AdultNumber8_CompareToChild();
 			}
 
-			child2_passport();
+			child2_passport_N();
 		}
 
 		// Child 3
@@ -1984,7 +2114,8 @@ public class TravellerInformationPage {
 			} else if ("8".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child1_passport();
+			child1_passport_N();
+			
 			pageUtils.selectByVisibleText(drpChildG2, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName2, firstName);
@@ -2005,7 +2136,7 @@ public class TravellerInformationPage {
 			} else if ("7".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child2_passport();
+			child2_passport_N();
 			pageUtils.selectByVisibleText(drpChildG3, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName3, firstName);
@@ -2024,7 +2155,7 @@ public class TravellerInformationPage {
 			} else if ("6".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child3_passport();
+			child3_passport_N();
 		}
 
 		// Child 4
@@ -2051,7 +2182,7 @@ public class TravellerInformationPage {
 			} else if ("8".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child1_passport();
+			child1_passport_N();
 			pageUtils.selectByVisibleText(drpChildG2, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName2, firstName);
@@ -2072,7 +2203,7 @@ public class TravellerInformationPage {
 			} else if ("7".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child2_passport();
+			child2_passport_N();
 			pageUtils.selectByVisibleText(drpChildG3, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName3, firstName);
@@ -2091,7 +2222,7 @@ public class TravellerInformationPage {
 			} else if ("6".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child3_passport();
+			child3_passport_N();
 			pageUtils.selectByVisibleText(drpChildG4, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName4, firstName);
@@ -2108,7 +2239,7 @@ public class TravellerInformationPage {
 			} else if ("5".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child4_passport();
+			child4_passport_N();
 		}
 
 		// Child 5
@@ -2135,7 +2266,7 @@ public class TravellerInformationPage {
 			} else if ("8".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child1_passport();
+			child1_passport_N();
 			pageUtils.selectByVisibleText(drpChildG2, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName2, firstName);
@@ -2156,7 +2287,7 @@ public class TravellerInformationPage {
 			} else if ("7".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child2_passport();
+			child2_passport_N();
 			pageUtils.selectByVisibleText(drpChildG3, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName3, firstName);
@@ -2175,7 +2306,7 @@ public class TravellerInformationPage {
 			} else if ("6".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child3_passport();
+			child3_passport_N();
 			// ------
 			pageUtils.selectByVisibleText(drpChildG4, "Male");
 			randomNames();
@@ -2193,7 +2324,7 @@ public class TravellerInformationPage {
 			} else if ("5".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child4_passport();
+			child4_passport_N();
 			pageUtils.selectByVisibleText(drpChildG5, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName5, firstName);
@@ -2208,7 +2339,7 @@ public class TravellerInformationPage {
 			} else if ("4".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child5_passport();
+			child5_passport_N();
 		}
 
 		// Child 6
@@ -2235,7 +2366,7 @@ public class TravellerInformationPage {
 			} else if ("8".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child1_passport();
+			child1_passport_N();
 			pageUtils.selectByVisibleText(drpChildG2, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName2, firstName);
@@ -2256,7 +2387,7 @@ public class TravellerInformationPage {
 			} else if ("7".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child2_passport();
+			child2_passport_N();
 			pageUtils.selectByVisibleText(drpChildG3, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName3, firstName);
@@ -2275,7 +2406,7 @@ public class TravellerInformationPage {
 			} else if ("6".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child3_passport();
+			child3_passport_N();
 			pageUtils.selectByVisibleText(drpChildG4, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName4, firstName);
@@ -2292,7 +2423,7 @@ public class TravellerInformationPage {
 			} else if ("5".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child4_passport();
+			child4_passport_N();
 			pageUtils.selectByVisibleText(drpChildG5, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName5, firstName);
@@ -2307,7 +2438,7 @@ public class TravellerInformationPage {
 			} else if ("4".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child5_passport();
+			child5_passport_N();
 			pageUtils.selectByVisibleText(drpChildG6, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName6, firstName);
@@ -2320,7 +2451,7 @@ public class TravellerInformationPage {
 			} else if ("3".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child6_passport();
+			child6_passport_N();
 		}
 
 		// Child 7
@@ -2347,7 +2478,7 @@ public class TravellerInformationPage {
 			} else if ("8".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child1_passport();
+			child1_passport_N();
 			pageUtils.selectByVisibleText(drpChildG2, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName2, firstName);
@@ -2368,7 +2499,7 @@ public class TravellerInformationPage {
 			} else if ("7".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child2_passport();
+			child2_passport_N();
 			pageUtils.selectByVisibleText(drpChildG3, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName3, firstName);
@@ -2387,7 +2518,7 @@ public class TravellerInformationPage {
 			} else if ("6".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child3_passport();
+			child3_passport_N();
 			pageUtils.selectByVisibleText(drpChildG4, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName4, firstName);
@@ -2404,7 +2535,7 @@ public class TravellerInformationPage {
 			} else if ("5".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child4_passport();
+			child4_passport_N();
 			pageUtils.selectByVisibleText(drpChildG5, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName5, firstName);
@@ -2419,7 +2550,7 @@ public class TravellerInformationPage {
 			} else if ("4".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child5_passport();
+			child5_passport_N();
 			pageUtils.selectByVisibleText(drpChildG6, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName6, firstName);
@@ -2432,7 +2563,7 @@ public class TravellerInformationPage {
 			} else if ("3".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child6_passport();
+			child6_passport_N();
 			pageUtils.selectByVisibleText(drpChildG7, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName7, firstName);
@@ -2443,7 +2574,7 @@ public class TravellerInformationPage {
 			} else if ("2".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child7_passport();
+			child7_passport_N();
 		}
 
 		// Child 8
@@ -2470,7 +2601,7 @@ public class TravellerInformationPage {
 			} else if ("8".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child1_passport();
+			child1_passport_N();
 			pageUtils.selectByVisibleText(drpChildG2, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName2, firstName);
@@ -2491,7 +2622,7 @@ public class TravellerInformationPage {
 			} else if ("7".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child2_passport();
+			child2_passport_N();
 
 			pageUtils.selectByVisibleText(drpChildG3, "Male");
 			randomNames();
@@ -2511,7 +2642,7 @@ public class TravellerInformationPage {
 			} else if ("6".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child3_passport();
+			child3_passport_N();
 			pageUtils.selectByVisibleText(drpChildG4, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName4, firstName);
@@ -2528,7 +2659,7 @@ public class TravellerInformationPage {
 			} else if ("5".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child4_passport();
+			child4_passport_N();
 			pageUtils.selectByVisibleText(drpChildG5, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName5, firstName);
@@ -2543,7 +2674,7 @@ public class TravellerInformationPage {
 			} else if ("4".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child5_passport();
+			child5_passport_N();
 			pageUtils.selectByVisibleText(drpChildG6, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName6, firstName);
@@ -2556,7 +2687,7 @@ public class TravellerInformationPage {
 			} else if ("3".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child6_passport();
+			child6_passport_N();
 			pageUtils.selectByVisibleText(drpChildG7, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName7, firstName);
@@ -2567,7 +2698,7 @@ public class TravellerInformationPage {
 			} else if ("2".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child7_passport();
+			child7_passport_N();
 			pageUtils.selectByVisibleText(drpChildG8, "Male");
 			randomNames();
 			pageUtils.sendKeysAfterClearingElement(driver, txtChildFirstName8, firstName);
@@ -2576,7 +2707,7 @@ public class TravellerInformationPage {
 			if ("1".equals(adult)) {
 				AdultNumber8_CompareToChild();
 			}
-			child8_passport();
+			child8_passport_N();
 		}
 
 	}
@@ -3011,10 +3142,10 @@ public class TravellerInformationPage {
 	 * @throws Exception
 	 */
 	public void enterContactDetails() throws Exception {
-		pageUtils.clickElement(driver, btndrpClick);
+		//pageUtils.clickElement(driver, btndrpClick);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
-		pageUtils.selectCountry(drpCountry, "India (91)");
-		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
+		//pageUtils.selectCountry(drpCountry, "India (91)");
+		//pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 
 		pageUtils.sendKeysAfterClearingElement(driver, txtPhoneNumber, DataConstants.USER_PHONE_NUMBER);
 		pageUtils.sendKeysAfterClearingElement(driver, txtPhoneNumber, DataConstants.USER_PHONE_NUMBER);
@@ -3039,5 +3170,21 @@ public class TravellerInformationPage {
 		middleName = TestDataUtils.getMiddleName();
 		lastName = TestDataUtils.getlastName();
 	}
+	
+	public void uncheck()
+	{
+		WebElement checkbox = unCheck_Online;
+		// If the checkbox is unchecked then isSelected() will return false
+		// and NOT of false is true, hence we can click on checkbox
+		if (!checkbox.isSelected()) {
+			System.out.println("B");
+			
+		}
+		else{
+			checkbox.click();
+		}
+		
+	}
+	
 
 }

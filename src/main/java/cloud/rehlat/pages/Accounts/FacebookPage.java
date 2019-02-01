@@ -12,17 +12,17 @@ import org.openqa.selenium.support.PageFactory;
 import cloud.rehlat.constants.common.BrowserConstants;
 import cloud.rehlat.constants.common.DataConstants;
 import cloud.rehlat.utils.PageUtils;
-import cloud.rehlat.utils.MailUtils;
+
 
 public class FacebookPage {
 	public WebDriver driver;
 	private PageUtils pageUtils;
-	private MailUtils mailUtils;
+	
 	String userAccount;
 
 	public FacebookPage(WebDriver driver) {
 		this.driver = driver;
-		this.mailUtils = MailUtils.getInstance();
+		
 		this.pageUtils = PageUtils.getInstance();
 		PageFactory.initElements(this.driver, this);
 	}
@@ -39,7 +39,7 @@ public class FacebookPage {
 	
 	
 	/**
-	 * This method is used to enter the gmail details(login to gmail)
+	 * This method is used to enter the Facebook details(login to Facebook)
 	 * @throws InterruptedException
 	 * @throws IOException 
 	 * @throws MessagingException 

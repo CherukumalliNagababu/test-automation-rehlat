@@ -54,25 +54,35 @@ public class MayaislandairPage {
 		PageFactory.initElements(this.driver, this);
 	}
 	
-	@FindBy(xpath = ".//*[@id='select2-city-to-results']/li")
+	@FindBy(xpath = ".//*[@id='search-container']/div[1]/div/form/div[2]/div/div/div[1]/div[3]/div/div/div[2]/popup-content/core-linked-list/div[2]/div[1]/div")
 	private List<WebElement> listOfValues;
-	@FindBy(id = "select2-city-from-container")
+	@FindBy(xpath = "(//input[@type='text'])[2]")
 	private WebElement bookTrip;
-	@FindBy(xpath = "//span/input")
+	@FindBy(xpath = ".//*[@id='search-container']/div[1]/div/form/div[2]/div/div/div[1]/div[3]/div/div/div[2]/popup-content/core-linked-list/div[1]/div/div[1]")
+	private WebElement backto;
+	@FindBy(xpath = "//div/div/div/label/span/span")
+	private WebElement showAll;
+	
+	@FindBy(name = "origin")
 	private WebElement txtFlyFrom;
-	@FindBy(id = "onlineBookingdestination_flexselect")
+	@FindBy(xpath = "//div[4]/a/img")
 	private WebElement toClick;
 	@FindBy(xpath = ".//*[@id='onlineBookingorigion_flexselect_dropdown']/ul/li[1]")
 	private WebElement fromDrpClick;
-	
+	@FindBy(id = "close-drawer-link")
+	private WebElement close;
 	
 	public void getValues() throws IOException, RowsExceededException, WriteException, InterruptedException
 	{
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 		//pageUtils.scrollDown(driver);
 		pageUtils.clickElement(driver, bookTrip);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
+		pageUtils.clickElement(driver, backto);
+		//pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
+		//pageUtils.clickElement(driver, showAll);
 		//pageUtils.clickElement(driver, btnFlyFrom);
-		
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 		//driver.switchTo().frame(driver.findElement(By.id("AirlineBooking")));
 		//Select s=new Select(driver.findElement(By.id("drpSelect")));
 		//List <WebElement> elementCount = s.getOptions();
@@ -87,7 +97,7 @@ public class MayaislandairPage {
 		}
 		
 		FileOutputStream fo = new FileOutputStream(System.getProperty("user.dir")+
-				"/src/main/resources/cloud/Rehlat/documents/Flights/MY.xls");
+				"/src/main/resources/cloud/Rehlat/documents/Flights/RA.xls");
 		wwb = Workbook.createWorkbook(fo);
 		ws = wwb.createSheet("Results", 0);
 		
@@ -137,17 +147,21 @@ public class MayaislandairPage {
 	
 	public void searchResults()
 			throws InterruptedException, IOException, BiffException, RowsExceededException, WriteException {
-		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_MEDIUM);
+		//pageUtils.sendKeysAfterClearingElement(driver, bookTrip, "Singapore (SIN)");
+		//driver.findElement(By.linkText("Continue")).click();
+		//pageUtils.sendKeysAfterClearingElement(driver, bookTrip, "Singapore (SIN)");
+		//pageUtils.waitForFixedTime(BrowserConstants.WAIT_MEDIUM);
 		//pageUtils.scrollDown(driver);
-		pageUtils.clickElement(driver, bookTrip);
+		//pageUtils.clickElement(driver, bookTrip);
 		
 		FileInputStream fi = new FileInputStream(System.getProperty("user.dir")+
-				"/src/main/resources/cloud/Rehlat/documents/Flights/MY.xls");
+				"/src/main/resources/cloud/Rehlat/documents/Flights/naga1.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
 		Sheet s = wb.getSheet("Results");
 
 		FileOutputStream fo = new FileOutputStream(System.getProperty("user.dir")+
-				"/src/main/resources/cloud/Rehlat/documents/Flights/MY_Results.xls");
+				"/src/main/resources/cloud/Rehlat/documents/Flights/EJ_Results.xls");
 		wwb = Workbook.createWorkbook(fo);
 		ws = wwb.createSheet("Results", 0);
 		for (int i = 0; i < s.getRows(); i++) {
@@ -158,14 +172,31 @@ public class MayaislandairPage {
 			}
 		}
 		for (int i = 1; i < s.getRows(); i++) {
-			pageUtils.sendKeysAfterClearingElement(driver, txtFlyFrom, s.getCell(0, i).getContents());
-			// System.out.println(s.getCell(0,i).getContents());
-			pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
-			txtFlyFrom.sendKeys(Keys.ENTER);
-			//pageUtils.clickElement(driver, fromDrpClick);
-			pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
-			//pageUtils.clickElement(driver, toClick);
+			//bookTrip.clear();
 			//pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
+			//pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
+			//pageUtils.clickElement(driver, bookTrip);
+			//pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
+			pageUtils.sendKeysAfterClearingElement(driver, txtFlyFrom, s.getCell(0, i).getContents());
+			//Thread.sleep(5000);
+			//driver.findElement(By.linkText(s.getCell(0, i).getContents())).click();
+			
+			System.out.println("--------------------------------------------");
+			System.out.println(s.getCell(0, i).getContents());
+			System.out.println("--------------------------------------------");
+			// System.out.println(s.getCell(0,i).getContents());
+			pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
+			//bookTrip.sendKeys(Keys.ARROW_DOWN);
+			txtFlyFrom.sendKeys(Keys.ENTER);
+			//driver.findElement(By.linkText(s.getCell(0, i).getContents())).click();
+			//pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
+			//pageUtils.clickElement(driver, fromDrpClick);
+			//pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
+			pageUtils.clickElement(driver, toClick);
+			pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
+			pageUtils.clickElement(driver, showAll);
+			pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
+			
 			//txtFlyFrom.sendKeys(Keys.ARROW_DOWN);
 			//txtFlyFrom.sendKeys(Keys.ENTER);
 			//pageUtils.clickElement(driver, btnDestion);
@@ -186,15 +217,15 @@ public class MayaislandairPage {
 				link[i9] = e.getText();
 				 Label l2 = new Label(i6, i, link[i9]);
 				ws.addCell(l2);
-				//pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
+				//pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 				//pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL1);
 				System.out.println(link[i9]);
 				i9++;
 				i6++;
 				
 			}
-			pageUtils.clickElement(driver, bookTrip);
-
+			pageUtils.clickElement(driver, close);
+			//pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 		}
 
 		wwb.write();
