@@ -1,13 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="75.932341">
-<testcase classname="Guest user functionality on Hotels" name="Validate if the user can book on Hotels" time="75.932341">
-<system-out><![CDATA[Given I am on login page of Hotels..........................................passed
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="166.997082">
+<testcase classname="Guest user functionality on Flights" name="Validate if the user can book OneWay Trip" time="166.997082">
+<failure message="org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on XP (c896c07fa5359e205a539c968de94021)] -&gt; xpath: //button[@class='btn pay_button']/i] (tried for 30 second(s) with 500 milliseconds interval)&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'ROS-PC331', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_144'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.40.565498 (ea082db3280dd6..., userDataDir: C:\Users\Nagababu\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 71.0.3578.98, webStorageEnabled: true}&#10;Session ID: c896c07fa5359e205a539c968de94021&#13;&#10;&#9;at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)&#13;&#10;&#9;at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)&#13;&#10;&#9;at cloud.rehlat.utils.PageUtils.clickElement(PageUtils.java:69)&#13;&#10;&#9;at cloud.rehlat.pages.PaymentCards.PaymentCardsPage.enterCreditCardDetails(PaymentCardsPage.java:139)&#13;&#10;&#9;at cloud.rehlat.pages.PaymentCards.PaymentCardsPage.selectCard(PaymentCardsPage.java:219)&#13;&#10;&#9;at cloud.rehlat.steps.PaymentCards.PaymentCardsSteps.i_can_enter_the_card_details(PaymentCardsSteps.java:36)&#13;&#10;&#9;at ✽.And I can enter the card details(src/test/resources/features/flight/english/GuestUser.feature:34)&#13;&#10;"><![CDATA[Given I am on login page of Flights.........................................passed
 When I go to Rehlat Home page...............................................passed
-When I can click on hotel link..............................................passed
-When I can enter Hotel city name............................................passed
-When I can select CheckIn Date and CheckOut Date............................passed
-When I can select the hotel traveller Details...............................passed
-And I can click on Book now and Verify the Price and Dates..................passed
-Then I can enter hotel Traveller details....................................passed
-]]></system-out>
+When I go to select OneWay Radio button.....................................passed
+When I can enter From and To city names.....................................passed
+When I can select date and traveller information............................passed
+When I can verify text and select the filter................................passed
+When I can verify price details in flightdetails Pop up page................passed
+When I can verify add on check box..........................................passed
+When I can enter email and coupon code and verify the show more details popUp.passed
+When I can navigative to traveller Information page.........................passed
+And I can enter Traveller details...........................................passed
+And I can enter contact details and Click PaySecurel button.................passed
+Then I can navigative to payment page.......................................passed
+And I can enter the card details............................................failed
+
+StackTrace:
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on XP (c896c07fa5359e205a539c968de94021)] -> xpath: //button[@class='btn pay_button']/i] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ROS-PC331', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_144'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.40.565498 (ea082db3280dd6..., userDataDir: C:\Users\Nagababu\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 71.0.3578.98, webStorageEnabled: true}
+Session ID: c896c07fa5359e205a539c968de94021
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at cloud.rehlat.utils.PageUtils.clickElement(PageUtils.java:69)
+	at cloud.rehlat.pages.PaymentCards.PaymentCardsPage.enterCreditCardDetails(PaymentCardsPage.java:139)
+	at cloud.rehlat.pages.PaymentCards.PaymentCardsPage.selectCard(PaymentCardsPage.java:219)
+	at cloud.rehlat.steps.PaymentCards.PaymentCardsSteps.i_can_enter_the_card_details(PaymentCardsSteps.java:36)
+	at ✽.And I can enter the card details(src/test/resources/features/flight/english/GuestUser.feature:34)
+]]></failure>
 </testcase>
 </testsuite>

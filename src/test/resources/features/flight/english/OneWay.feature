@@ -28,7 +28,7 @@ Scenario Outline: Validate if the user can sigh-in gmail account and book the ti
 @flight_healthcheck
 Scenario Outline: Validate if the user can sigh-in gmail account and book the ticket in OneWay Trip
 	 When I go to signUp button
-	 When I go to login gmail account
+	 When I go to login gmail account 
      When I go to select OneWay Radio button
      When I can enter From and To city names
      |fromCity		|<fromCity>|
@@ -52,5 +52,38 @@ Scenario Outline: Validate if the user can sigh-in gmail account and book the ti
     And I can enter contact details and Click PaySecurel button
     Examples:
 	|userName	|passWord	|fromCity	|toCity	|adults|childs|infant|addOnBaggage|CouponCodeStatus|EnterCoupon|
-	|******		|****** 	|JED		|CAI	|2		|2	  | 2    |NO			|Yes              |SWEETNOV		|
+	|******		|****** 	|DXB		|MCT	|2		|2	  | 2    |NO			|Yes              |SWEETNOV		|
+	
+	
+@flight_healthcheck
+Scenario Outline: Validate if the user can UnCheck-Online checkbox
+	 When I go to signUp button
+	 When I go to login gmail account 
+	 
+     When I go to select OneWay Radio button
+     When I can enter From and To city names
+     |fromCity		|<fromCity>|
+     |toCity		|<toCity>|
+     When I can select date and traveller information
+     |adults|<adults>|
+     |childs|<childs>|
+     |infant|<infant>|
+     When I can verify text and select the filter
+     When I can select the Airline name
+     When I can verify price details in flightdetails Pop up page
+     When I can verify add on check box
+     |addOnBaggage|<addOnBaggage>|
+     When I can enter email and coupon code and verify the show more details popUp
+     |CouponCodeStatus|<CouponCodeStatus>|
+     |EnterCoupon|<EnterCoupon>|
+     When I can navigative to traveller Information page
+     When I can Un_Check the Online Check-in
+     And I can enter Traveller details
+     |adults|<adults>|
+     |childs|<childs>|
+     |infant|<infant>|
+    And I can enter contact details and Click PaySecurel button
+    Examples:
+	|userName	|passWord	|fromCity	|toCity	|adults|childs|infant|addOnBaggage|CouponCodeStatus|EnterCoupon|
+	|******		|****** 	|DXB		|MCT	|2		|2	  | 2    |NO			|Yes              |SWEETNOV		|
 	

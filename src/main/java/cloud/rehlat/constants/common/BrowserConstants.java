@@ -43,7 +43,22 @@ public class BrowserConstants {
 			public static final String ENG_RJ_PRD_URL = "https://www.rj.com/";
 			//RB
 			public static final String ENG_RB_PRD_URL = "https://www.flyroyalbrunei.com/brunei/en/";
-				
+			//IG
+			public static final String ENG_IG_PRD_URL = "https://www.goindigo.in/";
+			//SJ
+			public static final String ENG_SJ_PRD_URL = "https://www.spicejet.com/";
+			//Scoot
+			public static final String ENG_SC_PRD_URL = "https://www.flyscoot.com/en";
+			//cebu
+			public static final String ENG_CE_PRD_URL = "https://www.cebupacificair.com/";
+			
+			//smartwings
+			public static final String ENG_SW_PRD_URL = "https://www.smartwings.com/en/";
+			
+			//easyjet
+			public static final String ENG_EJ_PRD_URL = "https://www.easyjet.com/en";
+			//ryanair
+			public static final String ENG_RA_PRD_URL = "https://www.ryanair.com/gb/en/";
 			//Emirates
 			public static final String ENG_EM_PRD_URL = "https://www.emirates.com/in/english/";
 			
@@ -83,8 +98,11 @@ public class BrowserConstants {
 	
 	//Browsers
 	public static final String CHROME = "chrome";
-	
-	
+	public static final String OPERA = "opera";
+	public static final String FIREFOX = "FF";
+	public static final String SAFARI = "SAFARI";
+	public static final String IE = "ie";
+	public static final String EDGE="edge";
 	//Waits
 	public static final String WAIT_VERY_SMALL_ENGINE = "1000";
 	public static final String WAIT_SMALL_ENGINE = "2000";

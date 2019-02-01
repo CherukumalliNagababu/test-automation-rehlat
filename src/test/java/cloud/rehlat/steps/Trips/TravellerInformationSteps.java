@@ -33,6 +33,7 @@ public class TravellerInformationSteps extends StepUtils {
 	@When("^I can enter Traveller details$")
 	public void i_can_enter_Traveller_details(DataTable dataTable) throws Throwable {
 		Map<String, String> dataMap = getDataAsMap(dataTable);
+		travellerInformationPage.enterContactDetails();
     	travellerInformationPage.adultDetails(dataMap);
 		travellerInformationPage.childDetails_test(dataMap);
 		travellerInformationPage.infantsDetails(dataMap);
@@ -42,9 +43,16 @@ public class TravellerInformationSteps extends StepUtils {
 
 	@When("^I can enter contact details and Click PaySecurel button$")
 	public void i_can_enter_contact_details_and_click_on_paysecurely_button() throws Throwable {
-		travellerInformationPage.enterContactDetails();
+		
 		travellerInformationPage.clickOnPaySecurely();
 		
 	}
+	@When("^I can Un_Check the Online Check-in$")
+	public void i_can_un_check_the_online_check_in() throws Throwable {
+		travellerInformationPage.uncheck();
+		
+		
+	}
+	
 	
 }

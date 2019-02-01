@@ -77,7 +77,7 @@ public class verifyMailPage {
 	private String getSubjectLineForBackupCodeMail() {
 		String subjectLine = null;
 		String url = System.getProperty("url");
-		
+		System.out.println(url);
 			subjectLine = "Rehlat Account";
 		
 		return subjectLine;

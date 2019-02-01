@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import cloud.rehlat.utils.BrowserUtils;
+
 
 public class DataConstants {
 	// User role codes
@@ -72,7 +72,7 @@ public class DataConstants {
 	public static final String USER_SELECT_ARABIC_DATE = "١٩";
 
 	public static final String GMAIL_USERNAME = "naga.ch199@gmail.com";
-	public static final String GMAIL_PASSWORD = "naga@qtselenium88";
+	public static final String GMAIL_PASSWORD = "naga@qtselenium99";
 //FB
 	public static final String  FACEBOOK_USERNAME = "123456789";
 	public static final String FACEBOOK_PASSWORD = "123456789";
@@ -143,6 +143,7 @@ public class DataConstants {
 			return System.getProperty("user.dir").replace("\\", "/") + "/downloads";
 		}
 		return Paths.get(resourcesPath, "downloads").toString();
+		
 	}
 
 	

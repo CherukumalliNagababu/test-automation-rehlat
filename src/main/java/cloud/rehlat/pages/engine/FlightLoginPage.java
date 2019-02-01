@@ -85,6 +85,7 @@ public class FlightLoginPage {
 	 * @return
 	 */
 	public  FlightNavigation clicksignUpbtn() throws InterruptedException {
+		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL_ENGINE);
 		pageUtils.clickElement(driver, btnSignUp);
 		pageUtils.waitForFixedTime(BrowserConstants.WAIT_SMALL);
 		return new FlightNavigation(driver) ;

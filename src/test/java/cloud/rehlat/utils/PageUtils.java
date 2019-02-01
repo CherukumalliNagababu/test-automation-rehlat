@@ -665,6 +665,11 @@ public class PageUtils {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,1500)", "");
 	}
+	public void scrollDown_Small(WebDriver driver) {
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("window.scrollBy(0,500)", "");
+	}
 	public String DaybeforeYesterdaytimestamp() {
 		 Calendar cal = Calendar.getInstance();
 		 cal.add(Calendar.DATE, -2);

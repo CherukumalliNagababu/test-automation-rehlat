@@ -35,7 +35,7 @@ Scenario Outline: Validate if the user can book OneWay Trip
      |selectCard|<selectCard>|
     Examples:
 	|userName	|selectCard	|fromCity	|toCity	|adults|childs|infant|addOnBaggage|CouponCodeStatus|EnterCoupon|
-	|******		|CreditCard		|DXB		|MCT	|2		|1	  | 2    |NO			|NO              |		|
+	|******		|CreditCard		|DXB		|MCT	|2		|2	  | 1    |NO			|NO              |		|
 	
 	
     @flight_healthcheck1 
